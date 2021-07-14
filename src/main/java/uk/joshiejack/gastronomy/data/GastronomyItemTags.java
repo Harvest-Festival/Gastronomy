@@ -11,6 +11,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import uk.joshiejack.gastronomy.Gastronomy;
 import uk.joshiejack.gastronomy.item.GastronomyItems;
+import uk.joshiejack.gastronomy.item.GastronomyTags;
 import uk.joshiejack.penguinlib.util.PenguinTags;
 
 import javax.annotation.Nullable;
@@ -37,8 +38,6 @@ public class GastronomyItemTags extends ItemTagsProvider {
     public static final ITag.INamedTag<Item> SWEET_POTATO = PenguinTags.forgeTag("crops/sweet_potato");
     public static final ITag.INamedTag<Item> CORN = PenguinTags.forgeTag("crops/corn");
 
-
-
     public GastronomyItemTags(DataGenerator generator, BlockTagsProvider blockTagProvider, @Nullable ExistingFileHelper existingFileHelper) {
         super(generator, blockTagProvider, Gastronomy.MODID, existingFileHelper);
 
@@ -64,6 +63,7 @@ public class GastronomyItemTags extends ItemTagsProvider {
         tag(FRUIT_CAKE_FRUIT).addOptionalTag(optional("crops/orange")).addOptionalTag(optional("crops/pineapple")).addOptionalTag(optional("crops/strawberry"))
                 .addOptionalTag(optional("crops/peach")).addOptionalTag(optional("crops/grape"));
         tag(RICEBALL).add(GastronomyItems.RICEBALL.get());
+        tag(GastronomyTags.KNIFE).add(GastronomyItems.KNIFE.get());
     }
 
     private static ResourceLocation optional(String name) {

@@ -6,12 +6,20 @@ import uk.joshiejack.penguinlib.tile.inventory.AbstractInventoryTileEntity;
 
 public class CookerTileEntity extends AbstractInventoryTileEntity {
     private final Appliance appliance;
+    protected boolean cooking;
+    protected int cookTimer;
     private final int timeRequired;
 
     public CookerTileEntity(Appliance appliance, int timeRequired, TileEntityType<?> type) {
         super(type, 21);
         this.appliance = appliance;
         this.timeRequired = timeRequired;
+    }
+
+    public void activate() {
+        if (cooking) {
+            cookTimer++;
+        }
     }
     /*public static final String IN_UTENSIL = "InUtensil";
     public static final int FINISH_SLOT = 20;

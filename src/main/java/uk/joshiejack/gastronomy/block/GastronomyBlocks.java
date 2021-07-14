@@ -9,11 +9,8 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import uk.joshiejack.gastronomy.Gastronomy;
-import uk.joshiejack.gastronomy.tileentity.CounterTileEntity;
-import uk.joshiejack.gastronomy.tileentity.CupboardTileEntity;
 
 
-@SuppressWarnings("unused")
 public class GastronomyBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Gastronomy.MODID);
     public static final RegistryObject<Block> MATSUTAKE_MUSHROOM = BLOCKS.register("matsutake_mushroom", MatsutakeMushroomBlock::new);
@@ -22,9 +19,9 @@ public class GastronomyBlocks {
     public static final RegistryObject<Block> CHAMOMILE = BLOCKS.register("chamomile", () -> new BushBlock(AbstractBlock.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS)));
     public static final RegistryObject<Block> LAVENDER = BLOCKS.register("lavender", () -> new BushBlock(AbstractBlock.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS)));
     public static final RegistryObject<Block> FRIDGE = BLOCKS.register("fridge", FridgeBlock::new);
-    public static final RegistryObject<Block> COUNTER = BLOCKS.register("counter", () -> new SectionalBlock(CounterTileEntity::new));
-    public static final RegistryObject<Block> ISLAND = BLOCKS.register("island", () -> new SectionalBlock(CounterTileEntity::new));
-    public static final RegistryObject<Block> CUPBOARD = BLOCKS.register("cupboard", () -> new SectionalBlock(CupboardTileEntity::new));
+    public static final RegistryObject<Block> COUNTER = BLOCKS.register("counter", CounterBlock::new);
+    public static final RegistryObject<Block> ISLAND = BLOCKS.register("island", CounterBlock::new);
+    public static final RegistryObject<Block> CUPBOARD = BLOCKS.register("cupboard", CupboardBlock::new);
     public static final RegistryObject<Block> SINK = BLOCKS.register("sink", SinkBlock::new);
     public static final RegistryObject<Block> OVEN = BLOCKS.register("oven", OvenBlock::new);
     public static final RegistryObject<Block> MIXER = BLOCKS.register("mixer", MixerBlock::new);

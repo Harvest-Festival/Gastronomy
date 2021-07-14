@@ -91,18 +91,14 @@ public class CookingRecipe extends AbstractSimplePenguinRecipe<ItemStack> {
         List<RecipeIngredient<?>> recipeIngredients = Stream.concat(SolidIngredient.toIngredients(items), FluidIngredient.toIngredients(fluids)).collect(Collectors.toList());
         //Now to determine how many we can make???
         int count = 0;
-        for (int i = 0; i < 1000; i++) {
-            if (ingredients.stream().allMatch(required -> {
-                for (RecipeIngredient<?> ri : recipeIngredients) {
-                    if (ri.matches(required)) {
-                        ri.amount -= required.amount;
-                        return true;
-                    }
-                }
-
-                return false;
-            })) count++;
-        }
+        while (ingredients.stream().allMatch(required ->
+                recipeIngredients.stream().anyMatch(ri -> {
+                    if (!ri.matches(required))
+                        return false;
+                    ri.amount -= required.amount;
+                    return true;
+                }))
+        ) count++;
 
         ItemStack result = output.copy();
         result.setCount(output.getCount() * count);
