@@ -1,0 +1,66 @@
+package uk.joshiejack.gastronomy.item;
+
+import net.minecraft.item.Food;
+
+public class GastronomyFoods {
+    public static final Food RICEBALL = new Food.Builder().nutrition(1).saturationMod(0.25F).build();
+    public static final Food CHOCOLATE = new Food.Builder().nutrition(3).saturationMod(0.1F).build();
+    public static final Food CURRY_BREAD = new Food.Builder().nutrition(6).saturationMod(0.6F).build();
+    public static final Food RAISIN_BREAD = new Food.Builder().nutrition(6).saturationMod(0.7F).build();
+    public static final Food FRUIT_CAKE = new Food.Builder().nutrition(8).saturationMod(0.2F).build();
+    public static final Food CHOCOLATE_CAKE = new Food.Builder().nutrition(10).saturationMod(0.1F).build();
+    public static final Food BUTTER_BISCUITS = new Food.Builder().nutrition(3).saturationMod(0.1F).build();
+    public static final Food CHOCOLATE_COOKIES = new Food.Builder().nutrition(3).saturationMod(0.15F).build();
+    public static final Food CURRIED_RICE = new Food.Builder().nutrition(4).saturationMod(0.4F).build();
+    public static final Food DORIA = new Food.Builder().nutrition(6).saturationMod(0.6F).build();
+    public static final Food DOUGHNUT = new Food.Builder().nutrition(4).saturationMod(0.1F).build();
+    public static final Food DUMPLINGS = new Food.Builder().nutrition(6).saturationMod(0.3F).build();
+    public static final Food EGG_OVER_RICE = new Food.Builder().nutrition(3).saturationMod(0.3F).build();
+    public static final Food SCRAMBLED_EGG = new Food.Builder().nutrition(2).saturationMod(0.35F).build();
+    public static final Food GRILLED_FISH = new Food.Builder().nutrition(5).saturationMod(0.6F).build();
+    public static final Food FRENCH_FRIES = new Food.Builder().nutrition(3).saturationMod(0.15F).build();
+    public static final Food NOODLES = new Food.Builder().nutrition(1).saturationMod(0.25F).build();
+    public static final Food TEMPURA = new Food.Builder().nutrition(2).saturationMod(0.1F).build();
+    public static final Food CURRY_NOODLES = new Food.Builder().nutrition(3).saturationMod(0.15F).build();
+    public static final Food TEMPURA_NOODLES = new Food.Builder().nutrition(4).saturationMod(0.4F).build();
+    public static final Food THICK_FRIED_NOODLES = new Food.Builder().nutrition(2).saturationMod(0.3F).build();
+    public static final Food OMELETTE = new Food.Builder().nutrition(3).saturationMod(0.3F).build();
+    public static final Food OMURICE = new Food.Builder().nutrition(5).saturationMod(0.4F).build();
+    public static final Food PANCAKE = new Food.Builder().nutrition(6).saturationMod(0.15F).build();
+    public static final Food SAVOURY_PANCAKE = new Food.Builder().nutrition(5).saturationMod(0.7F).build();
+    public static final Food APPLE_PIE = new Food.Builder().nutrition(6).saturationMod(0.3F).build();
+    public static final Food POPCORN = new Food.Builder().nutrition(2).saturationMod(0.15F).build();
+    public static final Food PORRIDGE = new Food.Builder().nutrition(4).saturationMod(0.65F).build();
+    public static final Food POTSTICKER = new Food.Builder().nutrition(6).saturationMod(0.5F).build();
+    public static final Food BAMBOO_RICE = new Food.Builder().nutrition(2).saturationMod(0.3F).build();
+    public static final Food FRIED_RICE = new Food.Builder().nutrition(3).saturationMod(0.4F).build();
+    public static final Food MATSUTAKE_RICE = new Food.Builder().nutrition(4).saturationMod(0.4F).build();
+    public static final Food MUSHROOM_RICE = new Food.Builder().nutrition(4).saturationMod(0.3F).build();
+    public static final Food TEMPURA_RICE = new Food.Builder().nutrition(6).saturationMod(0.5F).build();
+    public static final Food TOASTED_RICEBALLS = new Food.Builder().nutrition(2).saturationMod(0.25F).build();
+    public static final Food RISOTTO = new Food.Builder().nutrition(6).saturationMod(0.6F).build();
+    public static final Food HERB_SALAD = new Food.Builder().nutrition(3).saturationMod(0.3F).build();
+    public static final Food SANDWICH = new Food.Builder().nutrition(6).saturationMod(0.8F).build();
+    public static final Food FRUIT_SANDWICH = new Food.Builder().nutrition(7).saturationMod(0.6F).build();
+    public static final Food HERB_SANDWICH = new Food.Builder().nutrition(6).saturationMod(0.6F).build();
+    public static final Food CHIRASHI_SUSHI = new Food.Builder().nutrition(8).saturationMod(0.8F).build();
+    public static final Food APPLE_SOUFFLE = new Food.Builder().nutrition(5).saturationMod(0.4F).build();
+    public static final Food HERB_SOUP = new Food.Builder().nutrition(4).saturationMod(0.1F).build();
+    public static final Food RICE_SOUP = new Food.Builder().nutrition(3).saturationMod(0.5F).build();
+    public static final Food VEGETABLE_STEW = new Food.Builder().nutrition(6).saturationMod(0.55F).build();
+    public static final Food MOUNTAIN_STEW = new Food.Builder().nutrition(5).saturationMod(0.65F).build();
+    public static final Food SUSHI = new Food.Builder().nutrition(5).saturationMod(0.45F).build();
+    public static final Food SWEET_POTATOES = new Food.Builder().nutrition(6).saturationMod(0.7F).build();
+    public static final Food TOAST = new Food.Builder().nutrition(4).saturationMod(0.7F).build();
+    public static final Food FRENCH_TOAST = new Food.Builder().nutrition(5).saturationMod(0.65F).build();
+    // Drinks
+    public static final Food WINE = new Food.Builder().nutrition(0).saturationMod(0.8F).build();
+    public static final Food HOT_CHOCOLATE = new Food.Builder().nutrition(4).saturationMod(0.3F).build();
+    public static final Food KETCHUP = new Food.Builder().nutrition(1).saturationMod(0.8F).build();
+    public static final Food FRUIT_JUICE = new Food.Builder().nutrition(5).saturationMod(0.3F).build();
+    public static final Food MIXED_JUICE = new Food.Builder().nutrition(5).saturationMod(0.4F).build();
+    public static final Food VEGETABLE_JUICE = new Food.Builder().nutrition(4).saturationMod(0.4F).build();
+    public static final Food FRUIT_LATTE = new Food.Builder().nutrition(5).saturationMod(0.4F).build();
+    public static final Food MIXED_LATTE = new Food.Builder().nutrition(5).saturationMod(0.4F).build();
+    public static final Food VEGETABLE_LATTE = new Food.Builder().nutrition(4).saturationMod(0.5F).build();
+}

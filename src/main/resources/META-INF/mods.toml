@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="MIT"
+[[mods]]
+    modId="gastronomy"
+    version="${file.jarVersion}"
+    displayName="Gastronomy"
+    authors="joshiejack"
+    description='''Recipes, cooking and yummyness'''
+[[dependencies.gastronomy]]
+    modId="forge"
+    mandatory=true
+    versionRange="[36,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.gastronomy]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5,1.17)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.gastronomy]]
+    modId="penguinlib"
+    mandatory=true
+    versionRange="[0.4.0,)"
+    ordering="NONE"
+    side="BOTH"
