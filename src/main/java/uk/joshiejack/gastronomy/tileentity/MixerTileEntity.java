@@ -1,9 +1,10 @@
 package uk.joshiejack.gastronomy.tileentity;
 
+import net.minecraft.tileentity.ITickableTileEntity;
 import uk.joshiejack.gastronomy.cooking.Appliance;
-import uk.joshiejack.gastronomy.tileentity.base.TileCookingTicking;
+import uk.joshiejack.gastronomy.tileentity.base.TileCookingFluids;
 
-public class MixerTileEntity extends TileCookingTicking {
+public class MixerTileEntity extends TileCookingFluids implements ITickableTileEntity {
     private static final float MAX_OFFSET1 = 0.5F;
     private static final float MIN_OFFSET1 = -0.5F;
     private static final float MAX_OFFSET2 = 0F / 1.75F;
@@ -12,6 +13,11 @@ public class MixerTileEntity extends TileCookingTicking {
     public float blade = 0F;
     public MixerTileEntity() {
         super(Appliance.MIXER, GastronomyTileEntities.MIXER.get());
+    }
+
+    @Override
+    public void tick() {
+
     }
 //
 //    @Override

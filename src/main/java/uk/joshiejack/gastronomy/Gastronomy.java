@@ -19,6 +19,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import uk.joshiejack.gastronomy.block.GastronomyBlocks;
+import uk.joshiejack.gastronomy.crafting.GastronomyRegistries;
 import uk.joshiejack.gastronomy.data.*;
 import uk.joshiejack.gastronomy.fluid.GastronomyFluids;
 import uk.joshiejack.gastronomy.inventory.CookbookContainer;
@@ -48,7 +49,7 @@ public class Gastronomy {
         GastronomyContainers.CONTAINERS.register(eventBus);
         GastronomyItems.ITEMS.register(eventBus);
         GastronomyFluids.FLUIDS.register(eventBus);
-        //GastronomyRegistries.SERIALIZERS.register(eventBus);
+        GastronomyRegistries.SERIALIZERS.register(eventBus);
         GastronomySounds.SOUNDS.register(eventBus);
         GastronomyTileEntities.TILE_ENTITIES.register(eventBus);
     }
@@ -68,6 +69,7 @@ public class Gastronomy {
         if (event.includeClient()) {
             generator.addProvider(new GastronomyLanguage(generator));
             generator.addProvider(new GastronomyItemModels(generator, event.getExistingFileHelper()));
+            generator.addProvider(new GastronomyBlockStates(generator, event.getExistingFileHelper()));
         }
     }
 

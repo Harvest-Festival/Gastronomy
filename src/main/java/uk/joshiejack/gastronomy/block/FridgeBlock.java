@@ -1,14 +1,27 @@
 package uk.joshiejack.gastronomy.block;
 
 import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.IBlockReader;
 import net.minecraftforge.common.ToolType;
+import uk.joshiejack.gastronomy.tileentity.FridgeTileEntity;
 import uk.joshiejack.penguinlib.block.base.AbstractDoubleBlock;
+
+import javax.annotation.Nonnull;
 
 public class FridgeBlock extends AbstractDoubleBlock {
     public FridgeBlock() {
         super(AbstractBlock.Properties.of(Material.METAL).harvestTool(ToolType.PICKAXE).strength(2.5F).sound(SoundType.METAL));
+        setHasInventory();
+    }
+
+    @Nonnull
+    @Override
+    public TileEntity createTileEntity(@Nonnull BlockState state, @Nonnull IBlockReader world) {
+        return new FridgeTileEntity();
     }
 /*
     @Override

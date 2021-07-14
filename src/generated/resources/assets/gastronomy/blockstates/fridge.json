@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,half=upper": {
+      "model": "gastronomy:block/fridge_upper",
+      "y": 180
+    },
+    "facing=south,half=upper": {
+      "model": "gastronomy:block/fridge_upper"
+    },
+    "facing=west,half=upper": {
+      "model": "gastronomy:block/fridge_upper",
+      "y": 90
+    },
+    "facing=east,half=upper": {
+      "model": "gastronomy:block/fridge_upper",
+      "y": 270
+    },
+    "facing=north,half=lower": {
+      "model": "gastronomy:block/fridge_lower",
+      "y": 180
+    },
+    "facing=south,half=lower": {
+      "model": "gastronomy:block/fridge_lower"
+    },
+    "facing=west,half=lower": {
+      "model": "gastronomy:block/fridge_lower",
+      "y": 90
+    },
+    "facing=east,half=lower": {
+      "model": "gastronomy:block/fridge_lower",
+      "y": 270
+    }
+  }
+}

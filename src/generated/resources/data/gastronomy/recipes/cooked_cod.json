@@ -1,0 +1,12 @@
+{
+  "type": "gastronomy:oven",
+  "result": "minecraft:cooked_cod",
+  "count": 1,
+  "ingredients": [
+    {
+      "type": "item",
+      "tag": "forge:raw_fishes/cod",
+      "count": 1
+    }
+  ]
+}

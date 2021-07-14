@@ -1,6 +1,5 @@
 package uk.joshiejack.gastronomy.tileentity;
 
-import net.minecraft.tileentity.TileEntityType;
 import uk.joshiejack.penguinlib.tile.AbstractPenguinTileEntity;
 
 public class SinkTileEntity extends AbstractPenguinTileEntity {

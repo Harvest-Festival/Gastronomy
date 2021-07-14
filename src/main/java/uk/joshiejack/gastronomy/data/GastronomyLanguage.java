@@ -14,7 +14,7 @@ public class GastronomyLanguage extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        add("itemGroup.gastronomy.creativetab", "Gastronomy");
+        add("itemGroup.gastronomy", "Gastronomy");
         GastronomyItems.ITEMS.getEntries()
                 .stream().map(RegistryObject::get)
                 .forEach(item -> add(item, WordUtils.capitalizeFully(item.getRegistryName().getPath().replace("_", " "))));

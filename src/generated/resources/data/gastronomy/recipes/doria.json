@@ -1,0 +1,32 @@
+{
+  "type": "gastronomy:oven",
+  "result": "gastronomy:doria",
+  "count": 1,
+  "ingredients": [
+    {
+      "type": "item",
+      "tag": "forge:crops/onion",
+      "count": 1
+    },
+    {
+      "type": "item",
+      "tag": "forge:butter",
+      "count": 1
+    },
+    {
+      "type": "fluid",
+      "tag": "forge:milk",
+      "count": 1000
+    },
+    {
+      "type": "item",
+      "tag": "forge:riceball",
+      "count": 1
+    },
+    {
+      "type": "item",
+      "tag": "forge:flour",
+      "count": 1
+    }
+  ]
+}

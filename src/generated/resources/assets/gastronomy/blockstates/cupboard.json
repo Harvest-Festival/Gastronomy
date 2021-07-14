@@ -1,0 +1,49 @@
+{
+  "variants": {
+    "facing=north,section=straight": {
+      "model": "gastronomy:block/cupboard_straight"
+    },
+    "facing=south,section=straight": {
+      "model": "gastronomy:block/cupboard_straight",
+      "y": 180
+    },
+    "facing=west,section=straight": {
+      "model": "gastronomy:block/cupboard_straight",
+      "y": 270
+    },
+    "facing=east,section=straight": {
+      "model": "gastronomy:block/cupboard_straight",
+      "y": 90
+    },
+    "facing=north,section=inner": {
+      "model": "gastronomy:block/cupboard_inner"
+    },
+    "facing=south,section=inner": {
+      "model": "gastronomy:block/cupboard_inner",
+      "y": 180
+    },
+    "facing=west,section=inner": {
+      "model": "gastronomy:block/cupboard_inner",
+      "y": 270
+    },
+    "facing=east,section=inner": {
+      "model": "gastronomy:block/cupboard_inner",
+      "y": 90
+    },
+    "facing=north,section=outer": {
+      "model": "gastronomy:block/cupboard_outer"
+    },
+    "facing=south,section=outer": {
+      "model": "gastronomy:block/cupboard_outer",
+      "y": 180
+    },
+    "facing=west,section=outer": {
+      "model": "gastronomy:block/cupboard_outer",
+      "y": 270
+    },
+    "facing=east,section=outer": {
+      "model": "gastronomy:block/cupboard_outer",
+      "y": 90
+    }
+  }
+}

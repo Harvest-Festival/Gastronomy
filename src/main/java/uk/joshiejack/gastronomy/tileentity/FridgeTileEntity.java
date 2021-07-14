@@ -1,9 +1,9 @@
 package uk.joshiejack.gastronomy.tileentity;
 
-import net.minecraft.client.renderer.texture.ITickable;
+import net.minecraft.tileentity.ITickableTileEntity;
 import uk.joshiejack.penguinlib.tile.inventory.AbstractInventoryTileEntity;
 
-public class FridgeTileEntity extends AbstractInventoryTileEntity implements ITickable {
+public class FridgeTileEntity extends AbstractInventoryTileEntity implements ITickableTileEntity {
     public FridgeTileEntity() {
         super(GastronomyTileEntities.FRIDGE.get(), 35);
     }

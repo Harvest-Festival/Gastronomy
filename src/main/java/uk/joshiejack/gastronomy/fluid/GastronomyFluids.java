@@ -18,21 +18,21 @@ public class GastronomyFluids {
     public static final RegistryObject<ForgeFlowingFluid> WINE = FLUIDS.register("wine", () -> new ForgeFlowingFluid.Source(createWineProperties()));
 
     private static ForgeFlowingFluid.Properties createCookingOilProperties() {
-        ResourceLocation texture = new ResourceLocation(MODID, "blocks/fluids/cooking_oil");
+        ResourceLocation texture = new ResourceLocation(MODID, "block/fluids/cooking_oil");
         return new ForgeFlowingFluid.Properties(COOKING_OIL, COOKING_OIL,
                 FluidAttributes.builder(texture, texture)
                         .overlay(new ResourceLocation("block/water_overlay")).density(920).temperature(285));
     }
 
     private static ForgeFlowingFluid.Properties createMilkProperties() {
-        ResourceLocation texture = new ResourceLocation(MODID, "blocks/fluids/milk");
+        ResourceLocation texture = new ResourceLocation(MODID, "block/fluids/milk");
         return new ForgeFlowingFluid.Properties(MILK, MILK,
                 FluidAttributes.builder(texture, texture)
                         .overlay(new ResourceLocation("block/water_overlay")).density(1030).temperature(278));
     }
 
     private static ForgeFlowingFluid.Properties createWineProperties() {
-        ResourceLocation texture = new ResourceLocation(MODID, "blocks/fluids/wine");
+        ResourceLocation texture = new ResourceLocation(MODID, "block/fluids/wine");
         return new ForgeFlowingFluid.Properties(WINE, WINE,
                 FluidAttributes.builder(texture, texture)
                         .overlay(new ResourceLocation("block/water_overlay")).density(985).temperature(295));

@@ -2,10 +2,17 @@ package uk.joshiejack.gastronomy.tileentity;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.ITickableTileEntity;
 import uk.joshiejack.gastronomy.cooking.Appliance;
-import uk.joshiejack.gastronomy.tileentity.base.TileCookingTicking;
+import uk.joshiejack.gastronomy.crafting.CookingRecipe;
+import uk.joshiejack.gastronomy.crafting.GastronomyRegistries;
+import uk.joshiejack.gastronomy.tileentity.base.TileCookingFluids;
+import uk.joshiejack.gastronomy.tileentity.base.TileCookingHeatable;
 
-public class OvenTileEntity extends TileCookingTicking {
+import javax.annotation.Nullable;
+import java.util.List;
+
+public class OvenTileEntity extends TileCookingFluids implements ITickableTileEntity {
     private final static int GIVE_TIME = 15;
     public float prevLidAngle;
     public float lidAngle;
@@ -15,10 +22,27 @@ public class OvenTileEntity extends TileCookingTicking {
     private ItemStack giveStack;
     private int giveSlot;
     private int giveTimer;
-
+    private TileCookingHeatable heatable;
 
     public OvenTileEntity() {
         super(Appliance.OVEN, 100, GastronomyTileEntities.OVEN.get());
+    }
+
+    @Override
+    public void tick() {
+        if (heatable != null)
+            heatable.tick();
+        if (!level.isClientSide) {
+            List<CookingRecipe> recipes = level.getServer().getRecipeManager().getAllRecipesFor(GastronomyRegistries.OVEN);
+            for (CookingRecipe recipe: recipes) {
+                if (recipe.matches(this, level)) {
+                }
+            }
+        }
+    }
+
+    public void heatable(@Nullable TileCookingHeatable tile) {
+        this.heatable = tile;
     }
 
     /*

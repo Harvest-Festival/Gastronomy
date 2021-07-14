@@ -4,12 +4,17 @@ import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.SoundEvent;
 import uk.joshiejack.gastronomy.cooking.Appliance;
 
-public class TileCookingHeatable extends TileCookingTicking {
+public class TileCookingHeatable extends TileCookingFluids {
     private final SoundEvent sound;
 
     public TileCookingHeatable(Appliance appliance, SoundEvent sound, TileEntityType<?> type) {
         super(appliance, type);
         this.sound = sound;
+    }
+
+    //Called by the oven
+    public void tick() {
+
     }
 
     /*

@@ -1,0 +1,12 @@
+{
+  "type": "gastronomy:oven",
+  "result": "gastronomy:toasted_riceballs",
+  "count": 1,
+  "ingredients": [
+    {
+      "type": "item",
+      "tag": "forge:riceball",
+      "count": 1
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "gastronomy:oven",
+  "result": "minecraft:cooked_beef",
+  "count": 1,
+  "ingredients": [
+    {
+      "type": "item",
+      "tag": "forge:raw_beef",
+      "count": 1
+    }
+  ]
+}

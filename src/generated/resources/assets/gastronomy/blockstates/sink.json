@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "gastronomy:block/sink"
+    },
+    "facing=south": {
+      "model": "gastronomy:block/sink",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "gastronomy:block/sink",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "gastronomy:block/sink",
+      "y": 90
+    }
+  }
+}
