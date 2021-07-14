@@ -9,8 +9,10 @@ import net.minecraft.data.loot.BlockLootTables;
 import net.minecraft.data.loot.ChestLootTables;
 import net.minecraft.loot.*;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 import uk.joshiejack.gastronomy.Gastronomy;
+import uk.joshiejack.gastronomy.block.GastronomyBlocks;
 
 import javax.annotation.Nonnull;
 import java.util.List;
@@ -48,7 +50,9 @@ public class GastronomyLootTables extends LootTableProvider {
 
         @Override
         protected void addTables() {
-
+            GastronomyBlocks.BLOCKS.getEntries().stream()
+                    .map(RegistryObject::get)
+                    .forEach(this::dropSelf);
         }
     }
 

@@ -28,7 +28,7 @@ import uk.joshiejack.penguinlib.inventory.AbstractBookContainer;
 
 import javax.annotation.Nonnull;
 
-@Mod.EventBusSubscriber
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 @Mod(Gastronomy.MODID)
 public class Gastronomy {
     //public static final Set<Class<? extends TileEntity>> FOOD_STORAGE = Sets.newHashSet();

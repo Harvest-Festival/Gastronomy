@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "gastronomy:item/burnt_pot_dish"
+  }
+}
