@@ -3,16 +3,18 @@ package uk.joshiejack.gastronomy.tileentity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.ITickableTileEntity;
+import net.minecraft.util.SoundCategory;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import uk.joshiejack.gastronomy.GastronomySounds;
 import uk.joshiejack.gastronomy.cooking.Appliance;
-import uk.joshiejack.gastronomy.crafting.CookingRecipe;
-import uk.joshiejack.gastronomy.crafting.GastronomyRegistries;
-import uk.joshiejack.gastronomy.tileentity.base.TileCookingFluids;
+import uk.joshiejack.gastronomy.tileentity.base.CookerTileEntity;
 import uk.joshiejack.gastronomy.tileentity.base.TileCookingHeatable;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.List;
 
-public class OvenTileEntity extends TileCookingFluids implements ITickableTileEntity {
+public class OvenTileEntity extends CookerTileEntity implements ITickableTileEntity {
     private final static int GIVE_TIME = 15;
     public float prevLidAngle;
     public float lidAngle;
@@ -31,19 +33,58 @@ public class OvenTileEntity extends TileCookingFluids implements ITickableTileEn
     @Override
     public void tick() {
         if (heatable != null)
-            heatable.tick();
-        if (!level.isClientSide) {
-            List<CookingRecipe> recipes = level.getServer().getRecipeManager().getAllRecipesFor(GastronomyRegistries.OVEN);
-            for (CookingRecipe recipe: recipes) {
-                if (recipe.matches(this, level)) {
-                }
-            }
-        }
+            heatable.activate();
+        activate();
     }
 
     public void heatable(@Nullable TileCookingHeatable tile) {
         this.heatable = tile;
     }
+
+    @OnlyIn(Dist.CLIENT)
+    @Override
+    protected void animate() {
+        if (cookTimer == 1) {
+            level.playSound(null, worldPosition.getX(), worldPosition.getY() + 0.5D, worldPosition.getZ(), GastronomySounds.OVEN.get(),
+                    SoundCategory.BLOCKS, 2F, level.random.nextFloat() * 0.1F + 0.9F);
+        }
+
+        prevLidAngle = lidAngle;
+        float f1 = 0.025F;
+        if (animating) {
+            if (up) {
+                lidAngle -= f1;
+            } else {
+                lidAngle += f1;
+            }
+
+            if (lidAngle < -0.25F) {
+                lidAngle = -0.25F;
+                up = false; //Once we hit critical, go down instead
+            }
+
+            if (lidAngle > 0.0F) {
+                lidAngle = 0.0F;
+                animating = false;
+                up = true;
+            }
+        }
+    }
+
+    @Override
+    public void setItem(int slot, @Nonnull ItemStack stack) {
+        if (slot != 20)
+            openDoor();
+        super.setItem(slot, stack);
+    }
+
+    private void openDoor() {
+        level.playSound(null, worldPosition.getX(), worldPosition.getY() + 0.5D, worldPosition.getZ(), GastronomySounds.OVEN_DOOR.get(), SoundCategory.BLOCKS, 2F, level.random.nextFloat() * 0.1F + 0.9F);
+        if (level.isClientSide) {
+            animating = true;
+        }
+    }
+
 
     /*
     @OnlyIn(Dist.CLIENT)

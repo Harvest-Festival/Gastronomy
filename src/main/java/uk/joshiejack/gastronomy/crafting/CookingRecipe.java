@@ -15,12 +15,14 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.FluidUtil;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import uk.joshiejack.penguinlib.item.crafting.AbstractSimplePenguinRecipe;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -108,6 +110,13 @@ public class CookingRecipe extends AbstractSimplePenguinRecipe<ItemStack> {
     @Override
     public ItemStack getResultItem() {
         return output;
+    }
+
+    public boolean isIngredient(ItemStack stack) {
+        Optional<FluidStack> fluid = FluidUtil.getFluidContained(stack);
+        return ingredients.stream().anyMatch(ingredient ->
+                (fluid.isPresent() && ingredient instanceof FluidIngredient && ((FluidIngredient) ingredient).test(fluid.get().getFluid()))
+                        || (ingredient instanceof SolidIngredient && ((SolidIngredient) ingredient).test(stack.getItem())));
     }
 
     public abstract static class RecipeIngredient<T> {

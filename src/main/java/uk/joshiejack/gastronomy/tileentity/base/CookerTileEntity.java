@@ -1,13 +1,22 @@
 package uk.joshiejack.gastronomy.tileentity.base;
 
+import net.minecraft.inventory.IInventory;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.tileentity.TileEntityType;
 import uk.joshiejack.gastronomy.cooking.Appliance;
 import uk.joshiejack.penguinlib.tile.inventory.AbstractInventoryTileEntity;
 
-public class CookerTileEntity extends AbstractInventoryTileEntity {
+import javax.annotation.Nonnull;
+import java.util.LinkedList;
+import java.util.Optional;
+import java.util.stream.IntStream;
+
+public abstract class CookerTileEntity extends AbstractInventoryTileEntity {
     private final Appliance appliance;
     protected boolean cooking;
     protected int cookTimer;
+    protected LinkedList<Integer> last = new LinkedList<>();
     private final int timeRequired;
 
     public CookerTileEntity(Appliance appliance, int timeRequired, TileEntityType<?> type) {
@@ -16,11 +25,52 @@ public class CookerTileEntity extends AbstractInventoryTileEntity {
         this.timeRequired = timeRequired;
     }
 
+    @Override
+    public int getSlotLimit(int slot) {
+        return slot == 20 ? getMaxStackSize() : 1;
+    }
+
+    @Override
+    public void setItem(int slot, @Nonnull ItemStack stack) {
+        if (!stack.isEmpty())
+            last.add(slot);
+        super.setItem(slot, stack);
+    }
+
+    @Override
+    public boolean canPlaceItem(int slot, @Nonnull ItemStack stack) {
+        return slot < 20 && getItem(20).isEmpty() && (level.isClientSide || appliance.isIngredient(level, stack));
+    }
+
+    @Nonnull
+    @Override
+    public ItemStack removeItem(int slot, int amount) {
+        if (slot < 20 || items.get(20).isEmpty()) return ItemStack.EMPTY;
+        return removeItem(slot, amount);
+    }
+
     public void activate() {
         if (cooking) {
             cookTimer++;
+            if (level.isClientSide)
+                animate();
+            else {
+                if (last.size() == 0) {
+                    cooking = false;
+                    markUpdated();
+                } else if (cookTimer >= timeRequired) {
+                    //We have finished so it's time to cook
+                    Optional<IRecipe<IInventory>> result = level.getServer().getRecipeManager().getAllRecipesFor(appliance.getRecipeType())
+                            .stream().filter(r -> r.matches(this, level)).findFirst();
+                    result.ifPresent(recipe -> setItem(20, recipe.assemble(this)));
+                    IntStream.rangeClosed(0, 19).forEach(i -> items.set(0, ItemStack.EMPTY));
+                    //TODO: Clear out the four fluid tanks too
+                }
+            }
         }
     }
+
+    protected abstract void animate();
     /*public static final String IN_UTENSIL = "InUtensil";
     public static final int FINISH_SLOT = 20;
     protected static final int COOK_TIMER = 100;
