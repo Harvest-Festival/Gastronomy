@@ -23,6 +23,10 @@ import javax.annotation.Nonnull;
 
 public class OvenBlock extends AbstractCookwareBlock {
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
+    private static final VoxelShape NORTH = Block.box(0D, 0D, 1D, 16D, 16D, 16D);
+    private static final VoxelShape SOUTH = Block.box(0D, 1D, 0D, 16D, 16D, 15D);
+    private static final VoxelShape WEST = Block.box(1D, 1D, 0D, 16D, 16D, 16D);
+    private static final VoxelShape EAST = Block.box(0D, 1D, 0D, 15D, 16D, 16D);
 
     public OvenBlock() {
         super(Properties.of(Material.METAL).harvestTool(ToolType.PICKAXE).strength(2F).sound(SoundType.METAL));
@@ -35,16 +39,16 @@ public class OvenBlock extends AbstractCookwareBlock {
     public VoxelShape getShape(@Nonnull BlockState state, @Nonnull IBlockReader reader, @Nonnull BlockPos pos, @Nonnull ISelectionContext ctx) {
         switch (state.getValue(HorizontalBlock.FACING)) {
             case NORTH:
-                return Block.box(0D, 0D, 1D, 16D, 16D, 16D);
+                return NORTH;
             case SOUTH:
-                return Block.box(0D, 1D, 0D, 16D, 16D, 15D);
+                return SOUTH;
             case WEST:
-                return Block.box(1D, 1D, 0D, 16D, 16D, 16D);
+                return WEST;
             case EAST:
-                return Block.box(0D, 1D, 0D, 15D, 16D, 16D);
+                return EAST;
         }
 
-        return Block.box(0D, 1D, 0D, 16D, 16D, 16D);
+        return super.getShape(state, reader, pos, ctx);
     }
 
     @Deprecated
