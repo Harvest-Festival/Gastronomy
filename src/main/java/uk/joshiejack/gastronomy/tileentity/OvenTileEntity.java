@@ -19,7 +19,7 @@ public class OvenTileEntity extends CookerTileEntity implements ITickableTileEnt
     public float prevLidAngle;
     public float lidAngle;
     private boolean animating;
-    private boolean up = true;
+    private boolean opening = true;
     private PlayerEntity givePlayer;
     private ItemStack giveStack;
     private int giveSlot;
@@ -35,6 +35,32 @@ public class OvenTileEntity extends CookerTileEntity implements ITickableTileEnt
         if (heatable != null)
             heatable.activate();
         activate();
+
+        //Animate the door up and down
+        if (level.isClientSide) {
+            prevLidAngle = lidAngle;
+            float f1 = 0.05F;
+            if (animating) {
+                if (opening) {
+                    lidAngle += f1;
+                } else {
+                    lidAngle -= f1;
+                }
+
+                if (lidAngle >= 1.5F) {
+                    lidAngle = 1.5F;
+                    opening = false;
+                }
+
+
+                //We have closed again so let's clear this out
+                if (lidAngle <= 0F) {
+                    lidAngle = 0F;
+                    opening = true;
+                    animating = false;
+                }
+            }
+        }
     }
 
     public void heatable(@Nullable TileCookingHeatable tile) {
@@ -47,27 +73,6 @@ public class OvenTileEntity extends CookerTileEntity implements ITickableTileEnt
         if (cookTimer == 1) {
             level.playSound(null, worldPosition.getX(), worldPosition.getY() + 0.5D, worldPosition.getZ(), GastronomySounds.OVEN.get(),
                     SoundCategory.BLOCKS, 2F, level.random.nextFloat() * 0.1F + 0.9F);
-        }
-
-        prevLidAngle = lidAngle;
-        float f1 = 0.025F;
-        if (animating) {
-            if (up) {
-                lidAngle -= f1;
-            } else {
-                lidAngle += f1;
-            }
-
-            if (lidAngle < -0.25F) {
-                lidAngle = -0.25F;
-                up = false; //Once we hit critical, go down instead
-            }
-
-            if (lidAngle > 0.0F) {
-                lidAngle = 0.0F;
-                animating = false;
-                up = true;
-            }
         }
     }
 
@@ -82,6 +87,8 @@ public class OvenTileEntity extends CookerTileEntity implements ITickableTileEnt
         level.playSound(null, worldPosition.getX(), worldPosition.getY() + 0.5D, worldPosition.getZ(), GastronomySounds.OVEN_DOOR.get(), SoundCategory.BLOCKS, 2F, level.random.nextFloat() * 0.1F + 0.9F);
         if (level.isClientSide) {
             animating = true;
+            opening = true;
+            //up = false;
         }
     }
 

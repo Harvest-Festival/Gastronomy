@@ -1,0 +1,65 @@
+{
+  "counter": {
+    "category": "block",
+    "sounds": [
+      "gastronomy:counter1",
+      "gastronomy:counter2",
+      "gastronomy:counter3",
+      "gastronomy:counter4",
+      "gastronomy:counter5",
+      "gastronomy:counter6",
+      "gastronomy:counter7",
+      "gastronomy:counter8",
+      "gastronomy:counter9",
+      "gastronomy:counter10"
+    ]
+  },
+  "fridge": {
+    "category": "block",
+    "sounds": [
+      "gastronomy:fridge"
+    ]
+  },
+  "frying_pan": {
+    "category": "block",
+    "sounds": [
+      "gastronomy:frying_pan"
+    ]
+  },
+  "mixer": {
+    "category": "block",
+    "sounds": [
+      "gastronomy:mixer"
+    ]
+  },
+  "oven": {
+    "category": "block",
+    "sounds": [
+      "gastronomy:oven"
+    ]
+  },
+  "oven_door": {
+    "category": "block",
+    "sounds": [
+      "gastronomy:oven_door"
+    ]
+  },
+  "oven_done": {
+    "category": "block",
+    "sounds": [
+      "gastronomy:oven_done"
+    ]
+  },
+  "pot": {
+    "category": "block",
+    "sounds": [
+      "gastronomy:pot"
+    ]
+  },
+  "recipe": {
+    "category": "neutral",
+    "sounds": [
+      "gastronomy:recipe"
+    ]
+  }
+}

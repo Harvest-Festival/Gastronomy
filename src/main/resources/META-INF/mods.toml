@@ -22,6 +22,6 @@ license="MIT"
 [[dependencies.gastronomy]]
     modId="penguinlib"
     mandatory=true
-    versionRange="[0.4.0,)"
+    versionRange="[0.5.0,)"
     ordering="NONE"
     side="BOTH"

@@ -15,7 +15,7 @@ import uk.joshiejack.gastronomy.tileentity.CounterTileEntity;
 
 import javax.annotation.Nonnull;
 
-public class CounterBlock extends SectionalBlock {
+public class CounterBlock extends AbstractSectionalBlock {
     @Override
     public ActionResultType use(@Nonnull BlockState state, World world, @Nonnull BlockPos pos, @Nonnull PlayerEntity player, @Nonnull Hand hand, @Nonnull BlockRayTraceResult blockRayTraceResult) {
         ItemStack held = player.getItemInHand(hand);

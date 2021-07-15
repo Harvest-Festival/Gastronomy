@@ -49,6 +49,7 @@ public class GastronomyRecipes extends RecipeProvider {
         oven(Items.COOKED_SALMON, 1, item(RAW_SALMON)).save(consumer, rl("cooked_salmon"));
         oven(Items.PUMPKIN_PIE, 1, item(CROPS_PUMPKIN), item(SUGAR), item(EGGS)).save(consumer, rl("pumpkin_pie"));
         oven(Items.POPPED_CHORUS_FRUIT, 1, item(CHORUS_FRUIT)).save(consumer, rl("popped_chorus_fruit"));
+        oven(Items.DRIED_KELP, 1, item(KELP));
         oven(FRUIT_CAKE.get(), 1, item(EGGS), item(FLOUR), item(BUTTER), item(FRUIT_CAKE_FRUIT)).save(consumer, rl("fruit_cake"));
         oven(CHOCOLATE_CAKE.get(), 1, item(EGGS), item(FLOUR), item(BUTTER), item(CHOCOLATE)).save(consumer, rl("chocolate_cake"));
         oven(BUTTER_BISCUITS.get(), 1, item(EGGS), item(BUTTER), item(FLOUR));

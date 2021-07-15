@@ -7,7 +7,7 @@ import uk.joshiejack.gastronomy.tileentity.CupboardTileEntity;
 
 import javax.annotation.Nonnull;
 
-public class CupboardBlock extends SectionalBlock {
+public class CupboardBlock extends AbstractSectionalBlock {
     @Nonnull
     @Override
     public TileEntity createTileEntity(@Nonnull BlockState state, @Nonnull IBlockReader world) {

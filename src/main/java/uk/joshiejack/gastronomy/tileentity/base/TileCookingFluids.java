@@ -3,7 +3,7 @@ package uk.joshiejack.gastronomy.tileentity.base;
 import net.minecraft.tileentity.TileEntityType;
 import uk.joshiejack.gastronomy.cooking.Appliance;
 
-public class TileCookingFluids extends CookerTileEntity /*implements ITankProvider */ {
+public abstract class TileCookingFluids extends CookerTileEntity /*implements ITankProvider */ {
     public TileCookingFluids(Appliance appliance, int timeRequired, TileEntityType<?> type) { super(appliance, timeRequired, type); }
     public TileCookingFluids(Appliance appliance, TileEntityType<?> type) {
         this(appliance, 100, type);

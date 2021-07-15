@@ -109,6 +109,7 @@ a43dc018935c44e46c644b045b8e1978287b002a data/forge/tags/items/chocolate.json
 3d1058c72105cdda265bc63bf8c47c5e90ef5ed7 data/forge/tags/items/chorus_fruit.json
 19967f4e7c62ecfda3153529440bbf1a3029908c data/forge/tags/items/curry_powder.json
 be6557e07ea9875185ded1bb2408d73e0df6c100 data/forge/tags/items/flour.json
+a2e62a354a4078113f6bcd3399457faa622dc417 data/forge/tags/items/kelp.json
 f820666fe7418200f4533a16631bfbb3944e3ed0 data/forge/tags/items/raw_beef.json
 a70683e02a8ba9b097d4bed4d15a687950f8f5ab data/forge/tags/items/raw_fishes.json
 0592c10c9068f10c8b639017ede265474628ed3e data/forge/tags/items/raw_fishes/cod.json
@@ -118,6 +119,7 @@ c2766d20bf75d9724d120f214378758e587416ff data/forge/tags/items/raw_fishes/salmon
 54f4a84284b227250ef956f13f9fb579721b5ee3 data/forge/tags/items/raw_rabbit.json
 85129d58986af1b3d8b264f8b8981df0c32a698d data/forge/tags/items/riceball.json
 d9e7fdae290b5783994452dbae8ccd569f521240 data/forge/tags/items/sugar.json
+3507ac43025e3a734eacffef82ae04d9d8864d43 data/forge/tags/items/tools/knife.json
 803d32c500308d8f93637efec3526f097c6c4276 data/gastronomy/loot_tables/blocks/bamboo_shoots.json
 539770f7c7df4f422a414b7733a0b311753b2e93 data/gastronomy/loot_tables/blocks/chamomile.json
 aa700f437c282ac5d4de661f7cba1fe1f63a2401 data/gastronomy/loot_tables/blocks/counter.json

@@ -15,10 +15,10 @@ import uk.joshiejack.penguinlib.block.base.AbstractRotatableBlock;
 import javax.annotation.Nonnull;
 import java.util.Locale;
 
-public abstract class SectionalBlock extends AbstractRotatableBlock {
+public abstract class AbstractSectionalBlock extends AbstractRotatableBlock {
     public static final EnumProperty<Section> SECTION = EnumProperty.create("section", Section.class);
 
-    public SectionalBlock() {
+    public AbstractSectionalBlock() {
         super(AbstractBlock.Properties.of(Material.WOOD).harvestTool(ToolType.AXE).strength(1.5F).sound(SoundType.WOOD));
         setHasInventory();
         registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(SECTION, Section.STRAIGHT));

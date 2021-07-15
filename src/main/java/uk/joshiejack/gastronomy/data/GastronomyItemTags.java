@@ -37,6 +37,7 @@ public class GastronomyItemTags extends ItemTagsProvider {
     public static final ITag.INamedTag<Item> RICEBALL = PenguinTags.forgeTag("riceball");
     public static final ITag.INamedTag<Item> SWEET_POTATO = PenguinTags.forgeTag("crops/sweet_potato");
     public static final ITag.INamedTag<Item> CORN = PenguinTags.forgeTag("crops/corn");
+    public static final ITag.INamedTag<Item> KELP = PenguinTags.forgeTag("kelp");
 
     public GastronomyItemTags(DataGenerator generator, BlockTagsProvider blockTagProvider, @Nullable ExistingFileHelper existingFileHelper) {
         super(generator, blockTagProvider, Gastronomy.MODID, existingFileHelper);
@@ -63,6 +64,7 @@ public class GastronomyItemTags extends ItemTagsProvider {
         tag(FRUIT_CAKE_FRUIT).addOptionalTag(optional("crops/orange")).addOptionalTag(optional("crops/pineapple")).addOptionalTag(optional("crops/strawberry"))
                 .addOptionalTag(optional("crops/peach")).addOptionalTag(optional("crops/grape"));
         tag(RICEBALL).add(GastronomyItems.RICEBALL.get());
+        tag(KELP).add(Items.KELP);
         tag(GastronomyTags.KNIFE).add(GastronomyItems.KNIFE.get());
     }
 
