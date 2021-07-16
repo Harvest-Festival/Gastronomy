@@ -5,5 +5,5 @@ import net.minecraft.tags.ITag;
 import uk.joshiejack.penguinlib.util.PenguinTags;
 
 public class GastronomyTags {
-    public static final ITag.INamedTag<Item> KNIFE = PenguinTags.forgeTag("tools/knife");
+    public static final ITag.INamedTag<Item> KNIVES = PenguinTags.forgeTag("tools/knives");
 }

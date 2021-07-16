@@ -19,7 +19,7 @@ public class CounterBlock extends AbstractSectionalBlock {
     @Override
     public ActionResultType use(@Nonnull BlockState state, World world, @Nonnull BlockPos pos, @Nonnull PlayerEntity player, @Nonnull Hand hand, @Nonnull BlockRayTraceResult blockRayTraceResult) {
         ItemStack held = player.getItemInHand(hand);
-        if (held.getItem().is(GastronomyTags.KNIFE)) {
+        if (held.getItem().is(GastronomyTags.KNIVES)) {
             TileEntity tile = world.getBlockEntity(pos);
             if (!(tile instanceof CounterTileEntity))
                 return ActionResultType.PASS;

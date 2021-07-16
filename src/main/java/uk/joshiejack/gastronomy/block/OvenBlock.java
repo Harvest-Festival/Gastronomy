@@ -5,17 +5,26 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.ToolType;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.LogicalSide;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.ItemHandlerHelper;
 import uk.joshiejack.gastronomy.tileentity.OvenTileEntity;
 import uk.joshiejack.gastronomy.tileentity.base.TileCookingHeatable;
 
@@ -31,6 +40,50 @@ public class OvenBlock extends AbstractCookwareBlock {
     public OvenBlock() {
         super(Properties.of(Material.METAL).harvestTool(ToolType.PICKAXE).strength(2F).sound(SoundType.METAL));
         registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIT, false));
+    }
+
+    public static class Extractor {
+        private final PlayerEntity playerEntity;
+        private final IItemHandler handler;
+        private int ticker;
+
+        public Extractor(PlayerEntity player, IItemHandler itemHandler) {
+            playerEntity = player;
+            handler = itemHandler;
+            ticker = 50;
+        }
+
+        @SubscribeEvent
+        public void onWorldTick(TickEvent.WorldTickEvent event) {
+            if (playerEntity == null || handler == null) MinecraftForge.EVENT_BUS.unregister(this);
+            if (event.phase == TickEvent.Phase.END) {
+                ticker--;
+                if (ticker <= 0) {
+                    ItemStack extracted = handler.extractItem(20, handler.getStackInSlot(20).getCount(), false);
+                    if (!extracted.isEmpty() && event.side == LogicalSide.SERVER) {
+                        ItemHandlerHelper.giveItemToPlayer(playerEntity, extracted);
+                    }
+
+                    MinecraftForge.EVENT_BUS.unregister(this);
+                }
+            }
+        }
+    }
+
+    @Override
+    public ActionResultType extract(PlayerEntity player, IItemHandler handler) {
+        for(int i = 0; i < handler.getSlots(); ++i) {
+            int extract = this.getExtractAmount(handler, i);
+            if (extract > 0) {
+                ItemStack extracted = handler.extractItem(i, extract, true);
+                if (!extracted.isEmpty()) {
+                    MinecraftForge.EVENT_BUS.register(new Extractor(player, handler));
+                    return ActionResultType.SUCCESS;
+                }
+            }
+        }
+
+        return ActionResultType.PASS;
     }
 
     @Override

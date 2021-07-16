@@ -31,11 +31,13 @@ import java.util.stream.Stream;
 public class CookingRecipe extends AbstractSimplePenguinRecipe<ItemStack> {
     protected final NonNullList<RecipeIngredient<?>> ingredients;
     private final Supplier<IRecipeType<?>> recipeType;
+    private final Item dish;
 
-    public CookingRecipe(Supplier<IRecipeType<?>> recipeType, IRecipeSerializer<?> serializer, ResourceLocation rl, NonNullList<RecipeIngredient<?>> ingredients, ItemStack output) {
+    public CookingRecipe(Supplier<IRecipeType<?>> recipeType, IRecipeSerializer<?> serializer, ResourceLocation rl, NonNullList<RecipeIngredient<?>> ingredients, ItemStack output, Item dish) {
         super(null, serializer, rl, null, output);
         this.ingredients = ingredients;
         this.recipeType = recipeType;
+        this.dish = dish;
     }
 
     @Override
@@ -117,6 +119,10 @@ public class CookingRecipe extends AbstractSimplePenguinRecipe<ItemStack> {
         return ingredients.stream().anyMatch(ingredient ->
                 (fluid.isPresent() && ingredient instanceof FluidIngredient && ((FluidIngredient) ingredient).test(fluid.get().getFluid()))
                         || (ingredient instanceof SolidIngredient && ((SolidIngredient) ingredient).test(stack.getItem())));
+    }
+
+    public Item getDish() {
+        return dish;
     }
 
     public abstract static class RecipeIngredient<T> {

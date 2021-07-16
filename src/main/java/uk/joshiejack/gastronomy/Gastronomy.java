@@ -10,8 +10,10 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -25,6 +27,7 @@ import uk.joshiejack.gastronomy.fluid.GastronomyFluids;
 import uk.joshiejack.gastronomy.inventory.CookbookContainer;
 import uk.joshiejack.gastronomy.item.GastronomyItems;
 import uk.joshiejack.gastronomy.tileentity.GastronomyTileEntities;
+import uk.joshiejack.penguinlib.client.PenguinClientConfig;
 import uk.joshiejack.penguinlib.inventory.AbstractBookContainer;
 
 import javax.annotation.Nonnull;
@@ -52,6 +55,7 @@ public class Gastronomy {
         GastronomyRegistries.SERIALIZERS.register(eventBus);
         GastronomySounds.SOUNDS.register(eventBus);
         GastronomyTileEntities.TILE_ENTITIES.register(eventBus);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, GastronomyServerConfig.create());
     }
 
     @SubscribeEvent

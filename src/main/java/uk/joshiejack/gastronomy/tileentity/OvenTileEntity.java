@@ -1,11 +1,8 @@
 package uk.joshiejack.gastronomy.tileentity;
 
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.util.SoundCategory;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import uk.joshiejack.gastronomy.GastronomySounds;
 import uk.joshiejack.gastronomy.cooking.Appliance;
 import uk.joshiejack.gastronomy.tileentity.base.CookerTileEntity;
@@ -15,15 +12,10 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public class OvenTileEntity extends CookerTileEntity implements ITickableTileEntity {
-    private final static int GIVE_TIME = 15;
     public float prevLidAngle;
     public float lidAngle;
     private boolean animating;
     private boolean opening = true;
-    private PlayerEntity givePlayer;
-    private ItemStack giveStack;
-    private int giveSlot;
-    private int giveTimer;
     private TileCookingHeatable heatable;
 
     public OvenTileEntity() {
@@ -67,29 +59,44 @@ public class OvenTileEntity extends CookerTileEntity implements ITickableTileEnt
         this.heatable = tile;
     }
 
-    @OnlyIn(Dist.CLIENT)
     @Override
-    protected void animate() {
-        if (cookTimer == 1) {
+    protected void onCooking() {
+        if (cookTimer % 20 == 0)
             level.playSound(null, worldPosition.getX(), worldPosition.getY() + 0.5D, worldPosition.getZ(), GastronomySounds.OVEN.get(),
                     SoundCategory.BLOCKS, 2F, level.random.nextFloat() * 0.1F + 0.9F);
-        }
+    }
+
+    @Override
+    protected void onCookingCompleted() {
+        super.onCookingCompleted();
+        level.playSound(null, worldPosition.getX(), worldPosition.getY() + 0.5D, worldPosition.getZ(), GastronomySounds.OVEN_DONE.get(),
+                SoundCategory.BLOCKS, 2F, level.random.nextFloat() * 0.1F + 0.9F);
+    }
+
+    @Override
+    protected void animate() {
     }
 
     @Override
     public void setItem(int slot, @Nonnull ItemStack stack) {
-        if (slot != 20)
-            openDoor();
+        if (slot != 20) {
+            cooking = true;
+        }
+
         super.setItem(slot, stack);
     }
 
-    private void openDoor() {
+    @Override
+    public boolean open() {
+        cooking = true;
+        cookTimer = 0;
         level.playSound(null, worldPosition.getX(), worldPosition.getY() + 0.5D, worldPosition.getZ(), GastronomySounds.OVEN_DOOR.get(), SoundCategory.BLOCKS, 2F, level.random.nextFloat() * 0.1F + 0.9F);
         if (level.isClientSide) {
             animating = true;
             opening = true;
-            //up = false;
         }
+
+        return true;
     }
 
 

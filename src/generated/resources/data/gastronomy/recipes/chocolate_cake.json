@@ -1,7 +1,6 @@
 {
   "type": "gastronomy:oven",
   "result": "gastronomy:chocolate_cake",
-  "count": 1,
   "ingredients": [
     {
       "type": "item",
@@ -23,5 +22,6 @@
       "tag": "forge:chocolate",
       "count": 1
     }
-  ]
+  ],
+  "dish": "penguinlib:plate"
 }

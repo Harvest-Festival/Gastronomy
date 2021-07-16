@@ -22,7 +22,6 @@ public class GastronomyItemTags extends ItemTagsProvider {
     public static final ITag.INamedTag<Item> CHOCOLATE = PenguinTags.forgeTag("chocolate");
     public static final ITag.INamedTag<Item> FLOUR = PenguinTags.forgeTag("flour");
     public static final ITag.INamedTag<Item> SUGAR = PenguinTags.forgeTag("sugar");
-    public static final ITag.INamedTag<Item> BREAD = PenguinTags.forgeTag("bread");
     public static final ITag.INamedTag<Item> RAW_CHICKEN = PenguinTags.forgeTag("raw_chicken");
     public static final ITag.INamedTag<Item> RAW_BEEF = PenguinTags.forgeTag("raw_beef");
     public static final ITag.INamedTag<Item> RAW_PORK = PenguinTags.forgeTag("raw_pork");
@@ -65,7 +64,7 @@ public class GastronomyItemTags extends ItemTagsProvider {
                 .addOptionalTag(optional("crops/peach")).addOptionalTag(optional("crops/grape"));
         tag(RICEBALL).add(GastronomyItems.RICEBALL.get());
         tag(KELP).add(Items.KELP);
-        tag(GastronomyTags.KNIFE).add(GastronomyItems.KNIFE.get());
+        tag(GastronomyTags.KNIVES).add(GastronomyItems.KNIFE.get());
     }
 
     private static ResourceLocation optional(String name) {

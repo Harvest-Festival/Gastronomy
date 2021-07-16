@@ -1,7 +1,6 @@
 {
   "type": "gastronomy:oven",
   "result": "husbandry:dinner_roll",
-  "count": 1,
   "ingredients": [
     {
       "type": "item",

@@ -1,12 +1,12 @@
 {
   "type": "gastronomy:oven",
   "result": "horticulture:baked_corn",
-  "count": 1,
   "ingredients": [
     {
       "type": "item",
       "tag": "forge:crops/corn",
       "count": 1
     }
-  ]
+  ],
+  "dish": "penguinlib:plate"
 }

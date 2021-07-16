@@ -6,6 +6,7 @@ import net.minecraft.data.RecipeProvider;
 import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
 import uk.joshiejack.gastronomy.Gastronomy;
+import uk.joshiejack.penguinlib.item.PenguinItems;
 
 import javax.annotation.Nonnull;
 import java.util.function.Consumer;
@@ -21,8 +22,7 @@ import static uk.joshiejack.gastronomy.data.builder.CookingRecipeBuilder.RecipeI
 import static uk.joshiejack.gastronomy.data.builder.CookingRecipeBuilder.RecipeIngredientBuilder.item;
 import static uk.joshiejack.gastronomy.data.builder.CookingRecipeBuilder.oven;
 import static uk.joshiejack.gastronomy.item.GastronomyItems.*;
-import static uk.joshiejack.penguinlib.util.PenguinTags.CROPS_APPLE;
-import static uk.joshiejack.penguinlib.util.PenguinTags.CROPS_PUMPKIN;
+import static uk.joshiejack.penguinlib.util.PenguinTags.*;
 
 
 public class GastronomyRecipes extends RecipeProvider {
@@ -50,15 +50,15 @@ public class GastronomyRecipes extends RecipeProvider {
         oven(Items.PUMPKIN_PIE, 1, item(CROPS_PUMPKIN), item(SUGAR), item(EGGS)).save(consumer, rl("pumpkin_pie"));
         oven(Items.POPPED_CHORUS_FRUIT, 1, item(CHORUS_FRUIT)).save(consumer, rl("popped_chorus_fruit"));
         oven(Items.DRIED_KELP, 1, item(KELP));
-        oven(FRUIT_CAKE.get(), 1, item(EGGS), item(FLOUR), item(BUTTER), item(FRUIT_CAKE_FRUIT)).save(consumer, rl("fruit_cake"));
-        oven(CHOCOLATE_CAKE.get(), 1, item(EGGS), item(FLOUR), item(BUTTER), item(CHOCOLATE)).save(consumer, rl("chocolate_cake"));
-        oven(BUTTER_BISCUITS.get(), 1, item(EGGS), item(BUTTER), item(FLOUR));
-        oven(DORIA.get(), 1, item(ONION), item(BUTTER), fluid(MILK), item(RICEBALL), item(FLOUR)).save(consumer, rl("doria"));
-        oven(APPLE_PIE.get(), 1, item(CROPS_APPLE), item(EGGS), item(BUTTER), item(FLOUR)).save(consumer, rl("apple_pie"));
-        oven(TOASTED_RICEBALLS.get(), 1, item(RICEBALL)).save(consumer, rl("toasted_riceballs"));
-        oven(SWEET_POTATOES.get(), 1, item(SWEET_POTATO), item(BUTTER), item(EGGS)).save(consumer, rl("sweet_potatoes"));
-        oven(TOAST.get(), 1, item(BREAD)).save(consumer, rl("toast"));
-        oven(new ResourceLocation("horticulture", "baked_corn"), 1, item(CORN)).save(consumer, rl("baked_corn"));
+        oven(FRUIT_CAKE.get(), 1, item(EGGS), item(FLOUR), item(BUTTER), item(FRUIT_CAKE_FRUIT)).dish(PenguinItems.PLATE.get()).save(consumer, rl("fruit_cake"));
+        oven(CHOCOLATE_CAKE.get(), 1, item(EGGS), item(FLOUR), item(BUTTER), item(CHOCOLATE)).dish(PenguinItems.PLATE.get()).save(consumer, rl("chocolate_cake"));
+        oven(BUTTER_BISCUITS.get(), 1, item(EGGS), item(BUTTER), item(FLOUR)).dish(PenguinItems.PLATE.get()).save(consumer, rl("butter_biscuits"));
+        oven(DORIA.get(), 1, item(ONION), item(BUTTER), fluid(MILK), item(RICEBALL), item(FLOUR)).dish(PenguinItems.DEEP_BOWL.get()).save(consumer, rl("doria"));
+        oven(APPLE_PIE.get(), 1, item(CROPS_APPLE), item(EGGS), item(BUTTER), item(FLOUR)).dish(PenguinItems.PLATE.get()).save(consumer, rl("apple_pie"));
+        oven(TOASTED_RICEBALLS.get(), 1, item(RICEBALL)).dish(PenguinItems.PLATE.get()).save(consumer, rl("toasted_riceballs"));
+        oven(SWEET_POTATOES.get(), 1, item(SWEET_POTATO), item(BUTTER), item(EGGS)).dish(PenguinItems.PLATE.get()).save(consumer, rl("sweet_potatoes"));
+        oven(TOAST.get(), 1, item(BREAD)).dish(PenguinItems.PLATE.get()).save(consumer, rl("toast"));
+        oven(new ResourceLocation("horticulture", "baked_corn"), 1, item(CORN)).dish(PenguinItems.PLATE.get()).save(consumer, rl("baked_corn"));
         oven(new ResourceLocation("husbandry", "dinner_roll"), 1, item(EGGS), item(BUTTER), fluid(MILK)).save(consumer, rl("dinner_roll"));
     }
 

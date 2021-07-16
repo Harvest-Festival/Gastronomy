@@ -3,7 +3,9 @@ package uk.joshiejack.gastronomy.crafting;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.item.crafting.ShapedRecipe;
@@ -53,7 +55,8 @@ public class CookingRecipeSerializer extends ForgeRegistryEntry<IRecipeSerialize
                 throw new JsonSyntaxException("Invalid type used for a recipe ingredient, expected fluid or item");
         });
 
-        return this.factory.create(() -> recipeType, this, rl, ingredientList, result);
+        Item dish = json.has("dish") ? ForgeRegistries.ITEMS.getValue(new ResourceLocation(JSONUtils.getAsString(json, "dish"))) : Items.AIR;
+        return this.factory.create(() -> recipeType, this, rl, ingredientList, result, dish);
     }
 
     @Override
@@ -71,7 +74,8 @@ public class CookingRecipeSerializer extends ForgeRegistryEntry<IRecipeSerialize
                 ingredientList.add(new CookingRecipe.FluidIngredient(FluidTags.createOptional(tag), amount));
         }
 
-        return factory.create(() -> recipeType, this, rl, ingredientList, itemstack);
+        Item dish = pb.readRegistryIdSafe(Item.class);
+        return factory.create(() -> recipeType, this, rl, ingredientList, itemstack, dish);
     }
 
     @Override
@@ -83,9 +87,11 @@ public class CookingRecipeSerializer extends ForgeRegistryEntry<IRecipeSerialize
             pb.writeResourceLocation(ingredient.tag.getName());
             pb.writeVarInt(ingredient.amount);
         });
+
+        pb.writeRegistryId(recipe.getDish());
     }
 
     interface IFactory {
-        CookingRecipe create(Supplier<IRecipeType<?>> type, IRecipeSerializer<?> serializer, ResourceLocation rl, NonNullList<CookingRecipe.RecipeIngredient<?>> ingredients, ItemStack output);
+        CookingRecipe create(Supplier<IRecipeType<?>> type, IRecipeSerializer<?> serializer, ResourceLocation rl, NonNullList<CookingRecipe.RecipeIngredient<?>> ingredients, ItemStack output, Item dish);
     }
 }

@@ -30,16 +30,15 @@ public class OvenTileEntityRenderer extends AbstractCookwareTileEntityRenderer<O
         super(dispatcher);
         handle = new ModelRenderer(32, 16, 0, 0);
         handle.addBox(-2.5F, -6F, -1F, 5, 1, 1);
-        //handle.setPos(0F, 0F, 0F);
         handle.mirror = true;
         door = new ModelRenderer(32, 16, 0, 3);
         door.addBox(-5F, -7F, 0F, 10, 7, 1);
-        //door.setPos(0F, 0F, 0F);
         door.mirror = true;
     }
 
     @Override
     public void render(@Nonnull OvenTileEntity tile, float partialTicks, @Nonnull MatrixStack matrix, @Nonnull IRenderTypeBuffer buffer, int combinedLightIn, int combinedOverlayIn) {
+        super.render(tile, partialTicks, matrix, buffer, combinedLightIn, combinedOverlayIn);
         Direction dir = tile.getBlockState().getValue(OvenBlock.FACING);
         float f = 180F + dir.toYRot();
         matrix.pushPose();
@@ -66,8 +65,6 @@ public class OvenTileEntityRenderer extends AbstractCookwareTileEntityRenderer<O
         door.render(matrix, builder, combinedLightIn, combinedOverlayIn);
         handle.render(matrix, builder, combinedLightIn, combinedOverlayIn);
         matrix.popPose();
-
-        //TODO: Render the items in the oven
     }
     /*
 

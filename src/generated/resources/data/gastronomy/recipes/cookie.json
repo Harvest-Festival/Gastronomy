@@ -1,7 +1,9 @@
 {
   "type": "gastronomy:oven",
-  "result": "minecraft:cookie",
-  "count": 4,
+  "result": {
+    "item": "minecraft:cookie",
+    "count": 4
+  },
   "ingredients": [
     {
       "type": "item",

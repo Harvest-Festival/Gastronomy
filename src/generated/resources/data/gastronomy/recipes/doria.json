@@ -1,7 +1,6 @@
 {
   "type": "gastronomy:oven",
   "result": "gastronomy:doria",
-  "count": 1,
   "ingredients": [
     {
       "type": "item",
@@ -28,5 +27,6 @@
       "tag": "forge:flour",
       "count": 1
     }
-  ]
+  ],
+  "dish": "penguinlib:deep_bowl"
 }

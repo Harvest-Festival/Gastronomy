@@ -1,7 +1,6 @@
 {
   "type": "gastronomy:oven",
   "result": "minecraft:cooked_rabbit",
-  "count": 1,
   "ingredients": [
     {
       "type": "item",

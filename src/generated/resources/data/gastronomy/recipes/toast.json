@@ -1,12 +1,12 @@
 {
   "type": "gastronomy:oven",
   "result": "gastronomy:toast",
-  "count": 1,
   "ingredients": [
     {
       "type": "item",
       "tag": "forge:bread",
       "count": 1
     }
-  ]
+  ],
+  "dish": "penguinlib:plate"
 }

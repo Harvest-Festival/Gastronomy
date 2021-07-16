@@ -4,6 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.tags.ITag;
 import net.minecraft.util.ResourceLocation;
@@ -15,6 +16,7 @@ public class CookingRecipeBuilder extends SimplePenguinBuilder<CookingRecipe> {
     private int amount;
     private ResourceLocation output;
     private RecipeIngredientBuilder[] ingredients;
+    private Item dish = Items.AIR;
 
     public CookingRecipeBuilder(IRecipeSerializer<CookingRecipe> serializer, ResourceLocation output, int amount, RecipeIngredientBuilder... ingredients) {
         super(serializer);
@@ -28,6 +30,11 @@ public class CookingRecipeBuilder extends SimplePenguinBuilder<CookingRecipe> {
         this.amount = amount;
         this.output = output.getRegistryName();
         this.ingredients = ingredients;
+    }
+
+    public CookingRecipeBuilder dish(Item item) {
+        this.dish = item;
+        return this;
     }
 
     public static CookingRecipeBuilder oven(ResourceLocation output, int amount, RecipeIngredientBuilder... ingredients) {
@@ -56,8 +63,18 @@ public class CookingRecipeBuilder extends SimplePenguinBuilder<CookingRecipe> {
 
     @Override
     public void serializeRecipeData(JsonObject json) {
-        json.addProperty("result", output.toString());
-        json.addProperty("count", amount);
+        if (amount == 1)
+            json.addProperty("result", output.toString());
+        else {
+            JsonObject obj = new JsonObject();
+            obj.addProperty("item", output.toString());
+            obj.addProperty("count", amount);
+            json.add("result", obj);
+        }
+
+
+        if (dish != Items.AIR)
+            json.addProperty("dish", dish.getRegistryName().toString());
         JsonArray array = new JsonArray();
         for (RecipeIngredientBuilder builder: ingredients) {
             JsonObject object = new JsonObject();

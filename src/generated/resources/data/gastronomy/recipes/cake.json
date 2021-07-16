@@ -1,7 +1,6 @@
 {
   "type": "gastronomy:oven",
   "result": "minecraft:cake",
-  "count": 1,
   "ingredients": [
     {
       "type": "fluid",
