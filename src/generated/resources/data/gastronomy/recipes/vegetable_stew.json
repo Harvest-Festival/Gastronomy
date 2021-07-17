@@ -9,14 +9,10 @@
       "count": 1000
     },
     {
-      "type": "item",
-      "tag": "forge:flour",
-      "count": 1
+      "tag": "forge:flour"
     },
     {
-      "type": "item",
-      "tag": "gastronomy:stew_vegetable",
-      "count": 1
+      "tag": "gastronomy:stew_vegetable"
     }
   ]
 }

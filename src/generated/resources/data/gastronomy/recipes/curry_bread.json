@@ -3,14 +3,10 @@
   "result": "gastronomy:curry_bread",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:bread",
-      "count": 1
+      "tag": "forge:bread"
     },
     {
-      "type": "item",
-      "tag": "forge:curry_powder",
-      "count": 1
+      "tag": "forge:curry_powder"
     },
     {
       "type": "fluid",

@@ -3,9 +3,7 @@
   "result": "minecraft:cooked_porkchop",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:raw_pork",
-      "count": 1
+      "tag": "forge:raw_pork"
     }
   ]
 }

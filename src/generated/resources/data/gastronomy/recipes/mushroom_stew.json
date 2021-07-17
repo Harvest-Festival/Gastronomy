@@ -4,14 +4,10 @@
   "dish": "minecraft:bowl",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:mushrooms/brown",
-      "count": 1
+      "tag": "forge:mushrooms/brown"
     },
     {
-      "type": "item",
-      "tag": "forge:mushrooms/red",
-      "count": 1
+      "tag": "forge:mushrooms/red"
     }
   ]
 }

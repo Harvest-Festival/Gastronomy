@@ -4,9 +4,7 @@
   "dish": "penguinlib:deep_bowl",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:riceball",
-      "count": 1
+      "tag": "forge:riceball"
     }
   ]
 }

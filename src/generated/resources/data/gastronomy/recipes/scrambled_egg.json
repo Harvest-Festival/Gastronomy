@@ -4,9 +4,7 @@
   "dish": "penguinlib:deep_bowl",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:eggs",
-      "count": 1
+      "tag": "forge:eggs"
     },
     {
       "type": "fluid",

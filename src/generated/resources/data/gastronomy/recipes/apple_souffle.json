@@ -4,9 +4,7 @@
   "dish": "penguinlib:mug",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:crops/apple",
-      "count": 1
+      "tag": "forge:crops/apple"
     }
   ]
 }

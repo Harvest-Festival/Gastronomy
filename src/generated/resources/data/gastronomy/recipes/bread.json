@@ -3,9 +3,7 @@
   "result": "minecraft:bread",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:flour",
-      "count": 1
+      "tag": "forge:flour"
     }
   ]
 }

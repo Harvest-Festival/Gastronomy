@@ -4,19 +4,13 @@
   "dish": "penguinlib:plate",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:crops/sweet_potato",
-      "count": 1
+      "tag": "forge:crops/sweet_potato"
     },
     {
-      "type": "item",
-      "tag": "forge:butter",
-      "count": 1
+      "tag": "forge:butter"
     },
     {
-      "type": "item",
-      "tag": "forge:eggs",
-      "count": 1
+      "tag": "forge:eggs"
     }
   ]
 }

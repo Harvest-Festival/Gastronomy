@@ -4,9 +4,7 @@
   "dish": "penguinlib:plate",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:eggs",
-      "count": 1
+      "tag": "forge:eggs"
     },
     {
       "type": "fluid",
@@ -14,14 +12,10 @@
       "count": 1000
     },
     {
-      "type": "item",
-      "tag": "forge:butter",
-      "count": 1
+      "tag": "forge:butter"
     },
     {
-      "type": "item",
-      "tag": "forge:flour",
-      "count": 1
+      "tag": "forge:flour"
     },
     {
       "type": "fluid",

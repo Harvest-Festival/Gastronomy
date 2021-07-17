@@ -4,9 +4,7 @@
   "dish": "penguinlib:deep_bowl",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:raw_fishes",
-      "count": 1
+      "tag": "forge:raw_fishes"
     }
   ]
 }

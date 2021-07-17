@@ -3,9 +3,7 @@
   "result": "minecraft:cooked_chicken",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:raw_chicken",
-      "count": 1
+      "tag": "forge:raw_chicken"
     }
   ]
 }

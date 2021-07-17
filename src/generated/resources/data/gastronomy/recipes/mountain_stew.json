@@ -4,19 +4,13 @@
   "dish": "penguinlib:deep_bowl",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:bamboo_shoots",
-      "count": 1
+      "tag": "forge:bamboo_shoots"
     },
     {
-      "type": "item",
-      "tag": "forge:crops/carrot",
-      "count": 1
+      "tag": "forge:crops/carrot"
     },
     {
-      "type": "item",
-      "tag": "forge:mushrooms/brown",
-      "count": 1
+      "tag": "forge:mushrooms/brown"
     }
   ]
 }

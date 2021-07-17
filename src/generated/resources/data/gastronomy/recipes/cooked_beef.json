@@ -3,9 +3,7 @@
   "result": "minecraft:cooked_beef",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:raw_beef",
-      "count": 1
+      "tag": "forge:raw_beef"
     }
   ]
 }

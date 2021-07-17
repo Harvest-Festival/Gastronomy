@@ -6,14 +6,10 @@
   },
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:flour",
-      "count": 1
+      "tag": "forge:flour"
     },
     {
-      "type": "item",
-      "tag": "forge:chocolate",
-      "count": 1
+      "tag": "forge:chocolate"
     }
   ]
 }

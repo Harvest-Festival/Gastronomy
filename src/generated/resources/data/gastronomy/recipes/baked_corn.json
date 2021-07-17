@@ -4,9 +4,7 @@
   "dish": "penguinlib:plate",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:crops/corn",
-      "count": 1
+      "tag": "forge:crops/corn"
     }
   ]
 }

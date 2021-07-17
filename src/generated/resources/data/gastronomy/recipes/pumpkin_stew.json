@@ -4,9 +4,7 @@
   "dish": "penguinlib:deep_bowl",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:crops/pumpkin",
-      "count": 1
+      "tag": "forge:crops/pumpkin"
     }
   ]
 }

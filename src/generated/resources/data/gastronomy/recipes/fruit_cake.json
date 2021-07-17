@@ -4,24 +4,16 @@
   "dish": "penguinlib:plate",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:eggs",
-      "count": 1
+      "tag": "forge:eggs"
     },
     {
-      "type": "item",
-      "tag": "forge:flour",
-      "count": 1
+      "tag": "forge:flour"
     },
     {
-      "type": "item",
-      "tag": "forge:butter",
-      "count": 1
+      "tag": "forge:butter"
     },
     {
-      "type": "item",
-      "tag": "gastronomy:fruit_cake_fruit",
-      "count": 1
+      "tag": "gastronomy:fruit_cake_fruit"
     }
   ]
 }

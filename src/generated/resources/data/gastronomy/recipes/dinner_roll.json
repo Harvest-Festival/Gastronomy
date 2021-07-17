@@ -3,14 +3,10 @@
   "result": "husbandry:dinner_roll",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:eggs",
-      "count": 1
+      "tag": "forge:eggs"
     },
     {
-      "type": "item",
-      "tag": "forge:butter",
-      "count": 1
+      "tag": "forge:butter"
     },
     {
       "type": "fluid",

@@ -42,9 +42,9 @@ public class CookingRecipeSerializer extends ForgeRegistryEntry<IRecipeSerialize
         NonNullList<CookingRecipe.RecipeIngredient<?>> ingredientList = NonNullList.create();
         ingredients.forEach(entry -> {
             JsonObject object = entry.getAsJsonObject();
-            String type = JSONUtils.getAsString(object, "type");
+            String type = object.has("type") ? JSONUtils.getAsString(object, "type") : "item";
             String tag = JSONUtils.getAsString(object, "tag");
-            int amount = JSONUtils.getAsInt(object, "count");
+            int amount = object.has("count") ? JSONUtils.getAsInt(object, "count") : 1;
             if (type.equals("fluid"))
                 ingredientList.add(new CookingRecipe.FluidIngredient(new ResourceLocation(tag), amount));
             else if (type.equals("item"))

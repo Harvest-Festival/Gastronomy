@@ -4,14 +4,10 @@
   "dish": "penguinlib:plate",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:flour",
-      "count": 1
+      "tag": "forge:flour"
     },
     {
-      "type": "item",
-      "tag": "forge:crops/cabbage",
-      "count": 1
+      "tag": "forge:crops/cabbage"
     },
     {
       "type": "fluid",
@@ -19,9 +15,7 @@
       "count": 1000
     },
     {
-      "type": "item",
-      "tag": "forge:eggs",
-      "count": 1
+      "tag": "forge:eggs"
     }
   ]
 }

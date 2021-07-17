@@ -4,9 +4,7 @@
   "dish": "penguinlib:plate",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:bread",
-      "count": 1
+      "tag": "forge:bread"
     }
   ]
 }

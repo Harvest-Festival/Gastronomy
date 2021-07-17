@@ -8,19 +8,13 @@
       "count": 1000
     },
     {
-      "type": "item",
-      "tag": "forge:eggs",
-      "count": 1
+      "tag": "forge:eggs"
     },
     {
-      "type": "item",
-      "tag": "forge:sugar",
-      "count": 1
+      "tag": "forge:sugar"
     },
     {
-      "type": "item",
-      "tag": "forge:flour",
-      "count": 1
+      "tag": "forge:flour"
     }
   ]
 }

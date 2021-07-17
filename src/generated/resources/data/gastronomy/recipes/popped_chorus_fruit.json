@@ -3,9 +3,7 @@
   "result": "minecraft:popped_chorus_fruit",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:chorus_fruit",
-      "count": 1
+      "tag": "forge:chorus_fruit"
     }
   ]
 }

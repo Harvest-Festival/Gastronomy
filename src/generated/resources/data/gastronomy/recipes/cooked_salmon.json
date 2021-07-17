@@ -3,9 +3,7 @@
   "result": "minecraft:cooked_salmon",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:raw_fishes/salmon",
-      "count": 1
+      "tag": "forge:raw_fishes/salmon"
     }
   ]
 }

@@ -3,9 +3,7 @@
   "result": "minecraft:cooked_rabbit",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:raw_rabbit",
-      "count": 1
+      "tag": "forge:raw_rabbit"
     }
   ]
 }

@@ -3,19 +3,13 @@
   "result": "minecraft:pumpkin_pie",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:crops/pumpkin",
-      "count": 1
+      "tag": "forge:crops/pumpkin"
     },
     {
-      "type": "item",
-      "tag": "forge:sugar",
-      "count": 1
+      "tag": "forge:sugar"
     },
     {
-      "type": "item",
-      "tag": "forge:eggs",
-      "count": 1
+      "tag": "forge:eggs"
     }
   ]
 }

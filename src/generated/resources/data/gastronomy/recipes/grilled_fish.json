@@ -4,14 +4,10 @@
   "dish": "penguinlib:plate",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:raw_fishes",
-      "count": 1
+      "tag": "forge:raw_fishes"
     },
     {
-      "type": "item",
-      "tag": "forge:salt",
-      "count": 1
+      "tag": "forge:salt"
     }
   ]
 }

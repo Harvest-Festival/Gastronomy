@@ -4,9 +4,7 @@
   "dish": "penguinlib:deep_bowl",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:noodles",
-      "count": 1
+      "tag": "forge:noodles"
     },
     {
       "type": "fluid",

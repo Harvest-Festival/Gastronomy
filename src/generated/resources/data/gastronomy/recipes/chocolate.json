@@ -8,14 +8,10 @@
       "count": 1000
     },
     {
-      "type": "item",
-      "tag": "forge:crops/cocoa_beans",
-      "count": 1
+      "tag": "forge:crops/cocoa_beans"
     },
     {
-      "type": "item",
-      "tag": "forge:sugar",
-      "count": 1
+      "tag": "forge:sugar"
     }
   ]
 }

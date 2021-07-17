@@ -9,9 +9,7 @@
       "count": 1000
     },
     {
-      "type": "item",
-      "tag": "forge:riceball",
-      "count": 1
+      "tag": "forge:riceball"
     }
   ]
 }

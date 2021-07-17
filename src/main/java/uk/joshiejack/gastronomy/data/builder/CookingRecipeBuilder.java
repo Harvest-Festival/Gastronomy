@@ -84,7 +84,7 @@ public class CookingRecipeBuilder extends SimplePenguinBuilder<CookingRecipe> {
         if (dish != Items.AIR)
             json.addProperty("dish", dish.getRegistryName().toString());
         JsonArray array = new JsonArray();
-        for (RecipeIngredientBuilder builder: ingredients) {
+        for (RecipeIngredientBuilder builder : ingredients) {
             JsonObject object = new JsonObject();
             builder.serialize(object);
             array.add(object);
@@ -121,9 +121,11 @@ public class CookingRecipeBuilder extends SimplePenguinBuilder<CookingRecipe> {
         }
 
         public void serialize(JsonObject object) {
-            object.addProperty("type", type);
+            if (type.equals("fluid"))
+                object.addProperty("type", type);
             object.addProperty("tag", tag.toString());
-            object.addProperty("count", amount);
+            if (amount != 1)
+                object.addProperty("count", amount);
         }
     }
 }

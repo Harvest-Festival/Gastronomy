@@ -4,9 +4,7 @@
   "dish": "penguinlib:plate",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:crops/cabbage",
-      "count": 1
+      "tag": "forge:crops/cabbage"
     },
     {
       "type": "fluid",

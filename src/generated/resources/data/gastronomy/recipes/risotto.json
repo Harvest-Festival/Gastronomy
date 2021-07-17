@@ -4,19 +4,14 @@
   "dish": "penguinlib:deep_bowl",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:crops/tomato",
-      "count": 1
+      "tag": "forge:crops/tomato"
     },
     {
-      "type": "item",
       "tag": "forge:crops/onion",
       "count": 2
     },
     {
-      "type": "item",
-      "tag": "forge:riceball",
-      "count": 1
+      "tag": "forge:riceball"
     }
   ]
 }

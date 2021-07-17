@@ -4,14 +4,10 @@
   "dish": "penguinlib:deep_bowl",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:crops/onion",
-      "count": 1
+      "tag": "forge:crops/onion"
     },
     {
-      "type": "item",
-      "tag": "forge:butter",
-      "count": 1
+      "tag": "forge:butter"
     },
     {
       "type": "fluid",
@@ -19,14 +15,10 @@
       "count": 1000
     },
     {
-      "type": "item",
-      "tag": "forge:riceball",
-      "count": 1
+      "tag": "forge:riceball"
     },
     {
-      "type": "item",
-      "tag": "forge:flour",
-      "count": 1
+      "tag": "forge:flour"
     }
   ]
 }

@@ -3,9 +3,7 @@
   "result": "minecraft:cooked_cod",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:raw_fishes/cod",
-      "count": 1
+      "tag": "forge:raw_fishes/cod"
     }
   ]
 }

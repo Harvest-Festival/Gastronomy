@@ -3,9 +3,7 @@
   "result": "minecraft:baked_potato",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:crops/potato",
-      "count": 1
+      "tag": "forge:crops/potato"
     }
   ]
 }

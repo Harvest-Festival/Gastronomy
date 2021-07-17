@@ -4,19 +4,13 @@
   "dish": "penguinlib:deep_bowl",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:crops/cabbage",
-      "count": 1
+      "tag": "forge:crops/cabbage"
     },
     {
-      "type": "item",
-      "tag": "forge:crops/onion",
-      "count": 1
+      "tag": "forge:crops/onion"
     },
     {
-      "type": "item",
-      "tag": "forge:flour",
-      "count": 1
+      "tag": "forge:flour"
     },
     {
       "type": "fluid",

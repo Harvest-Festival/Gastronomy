@@ -4,24 +4,16 @@
   "dish": "minecraft:bowl",
   "ingredients": [
     {
-      "type": "item",
-      "tag": "forge:baked_potato",
-      "count": 1
+      "tag": "forge:baked_potato"
     },
     {
-      "type": "item",
-      "tag": "forge:crops/carrot",
-      "count": 1
+      "tag": "forge:crops/carrot"
     },
     {
-      "type": "item",
-      "tag": "forge:cooked_rabbit",
-      "count": 1
+      "tag": "forge:cooked_rabbit"
     },
     {
-      "type": "item",
-      "tag": "forge:mushrooms",
-      "count": 1
+      "tag": "forge:mushrooms"
     }
   ]
 }
