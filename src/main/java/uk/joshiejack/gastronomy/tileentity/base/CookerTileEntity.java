@@ -50,9 +50,7 @@ public abstract class CookerTileEntity extends AbstractInventoryTileEntity {
     }
 
     @OnlyIn(Dist.CLIENT)
-    public CookerItemRender createRender() {
-        return new CookerItemRender();
-    }
+    public abstract CookerItemRender createRender();
 
     @Nonnull
     public Item getDish() {
@@ -65,6 +63,10 @@ public abstract class CookerTileEntity extends AbstractInventoryTileEntity {
         return Items.AIR;
     }
 
+    public boolean isCooking() {
+        return cooking;
+    }
+
     @Override
     public int getSlotLimit(int slot) {
         return slot == RESULT_SLOT ? getMaxStackSize() : 1;
@@ -73,13 +75,13 @@ public abstract class CookerTileEntity extends AbstractInventoryTileEntity {
     @OnlyIn(Dist.CLIENT)
     private void reloadRenderers(int slot, ItemStack stack) {
         if (slot == ALL_SLOTS) {
-            if (getRenderer().offset1[0] != 0F) return;
-            IntStream.range(0, last.size()).forEach(s -> getRenderer().doRenderUpdate(level, worldPosition, s));
-            IntStream.range(0, items.get(RESULT_SLOT).getCount()).forEach(s -> getRenderer().doRenderUpdate(level, worldPosition, s));
+            if (getRenderer().initSlot()) return;
+            IntStream.range(0, last.size()).forEach(s -> getRenderer().initSlot(level, s));
+            IntStream.range(0, items.get(RESULT_SLOT).getCount()).forEach(s -> getRenderer().initSlot(level, s));
         } else if (slot == RESULT_SLOT)
-            IntStream.range(0, stack.getCount()).forEach(s -> getRenderer().doRenderUpdate(level, worldPosition, s));
+            IntStream.range(0, stack.getCount()).forEach(s -> getRenderer().initSlot(level, s));
         else
-            getRenderer().doRenderUpdate(level, worldPosition, slot);
+            getRenderer().initSlot(level, slot);
     }
 
     @Override
@@ -90,8 +92,10 @@ public abstract class CookerTileEntity extends AbstractInventoryTileEntity {
             if (level.isClientSide)
                 reloadRenderers(slot, stack);
 
-            cookTimer = 0; //Reset the timer
-            cooking = true;
+            if (slot != RESULT_SLOT) {
+                cookTimer = 0; //Reset the timer
+                cooking = true;
+            }
         }
 
         super.setItem(slot, stack);
@@ -149,6 +153,7 @@ public abstract class CookerTileEntity extends AbstractInventoryTileEntity {
                 .forEach(i -> setAndSync(i, ItemStack.EMPTY));
         cookTimer = 0;
         cooking = false;
+        setChanged();
     }
 
     @Override

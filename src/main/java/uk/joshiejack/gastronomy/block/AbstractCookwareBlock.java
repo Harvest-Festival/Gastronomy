@@ -26,7 +26,7 @@ import javax.annotation.Nonnull;
 
 public abstract class AbstractCookwareBlock extends AbstractRotatableBlock {
     public AbstractCookwareBlock(Properties properties) {
-        super(properties);
+        super(properties.noOcclusion());
         setHasInventory();
     }
 

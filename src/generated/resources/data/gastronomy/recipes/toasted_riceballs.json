@@ -1,12 +1,12 @@
 {
   "type": "gastronomy:oven",
   "result": "gastronomy:toasted_riceballs",
+  "dish": "penguinlib:plate",
   "ingredients": [
     {
       "type": "item",
       "tag": "forge:riceball",
       "count": 1
     }
-  ],
-  "dish": "penguinlib:plate"
+  ]
 }

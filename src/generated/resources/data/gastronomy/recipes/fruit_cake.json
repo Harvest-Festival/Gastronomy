@@ -1,6 +1,7 @@
 {
   "type": "gastronomy:oven",
   "result": "gastronomy:fruit_cake",
+  "dish": "penguinlib:plate",
   "ingredients": [
     {
       "type": "item",
@@ -22,6 +23,5 @@
       "tag": "gastronomy:fruit_cake_fruit",
       "count": 1
     }
-  ],
-  "dish": "penguinlib:plate"
+  ]
 }

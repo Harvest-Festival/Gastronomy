@@ -1,0 +1,12 @@
+{
+  "type": "gastronomy:frying_pan",
+  "result": "gastronomy:apple_souffle",
+  "dish": "penguinlib:mug",
+  "ingredients": [
+    {
+      "type": "item",
+      "tag": "forge:crops/apple",
+      "count": 1
+    }
+  ]
+}

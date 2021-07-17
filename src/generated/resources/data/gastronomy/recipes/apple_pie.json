@@ -1,6 +1,7 @@
 {
   "type": "gastronomy:oven",
   "result": "gastronomy:apple_pie",
+  "dish": "penguinlib:plate",
   "ingredients": [
     {
       "type": "item",
@@ -22,6 +23,5 @@
       "tag": "forge:flour",
       "count": 1
     }
-  ],
-  "dish": "penguinlib:plate"
+  ]
 }

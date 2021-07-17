@@ -1,0 +1,27 @@
+{
+  "type": "gastronomy:frying_pan",
+  "result": "gastronomy:omurice",
+  "dish": "penguinlib:deep_bowl",
+  "ingredients": [
+    {
+      "type": "item",
+      "tag": "forge:eggs",
+      "count": 1
+    },
+    {
+      "type": "fluid",
+      "tag": "forge:cooking_oil",
+      "count": 1000
+    },
+    {
+      "type": "fluid",
+      "tag": "forge:milk",
+      "count": 1000
+    },
+    {
+      "type": "item",
+      "tag": "forge:riceball",
+      "count": 1
+    }
+  ]
+}

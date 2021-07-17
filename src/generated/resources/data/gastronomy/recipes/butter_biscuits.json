@@ -1,6 +1,7 @@
 {
   "type": "gastronomy:oven",
   "result": "gastronomy:butter_biscuits",
+  "dish": "penguinlib:plate",
   "ingredients": [
     {
       "type": "item",
@@ -17,6 +18,5 @@
       "tag": "forge:flour",
       "count": 1
     }
-  ],
-  "dish": "penguinlib:plate"
+  ]
 }

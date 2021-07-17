@@ -1,0 +1,17 @@
+{
+  "type": "gastronomy:frying_pan",
+  "result": "horticulture:stir_fry",
+  "dish": "penguinlib:plate",
+  "ingredients": [
+    {
+      "type": "item",
+      "tag": "forge:crops/cabbage",
+      "count": 1
+    },
+    {
+      "type": "fluid",
+      "tag": "forge:cooking_oil",
+      "count": 1000
+    }
+  ]
+}

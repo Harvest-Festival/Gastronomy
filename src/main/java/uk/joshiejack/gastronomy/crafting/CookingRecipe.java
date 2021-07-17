@@ -20,9 +20,7 @@ import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import uk.joshiejack.penguinlib.item.crafting.AbstractSimplePenguinRecipe;
 
 import javax.annotation.Nonnull;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -140,14 +138,16 @@ public class CookingRecipe extends AbstractSimplePenguinRecipe<ItemStack> {
     }
 
     public static class SolidIngredient extends RecipeIngredient<Item> {
-        public SolidIngredient(ITag.INamedTag<Item> tag, int amount) {
-            super(tag, amount);
+        private static final Map<ResourceLocation, ITag.INamedTag<Item>> cache = new HashMap<>();
+
+        public SolidIngredient(ResourceLocation tag, int amount) {
+            super(cache.computeIfAbsent(tag, ItemTags::createOptional), amount);
         }
 
         public static Stream<SolidIngredient> toIngredients(List<ItemStack> items) {
             List<SolidIngredient> ingredients = new ArrayList<>();
             items.forEach(stack -> stack.getItem().getTags()
-                    .forEach(tag -> ingredients.add(new SolidIngredient(ItemTags.createOptional(tag), stack.getCount()))));
+                    .forEach(tag -> ingredients.add(new SolidIngredient(tag, stack.getCount()))));
             return ingredients.stream();
         }
 
@@ -157,14 +157,16 @@ public class CookingRecipe extends AbstractSimplePenguinRecipe<ItemStack> {
     }
 
     public static class FluidIngredient extends RecipeIngredient<Fluid> {
-        public FluidIngredient(ITag.INamedTag<Fluid> tag, int amount) {
-            super(tag, amount);
+        private static final Map<ResourceLocation, ITag.INamedTag<Fluid>> cache = new HashMap<>();
+
+        public FluidIngredient(ResourceLocation tag, int amount) {
+            super(cache.computeIfAbsent(tag, FluidTags::createOptional), amount);
         }
 
         public static Stream<FluidIngredient> toIngredients(List<FluidStack> fluids) {
             List<FluidIngredient> ingredients = new ArrayList<>();
             fluids.forEach(stack -> stack.getFluid().getTags()
-                    .forEach(tag -> ingredients.add(new FluidIngredient(FluidTags.createOptional(tag), stack.getAmount()))));
+                    .forEach(tag -> ingredients.add(new FluidIngredient(tag, stack.getAmount()))));
             return ingredients.stream();
         }
 

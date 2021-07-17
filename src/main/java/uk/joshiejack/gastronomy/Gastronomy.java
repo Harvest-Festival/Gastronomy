@@ -7,6 +7,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -27,7 +28,6 @@ import uk.joshiejack.gastronomy.fluid.GastronomyFluids;
 import uk.joshiejack.gastronomy.inventory.CookbookContainer;
 import uk.joshiejack.gastronomy.item.GastronomyItems;
 import uk.joshiejack.gastronomy.tileentity.GastronomyTileEntities;
-import uk.joshiejack.penguinlib.client.PenguinClientConfig;
 import uk.joshiejack.penguinlib.inventory.AbstractBookContainer;
 
 import javax.annotation.Nonnull;
@@ -56,6 +56,7 @@ public class Gastronomy {
         GastronomySounds.SOUNDS.register(eventBus);
         GastronomyTileEntities.TILE_ENTITIES.register(eventBus);
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, GastronomyServerConfig.create());
+        ForgeMod.enableMilkFluid();
     }
 
     @SubscribeEvent
@@ -68,6 +69,7 @@ public class Gastronomy {
             generator.addProvider(new GastronomyItemTags(generator, blockTags, event.getExistingFileHelper()));
             generator.addProvider(new GastronomyRecipes(generator));
             generator.addProvider(new GastronomyDatabase(generator));
+            generator.addProvider(new GastronomyFluidTags(generator, event.getExistingFileHelper()));
         }
 
         if (event.includeClient()) {

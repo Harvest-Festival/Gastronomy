@@ -16,12 +16,17 @@ import static net.minecraftforge.common.Tags.Items.CROPS_POTATO;
 import static net.minecraftforge.common.Tags.Items.EGGS;
 import static uk.joshiejack.gastronomy.data.GastronomyItemTags.*;
 import static uk.joshiejack.gastronomy.data.GastronomyItemTags.CHOCOLATE;
+import static uk.joshiejack.gastronomy.data.GastronomyItemTags.CURRY_POWDER;
 import static uk.joshiejack.gastronomy.data.GastronomyItemTags.FLOUR;
+import static uk.joshiejack.gastronomy.data.GastronomyItemTags.NOODLES;
 import static uk.joshiejack.gastronomy.data.GastronomyItemTags.RICEBALL;
+import static uk.joshiejack.gastronomy.data.GastronomyItemTags.SALT;
 import static uk.joshiejack.gastronomy.data.builder.CookingRecipeBuilder.RecipeIngredientBuilder.fluid;
 import static uk.joshiejack.gastronomy.data.builder.CookingRecipeBuilder.RecipeIngredientBuilder.item;
+import static uk.joshiejack.gastronomy.data.builder.CookingRecipeBuilder.fryingPan;
 import static uk.joshiejack.gastronomy.data.builder.CookingRecipeBuilder.oven;
 import static uk.joshiejack.gastronomy.item.GastronomyItems.*;
+import static uk.joshiejack.penguinlib.item.PenguinItems.*;
 import static uk.joshiejack.penguinlib.util.PenguinTags.*;
 
 
@@ -30,7 +35,7 @@ public class GastronomyRecipes extends RecipeProvider {
         super(generator);
     }
 
-    private ResourceLocation rl (String name) {
+    private ResourceLocation rl(String name) {
         return new ResourceLocation(Gastronomy.MODID, name);
     }
 
@@ -50,16 +55,36 @@ public class GastronomyRecipes extends RecipeProvider {
         oven(Items.PUMPKIN_PIE, 1, item(CROPS_PUMPKIN), item(SUGAR), item(EGGS)).save(consumer, rl("pumpkin_pie"));
         oven(Items.POPPED_CHORUS_FRUIT, 1, item(CHORUS_FRUIT)).save(consumer, rl("popped_chorus_fruit"));
         oven(Items.DRIED_KELP, 1, item(KELP));
-        oven(FRUIT_CAKE.get(), 1, item(EGGS), item(FLOUR), item(BUTTER), item(FRUIT_CAKE_FRUIT)).dish(PenguinItems.PLATE.get()).save(consumer, rl("fruit_cake"));
-        oven(CHOCOLATE_CAKE.get(), 1, item(EGGS), item(FLOUR), item(BUTTER), item(CHOCOLATE)).dish(PenguinItems.PLATE.get()).save(consumer, rl("chocolate_cake"));
-        oven(BUTTER_BISCUITS.get(), 1, item(EGGS), item(BUTTER), item(FLOUR)).dish(PenguinItems.PLATE.get()).save(consumer, rl("butter_biscuits"));
+        oven(FRUIT_CAKE.get(), 1, item(EGGS), item(FLOUR), item(BUTTER), item(FRUIT_CAKE_FRUIT)).dish(PLATE.get()).save(consumer, rl("fruit_cake"));
+        oven(CHOCOLATE_CAKE.get(), 1, item(EGGS), item(FLOUR), item(BUTTER), item(CHOCOLATE)).dish(PLATE.get()).save(consumer, rl("chocolate_cake"));
+        oven(BUTTER_BISCUITS.get(), 1, item(EGGS), item(BUTTER), item(FLOUR)).dish(PLATE.get()).save(consumer, rl("butter_biscuits"));
         oven(DORIA.get(), 1, item(ONION), item(BUTTER), fluid(MILK), item(RICEBALL), item(FLOUR)).dish(PenguinItems.DEEP_BOWL.get()).save(consumer, rl("doria"));
-        oven(APPLE_PIE.get(), 1, item(CROPS_APPLE), item(EGGS), item(BUTTER), item(FLOUR)).dish(PenguinItems.PLATE.get()).save(consumer, rl("apple_pie"));
-        oven(TOASTED_RICEBALLS.get(), 1, item(RICEBALL)).dish(PenguinItems.PLATE.get()).save(consumer, rl("toasted_riceballs"));
-        oven(SWEET_POTATOES.get(), 1, item(SWEET_POTATO), item(BUTTER), item(EGGS)).dish(PenguinItems.PLATE.get()).save(consumer, rl("sweet_potatoes"));
-        oven(TOAST.get(), 1, item(BREAD)).dish(PenguinItems.PLATE.get()).save(consumer, rl("toast"));
-        oven(new ResourceLocation("horticulture", "baked_corn"), 1, item(CORN)).dish(PenguinItems.PLATE.get()).save(consumer, rl("baked_corn"));
+        oven(APPLE_PIE.get(), 1, item(CROPS_APPLE), item(EGGS), item(BUTTER), item(FLOUR)).dish(PLATE.get()).save(consumer, rl("apple_pie"));
+        oven(TOASTED_RICEBALLS.get(), 1, item(RICEBALL)).dish(PLATE.get()).save(consumer, rl("toasted_riceballs"));
+        oven(SWEET_POTATOES.get(), 1, item(SWEET_POTATO), item(BUTTER), item(EGGS)).dish(PLATE.get()).save(consumer, rl("sweet_potatoes"));
+        oven(TOAST.get(), 1, item(BREAD)).dish(PLATE.get()).save(consumer, rl("toast"));
+        oven(new ResourceLocation("horticulture", "baked_corn"), 1, item(CORN)).dish(PLATE.get()).save(consumer, rl("baked_corn"));
         oven(new ResourceLocation("husbandry", "dinner_roll"), 1, item(EGGS), item(BUTTER), fluid(MILK)).save(consumer, rl("dinner_roll"));
+        fryingPan(SAVOURY_PANCAKE.get(), 1, item(FLOUR), item(CABBAGE), fluid(GastronomyFluidTags.COOKING_OIL), item(EGGS)).dish(PLATE.get()).save(consumer, rl("savoury_pancake"));
+        fryingPan(FRENCH_FRIES.get(), 1, item(CROPS_POTATO), fluid(GastronomyFluidTags.COOKING_OIL)).dish(DEEP_BOWL.get()).save(consumer, rl("french_fries"));
+        fryingPan(POPCORN.get(), 1, item(CORN)).dish(DEEP_BOWL.get()).save(consumer, rl("popcorn"));
+        fryingPan(new ResourceLocation("horticulture", "cornflakes"), 1, item(CORN), fluid(MILK)).dish(DEEP_BOWL.get()).save(consumer, rl("cornflakes"));
+        fryingPan(new ResourceLocation("horticulture", "happy_eggplant"), 1, item(EGGPLANT)).dish(PLATE.get()).save(consumer, rl("happy_eggplant"));
+        fryingPan(SCRAMBLED_EGG.get(), 1, item(EGGS), fluid(GastronomyFluidTags.COOKING_OIL)).dish(DEEP_BOWL.get()).save(consumer, rl("scrambled_egg"));
+        fryingPan(OMELETTE.get(), 1, item(EGGS), fluid(GastronomyFluidTags.COOKING_OIL), fluid(MILK)).dish(PLATE.get()).save(consumer, rl("omelette"));
+        fryingPan(OMURICE.get(), 1, item(EGGS), fluid(GastronomyFluidTags.COOKING_OIL), fluid(MILK), item(RICEBALL)).dish(DEEP_BOWL.get()).save(consumer, rl("omurice"));
+        fryingPan(FRENCH_TOAST.get(), 1, item(EGGS), item(BREAD), fluid(GastronomyFluidTags.COOKING_OIL), item(SUGAR)).dish(PLATE.get()).save(consumer, rl("french_toast"));
+        fryingPan(DOUGHNUT.get(), 1, item(EGGS), fluid(MILK), item(BUTTER), item(FLOUR), fluid(GastronomyFluidTags.COOKING_OIL)).dish(PLATE.get()).save(consumer, rl("doughnut"));
+        fryingPan(GRILLED_FISH.get(), 1, item(RAW_FISHES), item(SALT)).dish(PLATE.get()).save(consumer, rl("grilled_fish"));
+        fryingPan(PANCAKE.get(), 1, item(EGGS), fluid(MILK), item(FLOUR), fluid(GastronomyFluidTags.COOKING_OIL)).dish(PLATE.get()).save(consumer, rl("pancake"));
+        fryingPan(POTSTICKER.get(), 1,  item(CABBAGE), item(ONION), item(FLOUR), fluid(GastronomyFluidTags.COOKING_OIL)).dish(PLATE.get()).save(consumer, rl("potsticker"));
+        fryingPan(RISOTTO.get(), 1, item(TOMATO), item(ONION, 2), item(RICEBALL)).dish(DEEP_BOWL.get()).save(consumer, rl("risotto"));
+        fryingPan(new ResourceLocation("horticulture", "stir_fry"), 1, item(CABBAGE), fluid(GastronomyFluidTags.COOKING_OIL)).dish(PLATE.get()).save(consumer, rl("stir_fry"));
+        fryingPan(FRIED_RICE.get(), 1, item(RICEBALL), fluid(GastronomyFluidTags.COOKING_OIL), item(EGGS)).dish(DEEP_BOWL.get()).save(consumer, rl("fried_rice"));
+        fryingPan(CURRY_BREAD.get(), 1, item(BREAD), item(CURRY_POWDER), fluid(GastronomyFluidTags.COOKING_OIL)).save(consumer, rl("curry_bread"));
+        fryingPan(THICK_FRIED_NOODLES.get(), 1, item(NOODLES), fluid(GastronomyFluidTags.COOKING_OIL)).dish(DEEP_BOWL.get()).save(consumer, rl("thick_fried_noodles"));
+        fryingPan(TEMPURA.get(), 1, item(EGGS), item(FLOUR), fluid(GastronomyFluidTags.COOKING_OIL)).dish(DEEP_BOWL.get()).save(consumer, rl("tempura"));
+        fryingPan(APPLE_SOUFFLE.get(), 1, item(CROPS_APPLE)).dish(MUG.get()).save(consumer, rl("apple_souffle"));
     }
 
 //    @SuppressWarnings("ConstantConditions")

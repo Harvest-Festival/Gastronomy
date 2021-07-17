@@ -1,0 +1,22 @@
+{
+  "type": "gastronomy:frying_pan",
+  "result": "gastronomy:omelette",
+  "dish": "penguinlib:plate",
+  "ingredients": [
+    {
+      "type": "item",
+      "tag": "forge:eggs",
+      "count": 1
+    },
+    {
+      "type": "fluid",
+      "tag": "forge:cooking_oil",
+      "count": 1000
+    },
+    {
+      "type": "fluid",
+      "tag": "forge:milk",
+      "count": 1000
+    }
+  ]
+}

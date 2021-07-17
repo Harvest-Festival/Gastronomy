@@ -53,6 +53,10 @@ public class CookingRecipeBuilder extends SimplePenguinBuilder<CookingRecipe> {
         return new CookingRecipeBuilder(GastronomyRegistries.POT_SERIALIZER.get(), output, amount, ingredients);
     }
 
+    public static CookingRecipeBuilder fryingPan(ResourceLocation output, int amount, RecipeIngredientBuilder... ingredients) {
+        return new CookingRecipeBuilder(GastronomyRegistries.FRYING_PAN_SERIALIZER.get(), output, amount, ingredients);
+    }
+
     public static CookingRecipeBuilder fryingPan(Item output, int amount, RecipeIngredientBuilder... ingredients) {
         return new CookingRecipeBuilder(GastronomyRegistries.FRYING_PAN_SERIALIZER.get(), output, amount, ingredients);
     }

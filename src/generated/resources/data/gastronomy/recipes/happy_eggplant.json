@@ -1,0 +1,12 @@
+{
+  "type": "gastronomy:frying_pan",
+  "result": "horticulture:happy_eggplant",
+  "dish": "penguinlib:plate",
+  "ingredients": [
+    {
+      "type": "item",
+      "tag": "forge:crops/eggplant",
+      "count": 1
+    }
+  ]
+}

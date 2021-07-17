@@ -1,0 +1,17 @@
+{
+  "type": "gastronomy:frying_pan",
+  "result": "horticulture:cornflakes",
+  "dish": "penguinlib:deep_bowl",
+  "ingredients": [
+    {
+      "type": "item",
+      "tag": "forge:crops/corn",
+      "count": 1
+    },
+    {
+      "type": "fluid",
+      "tag": "forge:milk",
+      "count": 1000
+    }
+  ]
+}

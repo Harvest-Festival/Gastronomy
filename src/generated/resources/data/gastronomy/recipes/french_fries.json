@@ -1,0 +1,17 @@
+{
+  "type": "gastronomy:frying_pan",
+  "result": "gastronomy:french_fries",
+  "dish": "penguinlib:deep_bowl",
+  "ingredients": [
+    {
+      "type": "item",
+      "tag": "forge:crops/potato",
+      "count": 1
+    },
+    {
+      "type": "fluid",
+      "tag": "forge:cooking_oil",
+      "count": 1000
+    }
+  ]
+}

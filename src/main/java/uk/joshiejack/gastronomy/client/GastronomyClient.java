@@ -14,7 +14,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import uk.joshiejack.gastronomy.Gastronomy;
 import uk.joshiejack.gastronomy.block.GastronomyBlocks;
+import uk.joshiejack.gastronomy.client.renderer.FryingPanTileEntityRenderer;
 import uk.joshiejack.gastronomy.client.renderer.OvenTileEntityRenderer;
+import uk.joshiejack.gastronomy.client.renderer.PotTileEntityRenderer;
 import uk.joshiejack.gastronomy.tileentity.GastronomyTileEntities;
 
 @OnlyIn(Dist.CLIENT)
@@ -23,6 +25,8 @@ public class GastronomyClient {
     @SubscribeEvent
     public static void registerModels(ModelRegistryEvent event) {
         ClientRegistry.bindTileEntityRenderer(GastronomyTileEntities.OVEN.get(), OvenTileEntityRenderer::new);
+        ClientRegistry.bindTileEntityRenderer(GastronomyTileEntities.POT.get(), PotTileEntityRenderer::new);
+        ClientRegistry.bindTileEntityRenderer(GastronomyTileEntities.FRYING_PAN.get(), FryingPanTileEntityRenderer::new);
     }
 
     @SubscribeEvent
@@ -35,7 +39,7 @@ public class GastronomyClient {
     public static void onClientSetupEvent(FMLClientSetupEvent event) {
         event.enqueueWork(() -> GastronomyBlocks.BLOCKS.getEntries().stream()
                 .map(RegistryObject::get)
-                .filter(block -> block != GastronomyBlocks.OVEN.get())
+                //.filter(block -> !(block instanceof AbstractCookwareBlock))
                 .forEach(block -> RenderTypeLookup.setRenderLayer(block, RenderType.cutout())));
     }
 }

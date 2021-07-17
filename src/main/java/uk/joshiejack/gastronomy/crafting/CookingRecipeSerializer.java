@@ -10,8 +10,6 @@ import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.item.crafting.ShapedRecipe;
 import net.minecraft.network.PacketBuffer;
-import net.minecraft.tags.FluidTags;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.util.JSONUtils;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
@@ -48,9 +46,9 @@ public class CookingRecipeSerializer extends ForgeRegistryEntry<IRecipeSerialize
             String tag = JSONUtils.getAsString(object, "tag");
             int amount = JSONUtils.getAsInt(object, "count");
             if (type.equals("fluid"))
-                ingredientList.add(new CookingRecipe.FluidIngredient(FluidTags.createOptional(new ResourceLocation(tag)), amount));
+                ingredientList.add(new CookingRecipe.FluidIngredient(new ResourceLocation(tag), amount));
             else if (type.equals("item"))
-                ingredientList.add(new CookingRecipe.SolidIngredient(ItemTags.createOptional(new ResourceLocation(tag)), amount));
+                ingredientList.add(new CookingRecipe.SolidIngredient(new ResourceLocation(tag), amount));
             else
                 throw new JsonSyntaxException("Invalid type used for a recipe ingredient, expected fluid or item");
         });
@@ -69,9 +67,9 @@ public class CookingRecipeSerializer extends ForgeRegistryEntry<IRecipeSerialize
             ResourceLocation tag = pb.readResourceLocation();
             int amount = pb.readVarInt();
             if (isItem)
-                ingredientList.add(new CookingRecipe.SolidIngredient(ItemTags.createOptional(tag), amount));
+                ingredientList.add(new CookingRecipe.SolidIngredient(tag, amount));
             else
-                ingredientList.add(new CookingRecipe.FluidIngredient(FluidTags.createOptional(tag), amount));
+                ingredientList.add(new CookingRecipe.FluidIngredient(tag, amount));
         }
 
         Item dish = pb.readRegistryIdSafe(Item.class);

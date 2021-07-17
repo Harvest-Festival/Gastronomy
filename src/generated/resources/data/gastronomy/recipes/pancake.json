@@ -1,0 +1,27 @@
+{
+  "type": "gastronomy:frying_pan",
+  "result": "gastronomy:pancake",
+  "dish": "penguinlib:plate",
+  "ingredients": [
+    {
+      "type": "item",
+      "tag": "forge:eggs",
+      "count": 1
+    },
+    {
+      "type": "fluid",
+      "tag": "forge:milk",
+      "count": 1000
+    },
+    {
+      "type": "item",
+      "tag": "forge:flour",
+      "count": 1
+    },
+    {
+      "type": "fluid",
+      "tag": "forge:cooking_oil",
+      "count": 1000
+    }
+  ]
+}

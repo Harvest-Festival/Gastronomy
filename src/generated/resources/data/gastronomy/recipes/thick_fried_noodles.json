@@ -1,0 +1,17 @@
+{
+  "type": "gastronomy:frying_pan",
+  "result": "gastronomy:thick_fried_noodles",
+  "dish": "penguinlib:deep_bowl",
+  "ingredients": [
+    {
+      "type": "item",
+      "tag": "forge:noodles",
+      "count": 1
+    },
+    {
+      "type": "fluid",
+      "tag": "forge:cooking_oil",
+      "count": 1000
+    }
+  ]
+}

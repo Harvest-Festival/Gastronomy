@@ -2,8 +2,15 @@ package uk.joshiejack.gastronomy.tileentity;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.ITickableTileEntity;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.util.Constants;
 import uk.joshiejack.gastronomy.GastronomySounds;
+import uk.joshiejack.gastronomy.block.OvenBlock;
+import uk.joshiejack.gastronomy.client.renderer.CookerItemRender;
 import uk.joshiejack.gastronomy.cooking.Appliance;
 import uk.joshiejack.gastronomy.tileentity.base.CookerTileEntity;
 import uk.joshiejack.gastronomy.tileentity.base.TileCookingHeatable;
@@ -17,15 +24,44 @@ public class OvenTileEntity extends CookerTileEntity implements ITickableTileEnt
     private boolean animating;
     private boolean opening = true;
     private TileCookingHeatable heatable;
+    private boolean init;
 
     public OvenTileEntity() {
         super(Appliance.OVEN, 100, GastronomyTileEntities.OVEN.get());
     }
 
+    @OnlyIn(Dist.CLIENT)
+    public CookerItemRender createRender() {
+        return new CookerItemRender() {
+            @Override
+            public void initSlot(World world, int slot) {
+                rotation[slot] = world.random.nextFloat() * 360.0F;
+                offsetX[slot] = (0.5F - world.random.nextFloat()) * 1.35F;
+                offsetZ[slot] = (0.5F - world.random.nextFloat()) * 1.35F;
+                offsetY[slot] = (world.random.nextFloat() * 0.05F);
+            }
+        };
+    }
+
     @Override
     public void tick() {
-        if (heatable != null)
+        if (heatable != null) {
             heatable.activate();
+            if (!level.isClientSide) {
+                boolean lit = heatable.isCooking();
+                boolean isLit = getBlockState().getValue(OvenBlock.LIT);
+                if (lit != isLit) {
+                    level.setBlock(worldPosition, getBlockState().setValue(OvenBlock.LIT, heatable.isCooking()), Constants.BlockFlags.BLOCK_UPDATE);
+                    setChanged();
+                }
+            }
+        } else if (!init || level.getDayTime() %100 == 0) {
+            init = true;
+            TileEntity tile = level.getBlockEntity(worldPosition.above());
+            if (tile instanceof TileCookingHeatable)
+                heatable((TileCookingHeatable) tile);
+        }
+
         activate();
 
         //Animate the door up and down
@@ -39,8 +75,7 @@ public class OvenTileEntity extends CookerTileEntity implements ITickableTileEnt
                     lidAngle -= f1;
                 }
 
-                if (lidAngle >= 1.5F) {
-                    lidAngle = 1.5F;
+                if (lidAngle >= 1F) {
                     opening = false;
                 }
 
@@ -61,7 +96,7 @@ public class OvenTileEntity extends CookerTileEntity implements ITickableTileEnt
 
     @Override
     protected void onCooking() {
-        if (cookTimer % 20 == 0)
+        if (cookTimer % 100 == 0)
             level.playSound(null, worldPosition.getX(), worldPosition.getY() + 0.5D, worldPosition.getZ(), GastronomySounds.OVEN.get(),
                     SoundCategory.BLOCKS, 2F, level.random.nextFloat() * 0.1F + 0.9F);
     }
@@ -88,8 +123,6 @@ public class OvenTileEntity extends CookerTileEntity implements ITickableTileEnt
 
     @Override
     public boolean open() {
-        cooking = true;
-        cookTimer = 0;
         level.playSound(null, worldPosition.getX(), worldPosition.getY() + 0.5D, worldPosition.getZ(), GastronomySounds.OVEN_DOOR.get(), SoundCategory.BLOCKS, 2F, level.random.nextFloat() * 0.1F + 0.9F);
         if (level.isClientSide) {
             animating = true;

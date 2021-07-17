@@ -14,7 +14,6 @@ import static uk.joshiejack.gastronomy.Gastronomy.MODID;
 public class GastronomyFluids {
     public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, MODID);
     public static final RegistryObject<ForgeFlowingFluid> COOKING_OIL = FLUIDS.register("cooking_oil", () -> new ForgeFlowingFluid.Source(createCookingOilProperties()));
-    public static final RegistryObject<ForgeFlowingFluid> MILK = FLUIDS.register("milk", () -> new ForgeFlowingFluid.Source(createMilkProperties()));
     public static final RegistryObject<ForgeFlowingFluid> WINE = FLUIDS.register("wine", () -> new ForgeFlowingFluid.Source(createWineProperties()));
 
     private static ForgeFlowingFluid.Properties createCookingOilProperties() {
@@ -22,13 +21,6 @@ public class GastronomyFluids {
         return new ForgeFlowingFluid.Properties(COOKING_OIL, COOKING_OIL,
                 FluidAttributes.builder(texture, texture)
                         .overlay(new ResourceLocation("block/water_overlay")).density(920).temperature(285));
-    }
-
-    private static ForgeFlowingFluid.Properties createMilkProperties() {
-        ResourceLocation texture = new ResourceLocation(MODID, "block/fluids/milk");
-        return new ForgeFlowingFluid.Properties(MILK, MILK,
-                FluidAttributes.builder(texture, texture)
-                        .overlay(new ResourceLocation("block/water_overlay")).density(1030).temperature(278));
     }
 
     private static ForgeFlowingFluid.Properties createWineProperties() {

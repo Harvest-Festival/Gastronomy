@@ -1,6 +1,7 @@
 {
   "type": "gastronomy:oven",
   "result": "gastronomy:sweet_potatoes",
+  "dish": "penguinlib:plate",
   "ingredients": [
     {
       "type": "item",
@@ -17,6 +18,5 @@
       "tag": "forge:eggs",
       "count": 1
     }
-  ],
-  "dish": "penguinlib:plate"
+  ]
 }
