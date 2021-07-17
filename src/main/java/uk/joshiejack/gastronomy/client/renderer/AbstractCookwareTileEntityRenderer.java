@@ -39,30 +39,6 @@ public abstract class AbstractCookwareTileEntityRenderer<T extends CookerTileEnt
     }
 
     /*
-    @Override
-    public void translateItem(boolean isBlock, float position, float rotation, float offset1, float offset2) {
-        GlStateManager.translate(0.5F, 0.11F, 0.5F);
-        GlStateManager.scale(0.4F, 0.4F, 0.4F);
-        if (!isBlock) {
-            GlStateManager.rotate(-90, 1F, 0F, 0F);
-            GlStateManager.rotate(rotation, 0F, 0F, 1F);
-            GlStateManager.translate(offset1, offset2, position);
-        } else {
-            GlStateManager.rotate(90, 1F, 0F, 0F);
-            GlStateManager.translate(offset1 * 1.4F, 0.8F - offset2 * 2.5F, position - 1F);
-        }
-    }
-
-    public void translateResult(T cookware, boolean isBlock) {
-        GlStateManager.translate(0.5F, 0.32F, 0.5F);
-        GlStateManager.scale(0.4F, 0.4F, 0.4F);
-        if (!isBlock) {
-            GlStateManager.rotate(-90, 1F, 0F, 0F);
-        } else {
-            GlStateManager.rotate(90, 0F, 1F, 0F);
-        }
-    }
-
     protected void renderFluid(int id, ResourceLocation fluid) {}
 
     @Override

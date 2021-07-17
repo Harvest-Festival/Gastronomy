@@ -6,25 +6,26 @@ import net.minecraft.data.RecipeProvider;
 import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
 import uk.joshiejack.gastronomy.Gastronomy;
+import uk.joshiejack.gastronomy.item.GastronomyItems;
 import uk.joshiejack.penguinlib.item.PenguinItems;
 
 import javax.annotation.Nonnull;
 import java.util.function.Consumer;
 
 import static net.minecraftforge.common.Tags.Fluids.MILK;
-import static net.minecraftforge.common.Tags.Items.CROPS_POTATO;
-import static net.minecraftforge.common.Tags.Items.EGGS;
-import static uk.joshiejack.gastronomy.data.GastronomyItemTags.*;
+import static net.minecraftforge.common.Tags.Items.*;
+import static uk.joshiejack.gastronomy.data.GastronomyItemTags.BAMBOO_SHOOTS;
 import static uk.joshiejack.gastronomy.data.GastronomyItemTags.CHOCOLATE;
 import static uk.joshiejack.gastronomy.data.GastronomyItemTags.CURRY_POWDER;
 import static uk.joshiejack.gastronomy.data.GastronomyItemTags.FLOUR;
 import static uk.joshiejack.gastronomy.data.GastronomyItemTags.NOODLES;
 import static uk.joshiejack.gastronomy.data.GastronomyItemTags.RICEBALL;
 import static uk.joshiejack.gastronomy.data.GastronomyItemTags.SALT;
+import static uk.joshiejack.gastronomy.data.GastronomyItemTags.TEMPURA;
+import static uk.joshiejack.gastronomy.data.GastronomyItemTags.*;
 import static uk.joshiejack.gastronomy.data.builder.CookingRecipeBuilder.RecipeIngredientBuilder.fluid;
 import static uk.joshiejack.gastronomy.data.builder.CookingRecipeBuilder.RecipeIngredientBuilder.item;
-import static uk.joshiejack.gastronomy.data.builder.CookingRecipeBuilder.fryingPan;
-import static uk.joshiejack.gastronomy.data.builder.CookingRecipeBuilder.oven;
+import static uk.joshiejack.gastronomy.data.builder.CookingRecipeBuilder.*;
 import static uk.joshiejack.gastronomy.item.GastronomyItems.*;
 import static uk.joshiejack.penguinlib.item.PenguinItems.*;
 import static uk.joshiejack.penguinlib.util.PenguinTags.*;
@@ -83,8 +84,30 @@ public class GastronomyRecipes extends RecipeProvider {
         fryingPan(FRIED_RICE.get(), 1, item(RICEBALL), fluid(GastronomyFluidTags.COOKING_OIL), item(EGGS)).dish(DEEP_BOWL.get()).save(consumer, rl("fried_rice"));
         fryingPan(CURRY_BREAD.get(), 1, item(BREAD), item(CURRY_POWDER), fluid(GastronomyFluidTags.COOKING_OIL)).save(consumer, rl("curry_bread"));
         fryingPan(THICK_FRIED_NOODLES.get(), 1, item(NOODLES), fluid(GastronomyFluidTags.COOKING_OIL)).dish(DEEP_BOWL.get()).save(consumer, rl("thick_fried_noodles"));
-        fryingPan(TEMPURA.get(), 1, item(EGGS), item(FLOUR), fluid(GastronomyFluidTags.COOKING_OIL)).dish(DEEP_BOWL.get()).save(consumer, rl("tempura"));
+        fryingPan(GastronomyItems.TEMPURA.get(), 1, item(EGGS), item(FLOUR), fluid(GastronomyFluidTags.COOKING_OIL)).dish(DEEP_BOWL.get()).save(consumer, rl("tempura"));
         fryingPan(APPLE_SOUFFLE.get(), 1, item(CROPS_APPLE)).dish(MUG.get()).save(consumer, rl("apple_souffle"));
+        pot(Items.RABBIT_STEW, 1, item(BAKED_POTATO), item(CROPS_CARROT), item(COOKED_RABBIT), item(MUSHROOMS)).dish(Items.BOWL).save(consumer, rl("rabbit_stew"));
+        pot(Items.MUSHROOM_STEW, 1, item(BROWN_MUSHROOMS), item(RED_MUSHROOMS)).dish(Items.BOWL).save(consumer, rl("mushroom_stew"));
+        pot(HOT_CHOCOLATE.get(), 1, fluid(MILK), item(CHOCOLATE)).dish(MUG.get()).save(consumer, rl("hot_chocolate"));
+        pot(DUMPLINGS.get(), 1, item(CABBAGE), item(ONION), item(FLOUR), fluid(GastronomyFluidTags.COOKING_OIL)).dish(DEEP_BOWL.get()).save(consumer, rl("dumplings"));
+        pot(EGG_OVER_RICE.get(), 1, item(EGGS), item(RICEBALL)).dish(DEEP_BOWL.get()).save(consumer, rl("egg_over_rice"));
+        pot(GastronomyItems.NOODLES.get(), 1, item(FLOUR)).dish(DEEP_BOWL.get()).save(consumer, rl("noodles"));
+        pot(TEMPURA_NOODLES.get(), 1, item(TEMPURA), item(NOODLES)).dish(DEEP_BOWL.get()).save(consumer, rl("tempura_noodles"));
+        pot(PORRIDGE.get(), 1, fluid(MILK), item(RICEBALL)).dish(DEEP_BOWL.get()).save(consumer, rl("porridge"));
+        pot(TEMPURA_RICE.get(), 1, item(TEMPURA), item(RICEBALL)).dish(DEEP_BOWL.get()).save(consumer, rl("tempura_rice"));
+        pot(HERB_SOUP.get(), 1, item(HERBS), item(ONION)).dish(DEEP_BOWL.get()).save(consumer, rl("herb_soup"));
+        pot(RICE_SOUP.get(), 1, item(RICEBALL)).dish(DEEP_BOWL.get()).save(consumer, rl("rice_soup"));
+        pot(VEGETABLE_STEW.get(), 1, fluid(MILK), item(FLOUR), item(STEW_VEGETABLE)).dish(DEEP_BOWL.get()).save(consumer, rl("vegetable_stew"));
+        pot(new ResourceLocation("piscary", "fish_stew"), 1, item(RAW_FISHES)).dish(DEEP_BOWL.get()).save(consumer, rl("fish_stew"));
+        pot(new ResourceLocation("horticulture", "boiled_spinach"), 1, item(SPINACH)).dish(DEEP_BOWL.get()).save(consumer, rl("boiled_spinach"));
+        pot(new ResourceLocation("horticulture", "candied_potato"), 1, item(SWEET_POTATO)).dish(DEEP_BOWL.get()).save(consumer, rl("candied_potato"));
+        pot(new ResourceLocation("horticulture", "pumpkin_stew"), 1, item(CROPS_PUMPKIN)).dish(DEEP_BOWL.get()).save(consumer, rl("pumpkin_stew"));
+        pot(new ResourceLocation("husbandry", "hot_milk"), 1, fluid(MILK)).dish(MUG.get()).save(consumer, rl("hot_milk"));
+        pot(new ResourceLocation("husbandry", "boiled_egg"), 1, item(EGGS)).save(consumer, rl("boiled_egg"));
+        pot(CURRIED_RICE.get(), 1, item(RICEBALL), item(CURRY_POWDER)).dish(DEEP_BOWL.get()).save(consumer, rl("curried_rice"));
+        pot(CURRY_NOODLES.get(), 1, item(NOODLES), item(CURRY_POWDER)).dish(DEEP_BOWL.get()).save(consumer, rl("curry_noodles"));
+        pot(GastronomyItems.CHOCOLATE.get(), 1, fluid(MILK), item(COCOA_BEANS), item(SUGAR)).save(consumer, rl("chocolate"));
+        pot(MOUNTAIN_STEW.get(), 1, item(BAMBOO_SHOOTS), item(CROPS_CARROT), item(BROWN_MUSHROOMS)).dish(DEEP_BOWL.get()).save(consumer, rl("mountain_stew"));
     }
 
 //    @SuppressWarnings("ConstantConditions")

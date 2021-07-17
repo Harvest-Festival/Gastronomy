@@ -1,0 +1,12 @@
+{
+  "type": "gastronomy:pot",
+  "result": "piscary:fish_stew",
+  "dish": "penguinlib:deep_bowl",
+  "ingredients": [
+    {
+      "type": "item",
+      "tag": "forge:raw_fishes",
+      "count": 1
+    }
+  ]
+}

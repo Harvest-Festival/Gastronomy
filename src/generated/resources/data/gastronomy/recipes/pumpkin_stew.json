@@ -1,0 +1,12 @@
+{
+  "type": "gastronomy:pot",
+  "result": "horticulture:pumpkin_stew",
+  "dish": "penguinlib:deep_bowl",
+  "ingredients": [
+    {
+      "type": "item",
+      "tag": "forge:crops/pumpkin",
+      "count": 1
+    }
+  ]
+}

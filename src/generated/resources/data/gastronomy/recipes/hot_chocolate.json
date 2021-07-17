@@ -1,0 +1,17 @@
+{
+  "type": "gastronomy:pot",
+  "result": "gastronomy:hot_chocolate",
+  "dish": "penguinlib:mug",
+  "ingredients": [
+    {
+      "type": "fluid",
+      "tag": "forge:milk",
+      "count": 1000
+    },
+    {
+      "type": "item",
+      "tag": "forge:chocolate",
+      "count": 1
+    }
+  ]
+}

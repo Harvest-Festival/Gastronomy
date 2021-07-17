@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:crops/potato",
+    "#forge:crops/carrot",
+    {
+      "id": "#forge:crops/green_pepper",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/onion",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/eggplant",
+      "required": false
+    }
+  ]
+}

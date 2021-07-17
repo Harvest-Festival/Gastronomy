@@ -1,0 +1,11 @@
+{
+  "type": "gastronomy:pot",
+  "result": "husbandry:boiled_egg",
+  "ingredients": [
+    {
+      "type": "item",
+      "tag": "forge:eggs",
+      "count": 1
+    }
+  ]
+}

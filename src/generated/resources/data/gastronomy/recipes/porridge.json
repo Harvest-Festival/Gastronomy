@@ -1,0 +1,17 @@
+{
+  "type": "gastronomy:pot",
+  "result": "gastronomy:porridge",
+  "dish": "penguinlib:deep_bowl",
+  "ingredients": [
+    {
+      "type": "fluid",
+      "tag": "forge:milk",
+      "count": 1000
+    },
+    {
+      "type": "item",
+      "tag": "forge:riceball",
+      "count": 1
+    }
+  ]
+}

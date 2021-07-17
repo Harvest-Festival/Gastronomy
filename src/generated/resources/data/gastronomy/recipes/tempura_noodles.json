@@ -1,0 +1,17 @@
+{
+  "type": "gastronomy:pot",
+  "result": "gastronomy:tempura_noodles",
+  "dish": "penguinlib:deep_bowl",
+  "ingredients": [
+    {
+      "type": "item",
+      "tag": "forge:tempura",
+      "count": 1
+    },
+    {
+      "type": "item",
+      "tag": "forge:noodles",
+      "count": 1
+    }
+  ]
+}

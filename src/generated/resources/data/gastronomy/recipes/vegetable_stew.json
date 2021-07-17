@@ -1,0 +1,22 @@
+{
+  "type": "gastronomy:pot",
+  "result": "gastronomy:vegetable_stew",
+  "dish": "penguinlib:deep_bowl",
+  "ingredients": [
+    {
+      "type": "fluid",
+      "tag": "forge:milk",
+      "count": 1000
+    },
+    {
+      "type": "item",
+      "tag": "forge:flour",
+      "count": 1
+    },
+    {
+      "type": "item",
+      "tag": "gastronomy:stew_vegetable",
+      "count": 1
+    }
+  ]
+}

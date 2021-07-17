@@ -1,0 +1,12 @@
+{
+  "type": "gastronomy:pot",
+  "result": "horticulture:boiled_spinach",
+  "dish": "penguinlib:deep_bowl",
+  "ingredients": [
+    {
+      "type": "item",
+      "tag": "forge:crops/spinach",
+      "count": 1
+    }
+  ]
+}

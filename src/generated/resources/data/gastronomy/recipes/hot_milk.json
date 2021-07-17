@@ -1,0 +1,12 @@
+{
+  "type": "gastronomy:pot",
+  "result": "husbandry:hot_milk",
+  "dish": "penguinlib:mug",
+  "ingredients": [
+    {
+      "type": "fluid",
+      "tag": "forge:milk",
+      "count": 1000
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "type": "gastronomy:pot",
+  "result": "minecraft:rabbit_stew",
+  "dish": "minecraft:bowl",
+  "ingredients": [
+    {
+      "type": "item",
+      "tag": "forge:baked_potato",
+      "count": 1
+    },
+    {
+      "type": "item",
+      "tag": "forge:crops/carrot",
+      "count": 1
+    },
+    {
+      "type": "item",
+      "tag": "forge:cooked_rabbit",
+      "count": 1
+    },
+    {
+      "type": "item",
+      "tag": "forge:mushrooms",
+      "count": 1
+    }
+  ]
+}

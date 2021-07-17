@@ -1,0 +1,17 @@
+{
+  "type": "gastronomy:pot",
+  "result": "gastronomy:tempura_rice",
+  "dish": "penguinlib:deep_bowl",
+  "ingredients": [
+    {
+      "type": "item",
+      "tag": "forge:tempura",
+      "count": 1
+    },
+    {
+      "type": "item",
+      "tag": "forge:riceball",
+      "count": 1
+    }
+  ]
+}
