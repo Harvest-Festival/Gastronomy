@@ -19,7 +19,6 @@ import uk.joshiejack.gastronomy.block.OvenBlock;
 import uk.joshiejack.gastronomy.tileentity.OvenTileEntity;
 
 import javax.annotation.Nonnull;
-import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
 @OnlyIn(Dist.CLIENT)
@@ -39,22 +38,18 @@ public class OvenTileEntityRenderer extends AbstractCookwareTileEntityRenderer<O
     }
 
     @Override
-    protected Consumer<MatrixStack> applyIngredientTransformations(@Nonnull OvenTileEntity tile, int i) {
-        return (mtx) -> {
-            mtx.translate(0.5F, 0.5F, -0.3F);
-            mtx.scale(0.3F, 0.3F, 0.3F);
-            mtx.translate(tile.getRenderer().getOffsetX(i), (tile.getRenderer().getOffsetZ(i)), tile.getRenderer().getOffsetY(i));
-            mtx.mulPose(Vector3f.ZP.rotationDegrees(tile.getRenderer().getRotation(i)));
-        };
+    protected void applyIngredientTransformations(@Nonnull MatrixStack mtx, @Nonnull OvenTileEntity tile, int i) {
+        mtx.translate(0.5F, 0.5F, -0.3F);
+        mtx.scale(0.3F, 0.3F, 0.3F);
+        mtx.translate(tile.getRenderer().getOffsetX(i), (tile.getRenderer().getOffsetZ(i)), tile.getRenderer().getOffsetY(i));
+        mtx.mulPose(Vector3f.ZP.rotationDegrees(tile.getRenderer().getRotation(i)));
     }
 
     @Override
-    protected Consumer<MatrixStack> applyResultTransformation(@Nonnull OvenTileEntity tile) {
-        return (mtx) -> {
-            mtx.translate(0.5F, 0.5F, -0.3F);
-            mtx.scale(0.6F, 0.6F, 0.6F);
-            mtx.mulPose(Vector3f.ZP.rotationDegrees(-tile.getBlockState().getValue(HorizontalBlock.FACING).toYRot()));
-        };
+    protected void applyResultTransformation(@Nonnull MatrixStack mtx, @Nonnull OvenTileEntity tile) {
+        mtx.translate(0.5F, 0.5F, -0.3F);
+        mtx.scale(0.6F, 0.6F, 0.6F);
+        mtx.mulPose(Vector3f.ZP.rotationDegrees(-tile.getBlockState().getValue(HorizontalBlock.FACING).toYRot()));
     }
 
     @Override

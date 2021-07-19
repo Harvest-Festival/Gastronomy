@@ -10,7 +10,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import uk.joshiejack.gastronomy.tileentity.PotTileEntity;
 
 import javax.annotation.Nonnull;
-import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
 @OnlyIn(Dist.CLIENT)
@@ -25,23 +24,20 @@ public class PotTileEntityRenderer extends AbstractCookwareTileEntityRenderer<Po
     }
 
     @Override
-    protected Consumer<MatrixStack> applyResultTransformation(@Nonnull PotTileEntity tile) {
-        return (mtx) -> {
-            mtx.translate(0.5F, 0.5F, -0.1F);
-            mtx.scale(0.5F, 0.5F, 0.5F);
-            mtx.mulPose(Vector3f.ZP.rotationDegrees(-tile.getBlockState().getValue(HorizontalBlock.FACING).toYRot()));
-        };
+    protected void applyResultTransformation(@Nonnull MatrixStack mtx, @Nonnull PotTileEntity tile) {
+        mtx.translate(0.5F, 0.5F, -0.1F);
+        mtx.scale(0.5F, 0.5F, 0.5F);
+        mtx.mulPose(Vector3f.ZP.rotationDegrees(-tile.getBlockState().getValue(HorizontalBlock.FACING).toYRot()));
     }
 
     @Override
-    protected Consumer<MatrixStack> applyIngredientTransformations(@Nonnull PotTileEntity tile, int i) {
-        return (mtx) -> {
-            mtx.translate(0.5F, 0.5F, -0.1F);
-            mtx.scale(0.25F, 0.25F, 0.25F);
-            mtx.translate(tile.getRenderer().getOffsetX(i), tile.getRenderer().getOffsetZ(i), tile.getRenderer().getOffsetY(i));
-            mtx.mulPose(Vector3f.ZP.rotationDegrees(tile.getRenderer().getRotation(i)));
-        };
+    protected void applyIngredientTransformations(@Nonnull MatrixStack mtx, @Nonnull PotTileEntity tile, int i) {
+        mtx.translate(0.5F, 0.5F, -0.1F);
+        mtx.scale(0.25F, 0.25F, 0.25F);
+        mtx.translate(tile.getRenderer().getOffsetX(i), tile.getRenderer().getOffsetZ(i), tile.getRenderer().getOffsetY(i));
+        mtx.mulPose(Vector3f.ZP.rotationDegrees(tile.getRenderer().getRotation(i)));
     }
+}
     /*
 
     @Override
@@ -74,4 +70,3 @@ public class PotTileEntityRenderer extends AbstractCookwareTileEntityRenderer<Po
         }
     }
 */
-}

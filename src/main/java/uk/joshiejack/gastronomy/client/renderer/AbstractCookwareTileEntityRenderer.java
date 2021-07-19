@@ -9,7 +9,6 @@ import uk.joshiejack.gastronomy.tileentity.base.CookerTileEntity;
 import uk.joshiejack.penguinlib.client.renderer.tile.AbstractItemTileEntityRenderer;
 
 import javax.annotation.Nonnull;
-import java.util.function.Consumer;
 import java.util.stream.IntStream;
 
 public abstract class AbstractCookwareTileEntityRenderer<T extends CookerTileEntity> extends AbstractItemTileEntityRenderer<T> {
@@ -24,14 +23,14 @@ public abstract class AbstractCookwareTileEntityRenderer<T extends CookerTileEnt
         matrix.mulPose(Vector3f.XP.rotationDegrees(90F));
         ItemStack result = tile.getItem(20);
         if (!result.isEmpty())
-            renderItem(result, matrix, buffer, combinedLightIn, applyResultTransformation(tile));
+            renderItem(result, matrix, buffer, combinedLightIn, (mtx) -> applyResultTransformation(mtx, tile));
         else IntStream.range(0, 20).filter(i ->!tile.getItem(i).isEmpty())
-                .forEach(i -> renderItem(tile.getItem(i), matrix, buffer, combinedLightIn, applyIngredientTransformations(tile, i)));
+                .forEach(i -> renderItem(tile.getItem(i), matrix, buffer, combinedLightIn, (mtx) -> applyIngredientTransformations(mtx, tile, i)));
         matrix.popPose();
     }
 
-    protected abstract Consumer<MatrixStack> applyResultTransformation(@Nonnull T tile);
-    protected abstract Consumer<MatrixStack> applyIngredientTransformations(@Nonnull T tile, int i);
+    protected abstract void applyResultTransformation(@Nonnull MatrixStack mtx, @Nonnull T tile);
+    protected abstract void applyIngredientTransformations(@Nonnull MatrixStack mtx, @Nonnull T tile, int slot);
 
     @Override
     public boolean shouldRenderOffScreen(@Nonnull T tile) {
