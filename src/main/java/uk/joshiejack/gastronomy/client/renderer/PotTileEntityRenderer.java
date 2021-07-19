@@ -1,8 +1,10 @@
 package uk.joshiejack.gastronomy.client.renderer;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
+import net.minecraft.block.HorizontalBlock;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
+import net.minecraft.util.math.vector.Vector3f;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import uk.joshiejack.gastronomy.tileentity.PotTileEntity;
@@ -24,12 +26,21 @@ public class PotTileEntityRenderer extends AbstractCookwareTileEntityRenderer<Po
 
     @Override
     protected Consumer<MatrixStack> applyResultTransformation(@Nonnull PotTileEntity tile) {
-        return (mtx) -> {};
+        return (mtx) -> {
+            mtx.translate(0.5F, 0.5F, -0.1F);
+            mtx.scale(0.5F, 0.5F, 0.5F);
+            mtx.mulPose(Vector3f.ZP.rotationDegrees(-tile.getBlockState().getValue(HorizontalBlock.FACING).toYRot()));
+        };
     }
 
     @Override
     protected Consumer<MatrixStack> applyIngredientTransformations(@Nonnull PotTileEntity tile, int i) {
-        return (mtx) -> {};
+        return (mtx) -> {
+            mtx.translate(0.5F, 0.5F, -0.1F);
+            mtx.scale(0.25F, 0.25F, 0.25F);
+            mtx.translate(tile.getRenderer().getOffsetX(i), tile.getRenderer().getOffsetZ(i), tile.getRenderer().getOffsetY(i));
+            mtx.mulPose(Vector3f.ZP.rotationDegrees(tile.getRenderer().getRotation(i)));
+        };
     }
     /*
 

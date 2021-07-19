@@ -43,9 +43,7 @@ public class OvenTileEntityRenderer extends AbstractCookwareTileEntityRenderer<O
         return (mtx) -> {
             mtx.translate(0.5F, 0.5F, -0.3F);
             mtx.scale(0.3F, 0.3F, 0.3F);
-            //mtx.translate(tile.getRenderer().getOffsetX(i), tile.getRenderer().getOffsetZ(i), tile.getRenderer().getOffsetY(i));
             mtx.translate(tile.getRenderer().getOffsetX(i), (tile.getRenderer().getOffsetZ(i)), tile.getRenderer().getOffsetY(i));
-            //mtx.mulPose(Vector3f.XP.rotationDegrees(90F));
             mtx.mulPose(Vector3f.ZP.rotationDegrees(tile.getRenderer().getRotation(i)));
         };
     }

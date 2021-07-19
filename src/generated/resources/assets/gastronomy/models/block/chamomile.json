@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/crop",
+  "parent": "minecraft:block/cross",
   "textures": {
-    "crop": "gastronomy:block/nature/chamomile"
+    "cross": "gastronomy:block/nature/chamomile"
   }
 }

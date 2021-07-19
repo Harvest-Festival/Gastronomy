@@ -76,7 +76,7 @@ public abstract class CookerTileEntity extends AbstractInventoryTileEntity {
     private void reloadRenderers(int slot, ItemStack stack) {
         if (slot == ALL_SLOTS) {
             if (getRenderer().initSlot()) return;
-            IntStream.range(0, last.size()).forEach(s -> getRenderer().initSlot(level, s));
+            IntStream.range(0, last.size()).forEach(s -> getRenderer().initSlot(level, last.get(s)));
             IntStream.range(0, items.get(RESULT_SLOT).getCount()).forEach(s -> getRenderer().initSlot(level, s));
         } else if (slot == RESULT_SLOT)
             IntStream.range(0, stack.getCount()).forEach(s -> getRenderer().initSlot(level, s));

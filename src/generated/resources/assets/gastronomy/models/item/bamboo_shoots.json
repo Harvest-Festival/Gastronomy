@@ -1,3 +1,6 @@
 {
-  "parent": "gastronomy:block/bamboo_shoots"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "gastronomy:block/nature/bamboo_shoots"
+  }
 }

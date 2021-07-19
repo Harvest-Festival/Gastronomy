@@ -1,3 +1,6 @@
 {
-  "parent": "gastronomy:block/mint"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "gastronomy:block/nature/mint"
+  }
 }

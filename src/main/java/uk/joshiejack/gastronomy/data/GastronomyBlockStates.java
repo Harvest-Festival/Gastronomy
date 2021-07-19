@@ -90,6 +90,6 @@ public class GastronomyBlockStates extends BlockStateProvider {
     }
 
     private void crossBlock(RegistryObject<Block> block) {
-        simpleBlock(block.get(), models().crop(block.get().getRegistryName().toString(), new ResourceLocation("gastronomy", "block/nature/" + block.get().getRegistryName().getPath())));
+        simpleBlock(block.get(), models().cross(block.get().getRegistryName().toString(), new ResourceLocation("gastronomy", "block/nature/" + block.get().getRegistryName().getPath())));
     }
 }

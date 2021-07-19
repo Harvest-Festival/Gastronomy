@@ -18,5 +18,7 @@ public class GastronomyLanguage extends LanguageProvider {
         GastronomyItems.ITEMS.getEntries()
                 .stream().map(RegistryObject::get)
                 .forEach(item -> add(item, WordUtils.capitalizeFully(item.getRegistryName().getPath().replace("_", " "))));
+        add("fluid.gastronomy.wine", "Wine");
+        add("fluid.gastronomy.cooking_oil", "Cooking Oil");
     }
 }

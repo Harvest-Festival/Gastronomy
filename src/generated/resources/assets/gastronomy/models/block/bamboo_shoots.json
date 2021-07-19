@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/crop",
+  "parent": "minecraft:block/cross",
   "textures": {
-    "crop": "gastronomy:block/nature/bamboo_shoots"
+    "cross": "gastronomy:block/nature/bamboo_shoots"
   }
 }

@@ -55,7 +55,7 @@ public class OvenTileEntity extends CookerTileEntity implements ITickableTileEnt
                     setChanged();
                 }
             }
-        } else if (!init || level.getDayTime() %100 == 0) {
+        } else if (!init || level.getDayTime() % 100 == 0) {
             init = true;
             TileEntity tile = level.getBlockEntity(worldPosition.above());
             if (tile instanceof TileCookingHeatable)
