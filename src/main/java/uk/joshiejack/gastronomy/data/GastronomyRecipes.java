@@ -5,6 +5,7 @@ import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.RecipeProvider;
 import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.eventbus.api.EventPriority;
 import uk.joshiejack.gastronomy.Gastronomy;
 import uk.joshiejack.gastronomy.item.GastronomyItems;
 import uk.joshiejack.penguinlib.item.PenguinItems;
@@ -27,6 +28,7 @@ import static uk.joshiejack.gastronomy.data.builder.CookingRecipeBuilder.RecipeI
 import static uk.joshiejack.gastronomy.data.builder.CookingRecipeBuilder.RecipeIngredientBuilder.item;
 import static uk.joshiejack.gastronomy.data.builder.CookingRecipeBuilder.*;
 import static uk.joshiejack.gastronomy.item.GastronomyItems.*;
+import static uk.joshiejack.penguinlib.item.PenguinItems.GLASS;
 import static uk.joshiejack.penguinlib.item.PenguinItems.*;
 import static uk.joshiejack.penguinlib.util.PenguinTags.*;
 
@@ -108,6 +110,24 @@ public class GastronomyRecipes extends RecipeProvider {
         pot(CURRY_NOODLES.get(), 1, item(NOODLES), item(CURRY_POWDER)).dish(DEEP_BOWL.get()).save(consumer, rl("curry_noodles"));
         pot(GastronomyItems.CHOCOLATE.get(), 1, fluid(MILK), item(COCOA_BEANS), item(SUGAR)).save(consumer, rl("chocolate"));
         pot(MOUNTAIN_STEW.get(), 1, item(BAMBOO_SHOOTS), item(CROPS_CARROT), item(BROWN_MUSHROOMS)).dish(DEEP_BOWL.get()).save(consumer, rl("mountain_stew"));
+        mixer(Items.BEETROOT_SOUP, 1, item(CROPS_BEETROOT), item(TOMATO), item(ONION), fluid(GastronomyFluidTags.COOKING_OIL)).dish(Items.BOWL).priority(EventPriority.HIGH).save(consumer, rl("beetroot_soup"));
+        mixer(new ResourceLocation("horticulture", "pineapple_juice"), 1, item(PINEAPPLE)).dish(GLASS.get()).priority(EventPriority.HIGH).save(consumer, rl("pineapple_juice"));
+        mixer(new ResourceLocation("horticulture", "tomato_juice"), 1, item(TOMATO)).dish(GLASS.get()).priority(EventPriority.HIGH).save(consumer, rl("tomato_juice"));
+        mixer(new ResourceLocation("horticulture", "peach_juice"), 1, item(PEACH)).dish(GLASS.get()).priority(EventPriority.HIGH).save(consumer, rl("peach_juice"));
+        mixer(new ResourceLocation("horticulture", "orange_juice"), 1, item(ORANGE)).dish(GLASS.get()).priority(EventPriority.HIGH).save(consumer, rl("orange_juice"));
+        mixer(new ResourceLocation("horticulture", "banana_juice"), 1, item(BANANA)).dish(GLASS.get()).priority(EventPriority.HIGH).save(consumer, rl("banana_juice"));
+        mixer(new ResourceLocation("horticulture", "apple_juice"), 1, item(CROPS_APPLE)).dish(GLASS.get()).priority(EventPriority.HIGH).save(consumer, rl("apple_juice"));
+        mixer(new ResourceLocation("horticulture", "strawberry_milk"), 1, item(STRAWBERRY), fluid(MILK)).dish(GLASS.get()).priority(EventPriority.HIGH).save(consumer, rl("strawberry_milk"));
+        mixer(GastronomyItems.FLOUR.get(), 1, item(CROPS_WHEAT)).save(consumer, rl("flour"));
+        mixer(VEGETABLE_JUICE.get(), 1, item(JUICE_VEGETABLE, 3)).dish(GLASS.get()).save(consumer, rl("vegetable_juice"));
+        mixer(VEGETABLE_LATTE.get(), 1, item(JUICE_VEGETABLE, 2), fluid(MILK)).dish(GLASS.get()).save(consumer, rl("vegetable_latte"));
+        mixer(KETCHUP.get(), 1, item(TOMATO), item(ONION), item(SALT), item(SUGAR)).dish(GLASS.get()).save(consumer, rl("ketchup"));
+        mixer(new ResourceLocation("husbandry", "butter"), 1, fluid(MILK), item(SALT)).save(consumer, rl("butter"));
+        mixer(new ResourceLocation("piscary", "fish_fingers"), 1, item(RAW_FISHES), item(BREAD), item(SALT)).dish(PLATE.get()).save(consumer, rl("fish_fingers"));
+        mixer(FRUIT_JUICE.get(), 1, item(SANDWICH_FRUIT, 3)).dish(GLASS.get()).save(consumer, rl("fruit_juice"));
+        mixer(FRUIT_LATTE.get(), 1, item(SANDWICH_FRUIT, 2), fluid(MILK)).dish(GLASS.get()).save(consumer, rl("fruit_latte"));
+        mixer(MIXED_JUICE.get(), 1, item(SANDWICH_FRUIT), item(JUICE_VEGETABLE)).dish(GLASS.get()).save(consumer, rl("mixed_juice"));
+        mixer(MIXED_LATTE.get(), 1, item(SANDWICH_FRUIT), item(JUICE_VEGETABLE), fluid(MILK)).dish(GLASS.get()).save(consumer, rl("mixed_latte"));
     }
 
 //    @SuppressWarnings("ConstantConditions")

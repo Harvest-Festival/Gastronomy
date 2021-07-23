@@ -1,0 +1,16 @@
+{
+  "type": "gastronomy:mixer",
+  "result": "piscary:fish_fingers",
+  "dish": "penguinlib:plate",
+  "ingredients": [
+    {
+      "tag": "forge:raw_fishes"
+    },
+    {
+      "tag": "forge:bread"
+    },
+    {
+      "tag": "forge:salt"
+    }
+  ]
+}

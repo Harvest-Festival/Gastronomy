@@ -1,0 +1,33 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#forge:crops/apple",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/orange",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/banana",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/pineapple",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/strawberry",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/peach",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/melon",
+      "required": false
+    }
+  ]
+}

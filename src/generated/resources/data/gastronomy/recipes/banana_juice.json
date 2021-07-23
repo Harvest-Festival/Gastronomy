@@ -1,0 +1,11 @@
+{
+  "type": "gastronomy:mixer",
+  "result": "horticulture:banana_juice",
+  "dish": "penguinlib:glass",
+  "priority": "high",
+  "ingredients": [
+    {
+      "tag": "forge:crops/banana"
+    }
+  ]
+}

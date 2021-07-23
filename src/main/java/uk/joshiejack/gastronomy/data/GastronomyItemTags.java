@@ -16,8 +16,8 @@ import uk.joshiejack.penguinlib.util.PenguinTags;
 
 import javax.annotation.Nullable;
 
-import static net.minecraftforge.common.Tags.Items.CROPS_CARROT;
-import static net.minecraftforge.common.Tags.Items.CROPS_POTATO;
+import static net.minecraftforge.common.Tags.Items.*;
+import static uk.joshiejack.penguinlib.util.PenguinTags.CROPS_MELON;
 
 public class GastronomyItemTags extends ItemTagsProvider {
     public static final ITag.INamedTag<Item> CHOCOLATE = PenguinTags.forgeItemTag("chocolate");
@@ -37,11 +37,18 @@ public class GastronomyItemTags extends ItemTagsProvider {
     public static final ITag.INamedTag<Item> RICEBALL = PenguinTags.forgeItemTag("riceball");
     public static final ITag.INamedTag<Item> SWEET_POTATO = PenguinTags.forgeItemTag("crops/sweet_potato");
     public static final ITag.INamedTag<Item> CORN = PenguinTags.forgeItemTag("crops/corn");
+    public static final ITag.INamedTag<Item> TURNIP = PenguinTags.forgeItemTag("crops/turnip");
     public static final ITag.INamedTag<Item> KELP = PenguinTags.forgeItemTag("kelp");
     public static final ITag.INamedTag<Item> CABBAGE = PenguinTags.forgeItemTag("crops/cabbage");
+    public static final ITag.INamedTag<Item> CUCUMBER = PenguinTags.forgeItemTag("crops/cucumber");
     public static final ITag.INamedTag<Item> EGGPLANT = PenguinTags.forgeItemTag("crops/eggplant");
     public static final ITag.INamedTag<Item> GREEN_PEPPER = PenguinTags.forgeItemTag("crops/green_pepper");
     public static final ITag.INamedTag<Item> SPINACH = PenguinTags.forgeItemTag("crops/spinach");
+    public static final ITag.INamedTag<Item> PINEAPPLE = PenguinTags.forgeItemTag("crops/pineapple");
+    public static final ITag.INamedTag<Item> PEACH = PenguinTags.forgeItemTag("crops/peach");
+    public static final ITag.INamedTag<Item> BANANA = PenguinTags.forgeItemTag("crops/banana");
+    public static final ITag.INamedTag<Item> ORANGE = PenguinTags.forgeItemTag("crops/orange");
+    public static final ITag.INamedTag<Item> STRAWBERRY = PenguinTags.forgeItemTag("crops/strawberry");
     public static final ITag.INamedTag<Item> SALT = PenguinTags.forgeItemTag("salt");
     public static final ITag.INamedTag<Item> CURRY_POWDER = PenguinTags.forgeItemTag("curry_powder");
     public static final ITag.INamedTag<Item> TOMATO = PenguinTags.forgeItemTag("crops/tomato");
@@ -56,9 +63,10 @@ public class GastronomyItemTags extends ItemTagsProvider {
     public static final ITag.INamedTag<Item> LAVENDER = PenguinTags.forgeItemTag("herbs/lavender");
     public static final ITag.INamedTag<Item> CHAMOMILE = PenguinTags.forgeItemTag("herbs/chamomile");
     public static final ITag.INamedTag<Item> STEW_VEGETABLE = ItemTags.createOptional(new ResourceLocation(Gastronomy.MODID, "stew_vegetable"));
+    public static final ITag.INamedTag<Item> JUICE_VEGETABLE = ItemTags.createOptional(new ResourceLocation(Gastronomy.MODID, "juice_vegetable"));
     public static final ITag.INamedTag<Item> COCOA_BEANS = PenguinTags.forgeItemTag("crops/cocoa_beans");
     public static final ITag.INamedTag<Item> BAMBOO_SHOOTS = PenguinTags.forgeItemTag("bamboo_shoots");
-
+    public static final ITag.INamedTag<Item> SANDWICH_FRUIT = ItemTags.createOptional(new ResourceLocation(Gastronomy.MODID, "sandwich_fruit"));
 
     public GastronomyItemTags(DataGenerator generator, BlockTagsProvider blockTagProvider, @Nullable ExistingFileHelper existingFileHelper) {
         super(generator, blockTagProvider, Gastronomy.MODID, existingFileHelper);
@@ -98,6 +106,10 @@ public class GastronomyItemTags extends ItemTagsProvider {
         tag(STEW_VEGETABLE).addTags(CROPS_POTATO, CROPS_CARROT).addOptionalTag(GREEN_PEPPER.getName()).addOptionalTag(ONION.getName()).addOptionalTag(EGGPLANT.getName());
         tag(COCOA_BEANS).add(Items.COCOA_BEANS);
         tag(BAMBOO_SHOOTS).add(GastronomyItems.BAMBOO_SHOOTS.get());
+        tag(JUICE_VEGETABLE).addOptionalTag(TURNIP.getName()).addOptionalTag(CUCUMBER.getName()).addOptionalTag(CABBAGE.getName()).addOptionalTag(TOMATO.getName()).addOptionalTag(ONION.getName())
+                .addTag(CROPS_CARROT).addOptionalTag(SPINACH.getName()).addOptionalTag(GREEN_PEPPER.getName());
+        tag(SANDWICH_FRUIT).addOptionalTag(PenguinTags.CROPS_APPLE.getName()).addOptionalTag(ORANGE.getName()).addOptionalTag(BANANA.getName()).addOptionalTag(PINEAPPLE.getName())
+                .addOptionalTag(STRAWBERRY.getName()).addOptionalTag(PEACH.getName()).addOptionalTag(CROPS_MELON.getName());
     }
 
     private static ResourceLocation optional(String name) {

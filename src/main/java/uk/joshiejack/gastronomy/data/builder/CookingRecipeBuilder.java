@@ -8,15 +8,19 @@ import net.minecraft.item.Items;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.tags.ITag;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.eventbus.api.EventPriority;
 import uk.joshiejack.gastronomy.crafting.CookingRecipe;
 import uk.joshiejack.gastronomy.crafting.GastronomyRegistries;
 import uk.joshiejack.penguinlib.data.generators.builders.SimplePenguinBuilder;
+
+import java.util.Locale;
 
 public class CookingRecipeBuilder extends SimplePenguinBuilder<CookingRecipe> {
     private int amount;
     private ResourceLocation output;
     private RecipeIngredientBuilder[] ingredients;
     private Item dish = Items.AIR;
+    private EventPriority priority = EventPriority.NORMAL;
 
     public CookingRecipeBuilder(IRecipeSerializer<CookingRecipe> serializer, ResourceLocation output, int amount, RecipeIngredientBuilder... ingredients) {
         super(serializer);
@@ -34,6 +38,11 @@ public class CookingRecipeBuilder extends SimplePenguinBuilder<CookingRecipe> {
 
     public CookingRecipeBuilder dish(Item item) {
         this.dish = item;
+        return this;
+    }
+
+    public CookingRecipeBuilder priority(EventPriority priority) {
+        this.priority = priority;
         return this;
     }
 
@@ -65,6 +74,11 @@ public class CookingRecipeBuilder extends SimplePenguinBuilder<CookingRecipe> {
         return new CookingRecipeBuilder(GastronomyRegistries.FRYING_PAN_SERIALIZER.get(), output, amount, ingredients);
     }
 
+    public static CookingRecipeBuilder mixer(ResourceLocation output, int amount, RecipeIngredientBuilder... ingredients) {
+        return new CookingRecipeBuilder(GastronomyRegistries.MIXER_SERIALIZER.get(), output, amount, ingredients);
+    }
+
+
     public static CookingRecipeBuilder mixer(Item output, int amount, RecipeIngredientBuilder... ingredients) {
         return new CookingRecipeBuilder(GastronomyRegistries.MIXER_SERIALIZER.get(), output, amount, ingredients);
     }
@@ -83,6 +97,8 @@ public class CookingRecipeBuilder extends SimplePenguinBuilder<CookingRecipe> {
 
         if (dish != Items.AIR)
             json.addProperty("dish", dish.getRegistryName().toString());
+        if (priority != EventPriority.NORMAL)
+            json.addProperty("priority", priority.name().toLowerCase(Locale.ROOT));
         JsonArray array = new JsonArray();
         for (RecipeIngredientBuilder builder : ingredients) {
             JsonObject object = new JsonObject();

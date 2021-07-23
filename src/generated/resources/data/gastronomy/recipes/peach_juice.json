@@ -1,0 +1,11 @@
+{
+  "type": "gastronomy:mixer",
+  "result": "horticulture:peach_juice",
+  "dish": "penguinlib:glass",
+  "priority": "high",
+  "ingredients": [
+    {
+      "tag": "forge:crops/peach"
+    }
+  ]
+}

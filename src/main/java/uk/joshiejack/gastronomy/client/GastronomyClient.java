@@ -39,7 +39,8 @@ public class GastronomyClient {
     public static void onClientSetupEvent(FMLClientSetupEvent event) {
         event.enqueueWork(() -> GastronomyBlocks.BLOCKS.getEntries().stream()
                 .map(RegistryObject::get)
-                //.filter(block -> !(block instanceof AbstractCookwareBlock))
+                .filter(block -> block != GastronomyBlocks.MIXER.get())
                 .forEach(block -> RenderTypeLookup.setRenderLayer(block, RenderType.cutout())));
+        event.enqueueWork(() -> RenderTypeLookup.setRenderLayer(GastronomyBlocks.MIXER.get(), RenderType.translucent()));
     }
 }

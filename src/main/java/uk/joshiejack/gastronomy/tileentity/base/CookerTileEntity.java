@@ -19,6 +19,7 @@ import uk.joshiejack.penguinlib.network.packet.SetInventorySlotPacket;
 import uk.joshiejack.penguinlib.tile.inventory.AbstractInventoryTileEntity;
 
 import javax.annotation.Nonnull;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.Optional;
 import java.util.stream.IntStream;
@@ -143,7 +144,8 @@ public abstract class CookerTileEntity extends AbstractInventoryTileEntity {
     protected void onCookingCompleted() {
         //We have finished so it's time to cook
         result = level.getRecipeManager().getAllRecipesFor(appliance.getRecipeType())
-                .stream().filter(r -> r.matches(this, level)).findFirst();
+                .stream().sorted(Comparator.comparing(CookingRecipe::getPriority))
+                .filter(r -> r.matches(this, level)).findFirst();
         result.ifPresent(recipe -> setAndSync(20, recipe.assemble(this)));
         if (!result.isPresent())
             setAndSync(RESULT_SLOT, appliance.getBurntItemStack());

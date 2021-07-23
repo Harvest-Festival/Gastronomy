@@ -1,0 +1,9 @@
+{
+  "type": "gastronomy:mixer",
+  "result": "gastronomy:flour",
+  "ingredients": [
+    {
+      "tag": "forge:crops/wheat"
+    }
+  ]
+}

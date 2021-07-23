@@ -1,0 +1,11 @@
+{
+  "type": "gastronomy:mixer",
+  "result": "gastronomy:vegetable_juice",
+  "dish": "penguinlib:glass",
+  "ingredients": [
+    {
+      "tag": "gastronomy:juice_vegetable",
+      "count": 3
+    }
+  ]
+}

@@ -13,10 +13,12 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.JSONUtils;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import javax.annotation.Nonnull;
+import java.util.Locale;
 import java.util.function.Supplier;
 
 public class CookingRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<CookingRecipe> {
@@ -54,7 +56,8 @@ public class CookingRecipeSerializer extends ForgeRegistryEntry<IRecipeSerialize
         });
 
         Item dish = json.has("dish") ? ForgeRegistries.ITEMS.getValue(new ResourceLocation(JSONUtils.getAsString(json, "dish"))) : Items.AIR;
-        return this.factory.create(() -> recipeType, this, rl, ingredientList, result, dish);
+        EventPriority priority = json.has("priority") ? EventPriority.valueOf(JSONUtils.getAsString(json, "priority").toUpperCase(Locale.ROOT)) : EventPriority.NORMAL;
+        return this.factory.create(() -> recipeType, this, rl, ingredientList, result, dish, priority);
     }
 
     @Override
@@ -73,7 +76,8 @@ public class CookingRecipeSerializer extends ForgeRegistryEntry<IRecipeSerialize
         }
 
         Item dish = pb.readRegistryIdSafe(Item.class);
-        return factory.create(() -> recipeType, this, rl, ingredientList, itemstack, dish);
+        EventPriority priority = EventPriority.values()[pb.readByte()];
+        return factory.create(() -> recipeType, this, rl, ingredientList, itemstack, dish, priority);
     }
 
     @Override
@@ -90,6 +94,6 @@ public class CookingRecipeSerializer extends ForgeRegistryEntry<IRecipeSerialize
     }
 
     interface IFactory {
-        CookingRecipe create(Supplier<IRecipeType<?>> type, IRecipeSerializer<?> serializer, ResourceLocation rl, NonNullList<CookingRecipe.RecipeIngredient<?>> ingredients, ItemStack output, Item dish);
+        CookingRecipe create(Supplier<IRecipeType<?>> type, IRecipeSerializer<?> serializer, ResourceLocation rl, NonNullList<CookingRecipe.RecipeIngredient<?>> ingredients, ItemStack output, Item dish, EventPriority priority);
     }
 }

@@ -1,0 +1,18 @@
+{
+  "type": "gastronomy:mixer",
+  "result": "gastronomy:mixed_latte",
+  "dish": "penguinlib:glass",
+  "ingredients": [
+    {
+      "tag": "gastronomy:sandwich_fruit"
+    },
+    {
+      "tag": "gastronomy:juice_vegetable"
+    },
+    {
+      "type": "fluid",
+      "tag": "forge:milk",
+      "count": 1000
+    }
+  ]
+}

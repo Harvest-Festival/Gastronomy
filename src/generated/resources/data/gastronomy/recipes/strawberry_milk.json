@@ -1,0 +1,16 @@
+{
+  "type": "gastronomy:mixer",
+  "result": "horticulture:strawberry_milk",
+  "dish": "penguinlib:glass",
+  "priority": "high",
+  "ingredients": [
+    {
+      "tag": "forge:crops/strawberry"
+    },
+    {
+      "type": "fluid",
+      "tag": "forge:milk",
+      "count": 1000
+    }
+  ]
+}

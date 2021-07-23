@@ -1,0 +1,34 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#forge:crops/turnip",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/cucumber",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/cabbage",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/tomato",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/onion",
+      "required": false
+    },
+    "#forge:crops/carrot",
+    {
+      "id": "#forge:crops/spinach",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/green_pepper",
+      "required": false
+    }
+  ]
+}

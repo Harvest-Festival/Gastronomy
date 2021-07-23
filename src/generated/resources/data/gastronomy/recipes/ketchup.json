@@ -1,0 +1,19 @@
+{
+  "type": "gastronomy:mixer",
+  "result": "gastronomy:ketchup",
+  "dish": "penguinlib:glass",
+  "ingredients": [
+    {
+      "tag": "forge:crops/tomato"
+    },
+    {
+      "tag": "forge:crops/onion"
+    },
+    {
+      "tag": "forge:salt"
+    },
+    {
+      "tag": "forge:sugar"
+    }
+  ]
+}

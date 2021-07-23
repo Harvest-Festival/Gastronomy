@@ -1,0 +1,13 @@
+{
+  "type": "gastronomy:mixer",
+  "result": "gastronomy:mixed_juice",
+  "dish": "penguinlib:glass",
+  "ingredients": [
+    {
+      "tag": "gastronomy:sandwich_fruit"
+    },
+    {
+      "tag": "gastronomy:juice_vegetable"
+    }
+  ]
+}

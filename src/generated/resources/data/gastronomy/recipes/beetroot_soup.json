@@ -1,0 +1,22 @@
+{
+  "type": "gastronomy:mixer",
+  "result": "minecraft:beetroot_soup",
+  "dish": "minecraft:bowl",
+  "priority": "high",
+  "ingredients": [
+    {
+      "tag": "forge:crops/beetroot"
+    },
+    {
+      "tag": "forge:crops/tomato"
+    },
+    {
+      "tag": "forge:crops/onion"
+    },
+    {
+      "type": "fluid",
+      "tag": "forge:cooking_oil",
+      "count": 1000
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "type": "gastronomy:mixer",
+  "result": "gastronomy:fruit_juice",
+  "dish": "penguinlib:glass",
+  "ingredients": [
+    {
+      "tag": "gastronomy:sandwich_fruit",
+      "count": 3
+    }
+  ]
+}

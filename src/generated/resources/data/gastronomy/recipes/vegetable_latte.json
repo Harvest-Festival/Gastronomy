@@ -1,0 +1,16 @@
+{
+  "type": "gastronomy:mixer",
+  "result": "gastronomy:vegetable_latte",
+  "dish": "penguinlib:glass",
+  "ingredients": [
+    {
+      "tag": "gastronomy:juice_vegetable",
+      "count": 2
+    },
+    {
+      "type": "fluid",
+      "tag": "forge:milk",
+      "count": 1000
+    }
+  ]
+}

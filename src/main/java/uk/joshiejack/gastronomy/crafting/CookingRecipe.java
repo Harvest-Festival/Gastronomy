@@ -14,6 +14,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidUtil;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
@@ -30,12 +31,14 @@ public class CookingRecipe extends AbstractSimplePenguinRecipe<ItemStack> {
     protected final NonNullList<RecipeIngredient<?>> ingredients;
     private final Supplier<IRecipeType<?>> recipeType;
     private final Item dish;
+    private final EventPriority priority;
 
-    public CookingRecipe(Supplier<IRecipeType<?>> recipeType, IRecipeSerializer<?> serializer, ResourceLocation rl, NonNullList<RecipeIngredient<?>> ingredients, ItemStack output, Item dish) {
+    public CookingRecipe(Supplier<IRecipeType<?>> recipeType, IRecipeSerializer<?> serializer, ResourceLocation rl, NonNullList<RecipeIngredient<?>> ingredients, ItemStack output, Item dish, EventPriority priority) {
         super(null, serializer, rl, null, output);
         this.ingredients = ingredients;
         this.recipeType = recipeType;
         this.dish = dish;
+        this.priority = priority;
     }
 
     @Override
@@ -121,6 +124,10 @@ public class CookingRecipe extends AbstractSimplePenguinRecipe<ItemStack> {
 
     public Item getDish() {
         return dish;
+    }
+
+    public EventPriority getPriority() {
+        return priority;
     }
 
     public abstract static class RecipeIngredient<T> {
