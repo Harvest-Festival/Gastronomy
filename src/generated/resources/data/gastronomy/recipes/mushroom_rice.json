@@ -1,0 +1,13 @@
+{
+  "type": "gastronomy:counter",
+  "result": "gastronomy:mushroom_rice",
+  "dish": "penguinlib:deep_bowl",
+  "ingredients": [
+    {
+      "tag": "forge:mushrooms/brown/brown"
+    },
+    {
+      "tag": "forge:riceball"
+    }
+  ]
+}

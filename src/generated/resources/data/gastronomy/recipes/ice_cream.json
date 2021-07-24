@@ -1,6 +1,6 @@
 {
-  "type": "gastronomy:frying_pan",
-  "result": "husbandry:scrambled_egg",
+  "type": "gastronomy:counter",
+  "result": "husbandry:ice_cream",
   "dish": "penguinlib:deep_bowl",
   "ingredients": [
     {
@@ -8,7 +8,7 @@
     },
     {
       "type": "fluid",
-      "tag": "forge:cooking_oil",
+      "tag": "forge:milk",
       "count": 1000
     }
   ]

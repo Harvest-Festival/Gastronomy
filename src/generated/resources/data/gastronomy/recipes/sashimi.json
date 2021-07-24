@@ -1,0 +1,10 @@
+{
+  "type": "gastronomy:counter",
+  "result": "piscary:sashimi",
+  "dish": "penguinlib:plate",
+  "ingredients": [
+    {
+      "tag": "forge:raw_fishes"
+    }
+  ]
+}

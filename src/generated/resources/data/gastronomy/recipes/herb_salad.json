@@ -1,0 +1,16 @@
+{
+  "type": "gastronomy:counter",
+  "result": "gastronomy:herb_salad",
+  "dish": "penguinlib:deep_bowl",
+  "ingredients": [
+    {
+      "tag": "forge:herbs/mint"
+    },
+    {
+      "tag": "forge:herbs/chamomile"
+    },
+    {
+      "tag": "forge:herbs/lavender"
+    }
+  ]
+}

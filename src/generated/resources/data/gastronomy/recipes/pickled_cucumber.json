@@ -1,0 +1,13 @@
+{
+  "type": "gastronomy:counter",
+  "result": "horticulture:pickled_cucumber",
+  "dish": "penguinlib:pickling_jar",
+  "ingredients": [
+    {
+      "tag": "forge:crops/cucumber"
+    },
+    {
+      "tag": "forge:salt"
+    }
+  ]
+}

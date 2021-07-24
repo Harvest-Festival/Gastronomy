@@ -1,0 +1,12 @@
+{
+  "type": "gastronomy:counter",
+  "result": "gastronomy:raisin_bread",
+  "ingredients": [
+    {
+      "tag": "forge:bread"
+    },
+    {
+      "tag": "forge:crops/grape"
+    }
+  ]
+}

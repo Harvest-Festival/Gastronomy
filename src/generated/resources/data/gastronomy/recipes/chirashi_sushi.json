@@ -1,0 +1,19 @@
+{
+  "type": "gastronomy:counter",
+  "result": "gastronomy:chirashi_sushi",
+  "dish": "penguinlib:deep_bowl",
+  "ingredients": [
+    {
+      "tag": "forge:sashimi"
+    },
+    {
+      "tag": "forge:scrambled_egg"
+    },
+    {
+      "tag": "forge:riceball"
+    },
+    {
+      "tag": "gastronomy:chirashi_sushi_ingredient"
+    }
+  ]
+}

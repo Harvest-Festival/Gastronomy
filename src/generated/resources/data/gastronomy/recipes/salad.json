@@ -1,0 +1,11 @@
+{
+  "type": "gastronomy:counter",
+  "result": "horticulture:salad",
+  "dish": "penguinlib:deep_bowl",
+  "ingredients": [
+    {
+      "tag": "forge:salad_ingredients",
+      "count": 3
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#forge:crops/cucumber",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/tomato",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/onion",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/eggplant",
+      "required": false
+    }
+  ]
+}

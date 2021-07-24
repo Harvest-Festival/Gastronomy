@@ -48,6 +48,7 @@ public class GastronomyItemTags extends ItemTagsProvider {
     public static final ITag.INamedTag<Item> PEACH = PenguinTags.forgeItemTag("crops/peach");
     public static final ITag.INamedTag<Item> BANANA = PenguinTags.forgeItemTag("crops/banana");
     public static final ITag.INamedTag<Item> ORANGE = PenguinTags.forgeItemTag("crops/orange");
+    public static final ITag.INamedTag<Item> GRAPE = PenguinTags.forgeItemTag("crops/grape");
     public static final ITag.INamedTag<Item> STRAWBERRY = PenguinTags.forgeItemTag("crops/strawberry");
     public static final ITag.INamedTag<Item> SALT = PenguinTags.forgeItemTag("salt");
     public static final ITag.INamedTag<Item> CURRY_POWDER = PenguinTags.forgeItemTag("curry_powder");
@@ -57,6 +58,9 @@ public class GastronomyItemTags extends ItemTagsProvider {
     public static final ITag.INamedTag<Item> BAKED_POTATO = PenguinTags.forgeItemTag("baked_potato");
     public static final ITag.INamedTag<Item> COOKED_RABBIT = PenguinTags.forgeItemTag("cooked_rabbit");
     public static final ITag.INamedTag<Item> BROWN_MUSHROOMS = PenguinTags.forgeItemTag("mushrooms/brown");
+    public static final ITag.INamedTag<Item> MATSUTAKE_MUSHROOM = PenguinTags.forgeItemTag("mushrooms/brown/matsutake");
+    public static final ITag.INamedTag<Item> BROWN_MUSHROOM = PenguinTags.forgeItemTag("mushrooms/brown/brown");
+
     public static final ITag.INamedTag<Item> RED_MUSHROOMS = PenguinTags.forgeItemTag("mushrooms/red");
     public static final ITag.INamedTag<Item> HERBS = PenguinTags.forgeItemTag("herbs");
     public static final ITag.INamedTag<Item> MINT = PenguinTags.forgeItemTag("herbs/mint");
@@ -67,6 +71,11 @@ public class GastronomyItemTags extends ItemTagsProvider {
     public static final ITag.INamedTag<Item> COCOA_BEANS = PenguinTags.forgeItemTag("crops/cocoa_beans");
     public static final ITag.INamedTag<Item> BAMBOO_SHOOTS = PenguinTags.forgeItemTag("bamboo_shoots");
     public static final ITag.INamedTag<Item> SANDWICH_FRUIT = ItemTags.createOptional(new ResourceLocation(Gastronomy.MODID, "sandwich_fruit"));
+    public static final ITag.INamedTag<Item> SALAD_INGREDIENT = PenguinTags.forgeItemTag("salad_ingredients");
+    public static final ITag.INamedTag<Item> SANDWICH_INGREDIENT = ItemTags.createOptional(new ResourceLocation(Gastronomy.MODID, "sandwich_ingredient"));
+    public static final ITag.INamedTag<Item> SASHIMI = PenguinTags.forgeItemTag("sashimi");
+    public static final ITag.INamedTag<Item> SCRAMBLED_EGG = PenguinTags.forgeItemTag("scrambled_egg");
+    public static final ITag.INamedTag<Item> CHIRASHI_SUSHI_INGREDIENT = ItemTags.createOptional(new ResourceLocation(Gastronomy.MODID, "chirashi_sushi_ingredient"));
 
     public GastronomyItemTags(DataGenerator generator, BlockTagsProvider blockTagProvider, @Nullable ExistingFileHelper existingFileHelper) {
         super(generator, blockTagProvider, Gastronomy.MODID, existingFileHelper);
@@ -110,6 +119,11 @@ public class GastronomyItemTags extends ItemTagsProvider {
                 .addTag(CROPS_CARROT).addOptionalTag(SPINACH.getName()).addOptionalTag(GREEN_PEPPER.getName());
         tag(SANDWICH_FRUIT).addOptionalTag(PenguinTags.CROPS_APPLE.getName()).addOptionalTag(ORANGE.getName()).addOptionalTag(BANANA.getName()).addOptionalTag(PINEAPPLE.getName())
                 .addOptionalTag(STRAWBERRY.getName()).addOptionalTag(PEACH.getName()).addOptionalTag(CROPS_MELON.getName());
+        tag(SALAD_INGREDIENT).addOptionalTag(BROWN_MUSHROOMS.getName()).addTag(CROPS_CARROT).addOptionalTag(CUCUMBER.getName()).addOptionalTag(CABBAGE.getName()).addOptionalTag(TOMATO.getName());
+        tag(SANDWICH_INGREDIENT).addOptionalTag(BROWN_MUSHROOMS.getName()).addOptionalTag(TOMATO.getName()).addOptionalTag(CUCUMBER.getName());
+        tag(SASHIMI).addOptionalTag(new ResourceLocation("piscary", "sashimi"));
+        tag(CHIRASHI_SUSHI_INGREDIENT).addOptionalTag(CUCUMBER.getName()).addOptionalTag(TOMATO.getName()).addOptionalTag(ONION.getName()).addOptionalTag(EGGPLANT.getName());
+        tag(GRAPE);
     }
 
     private static ResourceLocation optional(String name) {

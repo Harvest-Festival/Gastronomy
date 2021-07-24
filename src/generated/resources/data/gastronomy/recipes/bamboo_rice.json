@@ -1,0 +1,13 @@
+{
+  "type": "gastronomy:counter",
+  "result": "gastronomy:bamboo_rice",
+  "dish": "penguinlib:deep_bowl",
+  "ingredients": [
+    {
+      "tag": "forge:bamboo_shoots"
+    },
+    {
+      "tag": "forge:riceball"
+    }
+  ]
+}

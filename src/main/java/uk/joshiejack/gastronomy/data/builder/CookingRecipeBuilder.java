@@ -54,6 +54,10 @@ public class CookingRecipeBuilder extends SimplePenguinBuilder<CookingRecipe> {
         return new CookingRecipeBuilder(GastronomyRegistries.OVEN_SERIALIZER.get(), output, amount, ingredients);
     }
 
+    public static CookingRecipeBuilder counter(ResourceLocation output, int amount, RecipeIngredientBuilder... ingredients) {
+        return new CookingRecipeBuilder(GastronomyRegistries.COUNTER_SERIALIZER.get(), output, amount, ingredients);
+    }
+
     public static CookingRecipeBuilder counter(Item output, int amount, RecipeIngredientBuilder... ingredients) {
         return new CookingRecipeBuilder(GastronomyRegistries.COUNTER_SERIALIZER.get(), output, amount, ingredients);
     }

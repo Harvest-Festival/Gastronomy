@@ -1,0 +1,13 @@
+{
+  "type": "gastronomy:counter",
+  "result": "horticulture:pickled_turnip",
+  "dish": "penguinlib:plate",
+  "ingredients": [
+    {
+      "tag": "forge:crops/turnip"
+    },
+    {
+      "tag": "forge:salt"
+    }
+  ]
+}

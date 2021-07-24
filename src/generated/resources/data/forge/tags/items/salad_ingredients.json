@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#forge:mushrooms/brown",
+      "required": false
+    },
+    "#forge:crops/carrot",
+    {
+      "id": "#forge:crops/cucumber",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/cabbage",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/tomato",
+      "required": false
+    }
+  ]
+}

@@ -16,9 +16,13 @@ import java.util.function.Consumer;
 import static net.minecraftforge.common.Tags.Fluids.MILK;
 import static net.minecraftforge.common.Tags.Items.*;
 import static uk.joshiejack.gastronomy.data.GastronomyItemTags.BAMBOO_SHOOTS;
+import static uk.joshiejack.gastronomy.data.GastronomyItemTags.CHAMOMILE;
 import static uk.joshiejack.gastronomy.data.GastronomyItemTags.CHOCOLATE;
 import static uk.joshiejack.gastronomy.data.GastronomyItemTags.CURRY_POWDER;
 import static uk.joshiejack.gastronomy.data.GastronomyItemTags.FLOUR;
+import static uk.joshiejack.gastronomy.data.GastronomyItemTags.LAVENDER;
+import static uk.joshiejack.gastronomy.data.GastronomyItemTags.MATSUTAKE_MUSHROOM;
+import static uk.joshiejack.gastronomy.data.GastronomyItemTags.MINT;
 import static uk.joshiejack.gastronomy.data.GastronomyItemTags.NOODLES;
 import static uk.joshiejack.gastronomy.data.GastronomyItemTags.RICEBALL;
 import static uk.joshiejack.gastronomy.data.GastronomyItemTags.SALT;
@@ -73,7 +77,7 @@ public class GastronomyRecipes extends RecipeProvider {
         fryingPan(POPCORN.get(), 1, item(CORN)).dish(DEEP_BOWL.get()).save(consumer, rl("popcorn"));
         fryingPan(new ResourceLocation("horticulture", "cornflakes"), 1, item(CORN), fluid(MILK)).dish(DEEP_BOWL.get()).save(consumer, rl("cornflakes"));
         fryingPan(new ResourceLocation("horticulture", "happy_eggplant"), 1, item(EGGPLANT)).dish(PLATE.get()).save(consumer, rl("happy_eggplant"));
-        fryingPan(SCRAMBLED_EGG.get(), 1, item(EGGS), fluid(GastronomyFluidTags.COOKING_OIL)).dish(DEEP_BOWL.get()).save(consumer, rl("scrambled_egg"));
+        fryingPan(new ResourceLocation("husbandry", "scrambled_egg"), 1, item(EGGS), fluid(GastronomyFluidTags.COOKING_OIL)).dish(DEEP_BOWL.get()).save(consumer, rl("scrambled_egg"));
         fryingPan(OMELETTE.get(), 1, item(EGGS), fluid(GastronomyFluidTags.COOKING_OIL), fluid(MILK)).dish(PLATE.get()).save(consumer, rl("omelette"));
         fryingPan(OMURICE.get(), 1, item(EGGS), fluid(GastronomyFluidTags.COOKING_OIL), fluid(MILK), item(RICEBALL)).dish(DEEP_BOWL.get()).save(consumer, rl("omurice"));
         fryingPan(FRENCH_TOAST.get(), 1, item(EGGS), item(BREAD), fluid(GastronomyFluidTags.COOKING_OIL), item(SUGAR)).dish(PLATE.get()).save(consumer, rl("french_toast"));
@@ -128,6 +132,21 @@ public class GastronomyRecipes extends RecipeProvider {
         mixer(FRUIT_LATTE.get(), 1, item(SANDWICH_FRUIT, 2), fluid(MILK)).dish(GLASS.get()).save(consumer, rl("fruit_latte"));
         mixer(MIXED_JUICE.get(), 1, item(SANDWICH_FRUIT), item(JUICE_VEGETABLE)).dish(GLASS.get()).save(consumer, rl("mixed_juice"));
         mixer(MIXED_LATTE.get(), 1, item(SANDWICH_FRUIT), item(JUICE_VEGETABLE), fluid(MILK)).dish(GLASS.get()).save(consumer, rl("mixed_latte"));
+        counter(new ResourceLocation("horticulture", "pickled_turnip"), 1, item(TURNIP), item(SALT)).dish(PLATE.get()).save(consumer, rl("pickled_turnip"));
+        counter(new ResourceLocation("horticulture", "pickled_cucumber"), 1, item(CUCUMBER), item(SALT)).dish(PICKLING_JAR.get()).save(consumer, rl("pickled_cucumber"));
+        counter(new ResourceLocation("horticulture", "salad"), 1, item(SALAD_INGREDIENT, 3)).dish(DEEP_BOWL.get()).save(consumer, rl("salad"));
+        counter(SANDWICH.get(), 1, item(BREAD), item(BUTTER), item(SANDWICH_INGREDIENT)).dish(PLATE.get()).save(consumer, rl("sandwich"));
+        counter(new ResourceLocation("piscary", "sashimi"), 1, item(RAW_FISHES)).dish(PLATE.get()).save(consumer, rl("sashimi"));
+        counter(SUSHI.get(), 1, item(SASHIMI), item(RICEBALL)).dish(PLATE.get()).save(consumer, rl("sushi"));
+        counter(CHIRASHI_SUSHI.get(), 1, item(SASHIMI), item(GastronomyItemTags.SCRAMBLED_EGG), item(RICEBALL), item(CHIRASHI_SUSHI_INGREDIENT)).dish(DEEP_BOWL.get()).save(consumer, rl("chirashi_sushi"));
+        counter(FRUIT_SANDWICH.get(), 1, item(BREAD), item(BUTTER), item(SANDWICH_FRUIT)).dish(PLATE.get()).save(consumer, rl("fruit_sandwich"));
+        counter(BAMBOO_RICE.get(), 1, item(BAMBOO_SHOOTS), item(RICEBALL)).dish(DEEP_BOWL.get()).save(consumer, rl("bamboo_rice"));
+        counter(MATSUTAKE_RICE.get(), 1, item(MATSUTAKE_MUSHROOM), item(RICEBALL)).dish(DEEP_BOWL.get()).save(consumer, rl("matsutake_rice"));
+        counter(MUSHROOM_RICE.get(), 1, item(BROWN_MUSHROOM), item(RICEBALL)).dish(DEEP_BOWL.get()).save(consumer, rl("mushroom_rice"));
+        counter(RAISIN_BREAD.get(), 1, item(BREAD), item(GRAPE)).save(consumer, rl("raisin_bread"));
+        counter(new ResourceLocation("husbandry", "ice_cream"), 1, item(EGGS), fluid(MILK)).dish(DEEP_BOWL.get()).save(consumer, rl("ice_cream"));
+        counter(HERB_SALAD.get(), 1, item(MINT), item(CHAMOMILE), item(LAVENDER)).dish(DEEP_BOWL.get()).save(consumer, rl("herb_salad"));
+        counter(HERB_SANDWICH.get(), 1, item(BREAD), item(BUTTER), item(MINT), item(CHAMOMILE), item(LAVENDER)).dish(PLATE.get()).save(consumer, rl("herb_sandwich"));
     }
 
 //    @SuppressWarnings("ConstantConditions")
