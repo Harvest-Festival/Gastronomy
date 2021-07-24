@@ -29,4 +29,6 @@ public abstract class CookerItemRender {
     public boolean initSlot() {
         return rotation[0] != 0F;
     }
+
+    public void animate() {}
 }

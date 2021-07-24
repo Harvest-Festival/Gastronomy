@@ -15,6 +15,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import uk.joshiejack.gastronomy.Gastronomy;
 import uk.joshiejack.gastronomy.block.GastronomyBlocks;
 import uk.joshiejack.gastronomy.client.renderer.FryingPanTileEntityRenderer;
+import uk.joshiejack.gastronomy.client.renderer.MixerTileEntityRenderer;
 import uk.joshiejack.gastronomy.client.renderer.OvenTileEntityRenderer;
 import uk.joshiejack.gastronomy.client.renderer.PotTileEntityRenderer;
 import uk.joshiejack.gastronomy.tileentity.GastronomyTileEntities;
@@ -27,12 +28,15 @@ public class GastronomyClient {
         ClientRegistry.bindTileEntityRenderer(GastronomyTileEntities.OVEN.get(), OvenTileEntityRenderer::new);
         ClientRegistry.bindTileEntityRenderer(GastronomyTileEntities.POT.get(), PotTileEntityRenderer::new);
         ClientRegistry.bindTileEntityRenderer(GastronomyTileEntities.FRYING_PAN.get(), FryingPanTileEntityRenderer::new);
+        ClientRegistry.bindTileEntityRenderer(GastronomyTileEntities.MIXER.get(), MixerTileEntityRenderer::new);
     }
 
     @SubscribeEvent
     public static void onTextureStitch(TextureStitchEvent.Pre event) {
-        if (event.getMap().location().equals(AtlasTexture.LOCATION_BLOCKS))
+        if (event.getMap().location().equals(AtlasTexture.LOCATION_BLOCKS)) {
             event.addSprite(OvenTileEntityRenderer.OVEN_DOOR.texture());
+            event.addSprite(MixerTileEntityRenderer.MIXER_BLADE.texture());
+        }
     }
 
     @SubscribeEvent
