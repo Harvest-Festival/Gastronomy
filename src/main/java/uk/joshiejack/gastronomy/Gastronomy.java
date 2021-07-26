@@ -28,6 +28,7 @@ import uk.joshiejack.gastronomy.fluid.GastronomyFluids;
 import uk.joshiejack.gastronomy.inventory.CookbookContainer;
 import uk.joshiejack.gastronomy.item.GastronomyItems;
 import uk.joshiejack.gastronomy.tileentity.GastronomyTileEntities;
+import uk.joshiejack.gastronomy.world.GastronomyWorld;
 import uk.joshiejack.penguinlib.inventory.AbstractBookContainer;
 
 import javax.annotation.Nonnull;
@@ -55,6 +56,7 @@ public class Gastronomy {
         GastronomyRegistries.SERIALIZERS.register(eventBus);
         GastronomySounds.SOUNDS.register(eventBus);
         GastronomyTileEntities.TILE_ENTITIES.register(eventBus);
+        GastronomyWorld.PROVIDERS.register(eventBus);
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, GastronomyServerConfig.create());
         ForgeMod.enableMilkFluid();
     }
