@@ -8,8 +8,7 @@
     },
     {
       "type": "fluid",
-      "tag": "forge:cooking_oil",
-      "count": 1000
+      "tag": "forge:cooking_oil"
     },
     {
       "tag": "forge:eggs"

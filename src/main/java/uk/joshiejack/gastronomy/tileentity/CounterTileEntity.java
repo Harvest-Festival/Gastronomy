@@ -32,8 +32,8 @@ public class CounterTileEntity extends CookerTileEntity {
             @Override
             public void initSlot(World world, int slot) {
                 rotation[slot] = world.random.nextFloat() * 360.0F;
-                offsetX[slot] = 0.5F - world.random.nextFloat();
-                offsetZ[slot] = 0.5F - world.random.nextFloat();
+                offsetX[slot] = (0.5F - world.random.nextFloat()) * 2.5F;
+                offsetZ[slot] = (0.5F - world.random.nextFloat()) * 2.5F;
                 offsetY[slot] = (world.random.nextFloat() * 0.05F);
             }
         };

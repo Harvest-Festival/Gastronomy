@@ -14,10 +14,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import uk.joshiejack.gastronomy.Gastronomy;
 import uk.joshiejack.gastronomy.block.GastronomyBlocks;
-import uk.joshiejack.gastronomy.client.renderer.FryingPanTileEntityRenderer;
-import uk.joshiejack.gastronomy.client.renderer.MixerTileEntityRenderer;
-import uk.joshiejack.gastronomy.client.renderer.OvenTileEntityRenderer;
-import uk.joshiejack.gastronomy.client.renderer.PotTileEntityRenderer;
+import uk.joshiejack.gastronomy.client.renderer.*;
 import uk.joshiejack.gastronomy.tileentity.GastronomyTileEntities;
 
 @OnlyIn(Dist.CLIENT)
@@ -29,6 +26,7 @@ public class GastronomyClient {
         ClientRegistry.bindTileEntityRenderer(GastronomyTileEntities.POT.get(), PotTileEntityRenderer::new);
         ClientRegistry.bindTileEntityRenderer(GastronomyTileEntities.FRYING_PAN.get(), FryingPanTileEntityRenderer::new);
         ClientRegistry.bindTileEntityRenderer(GastronomyTileEntities.MIXER.get(), MixerTileEntityRenderer::new);
+        ClientRegistry.bindTileEntityRenderer(GastronomyTileEntities.COUNTER.get(), CounterTileEntityRenderer::new);
     }
 
     @SubscribeEvent

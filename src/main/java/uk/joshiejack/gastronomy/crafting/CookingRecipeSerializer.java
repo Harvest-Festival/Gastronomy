@@ -46,7 +46,7 @@ public class CookingRecipeSerializer extends ForgeRegistryEntry<IRecipeSerialize
             JsonObject object = entry.getAsJsonObject();
             String type = object.has("type") ? JSONUtils.getAsString(object, "type") : "item";
             String tag = JSONUtils.getAsString(object, "tag");
-            int amount = object.has("count") ? JSONUtils.getAsInt(object, "count") : 1;
+            int amount = object.has("count") ? JSONUtils.getAsInt(object, "count") : type.equals("item") ? 1 : 125;
             if (type.equals("fluid"))
                 ingredientList.add(new CookingRecipe.FluidIngredient(new ResourceLocation(tag), amount));
             else if (type.equals("item"))

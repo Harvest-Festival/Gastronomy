@@ -15,7 +15,6 @@ import uk.joshiejack.gastronomy.Gastronomy;
 import uk.joshiejack.gastronomy.block.FridgeBlock;
 import uk.joshiejack.gastronomy.block.GastronomyBlocks;
 import uk.joshiejack.gastronomy.block.OvenBlock;
-import uk.joshiejack.gastronomy.block.AbstractSectionalBlock;
 
 public class GastronomyBlockStates extends BlockStateProvider {
     public GastronomyBlockStates(DataGenerator gen, ExistingFileHelper exFileHelper) {
@@ -42,12 +41,12 @@ public class GastronomyBlockStates extends BlockStateProvider {
 
     private void sectionalModel(RegistryObject<Block> block) {
         VariantBlockStateBuilder builder = getVariantBuilder(block.get());
-        for (AbstractSectionalBlock.Section section: AbstractSectionalBlock.Section.values()) {
+        for (GastronomyBlocks.Section section: GastronomyBlocks.Section.values()) {
             ModelFile model = models().getExistingFile(new ResourceLocation(Gastronomy.MODID, block.get().getRegistryName().getPath() + "_" + section.getSerializedName()));
-            builder.partialState().with(AbstractSectionalBlock.SECTION, section).with(AbstractSectionalBlock.FACING, Direction.WEST).modelForState().modelFile(model).rotationY(270).addModel();
-            builder.partialState().with(AbstractSectionalBlock.SECTION, section).with(AbstractSectionalBlock.FACING, Direction.EAST).modelForState().modelFile(model).rotationY(90).addModel();
-            builder.partialState().with(AbstractSectionalBlock.SECTION, section).with(AbstractSectionalBlock.FACING, Direction.SOUTH).modelForState().modelFile(model).rotationY(180).addModel();
-            builder.partialState().with(AbstractSectionalBlock.SECTION, section).with(AbstractSectionalBlock.FACING, Direction.NORTH).modelForState().modelFile(model).rotationY(0).addModel();
+            builder.partialState().with(GastronomyBlocks.SECTION, section).with(HorizontalBlock.FACING, Direction.WEST).modelForState().modelFile(model).rotationY(270).addModel();
+            builder.partialState().with(GastronomyBlocks.SECTION, section).with(HorizontalBlock.FACING, Direction.EAST).modelForState().modelFile(model).rotationY(90).addModel();
+            builder.partialState().with(GastronomyBlocks.SECTION, section).with(HorizontalBlock.FACING, Direction.SOUTH).modelForState().modelFile(model).rotationY(180).addModel();
+            builder.partialState().with(GastronomyBlocks.SECTION, section).with(HorizontalBlock.FACING, Direction.NORTH).modelForState().modelFile(model).rotationY(0).addModel();
         }
     }
 

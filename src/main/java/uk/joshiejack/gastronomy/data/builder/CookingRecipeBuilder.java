@@ -125,7 +125,7 @@ public class CookingRecipeBuilder extends SimplePenguinBuilder<CookingRecipe> {
         }
 
         public static RecipeIngredientBuilder fluid(ITag.INamedTag<Fluid> fluid) {
-            return new RecipeIngredientBuilder("fluid", fluid.getName(), 1000);
+            return new RecipeIngredientBuilder("fluid", fluid.getName(), 125);
         }
 
         public static RecipeIngredientBuilder fluid(ITag.INamedTag<Fluid> fluid, int amount) {
@@ -144,7 +144,7 @@ public class CookingRecipeBuilder extends SimplePenguinBuilder<CookingRecipe> {
             if (type.equals("fluid"))
                 object.addProperty("type", type);
             object.addProperty("tag", tag.toString());
-            if (amount != 1)
+            if ((type.equals("item") && amount != 1) || (type.equals("fluid") && amount != 125))
                 object.addProperty("count", amount);
         }
     }

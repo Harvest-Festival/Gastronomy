@@ -8,17 +8,26 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.Direction;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.Constants;
+import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
+import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.minecraftforge.fluids.capability.templates.FluidTank;
 import uk.joshiejack.gastronomy.client.renderer.CookerItemRender;
 import uk.joshiejack.gastronomy.cooking.Appliance;
 import uk.joshiejack.gastronomy.crafting.CookingRecipe;
 import uk.joshiejack.penguinlib.network.PenguinNetwork;
 import uk.joshiejack.penguinlib.network.packet.SetInventorySlotPacket;
 import uk.joshiejack.penguinlib.tile.inventory.AbstractInventoryTileEntity;
+import uk.joshiejack.penguinlib.util.handlers.MultiFluidHandler;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.Optional;
@@ -33,6 +42,29 @@ public abstract class CookerTileEntity extends AbstractInventoryTileEntity {
     protected LinkedList<Integer> last = new LinkedList<>();
     private final int timeRequired;
     private Optional<CookingRecipe> result = Optional.empty();
+    private final MultiFluidHandler tanks = new MultiFluidHandler(4) {
+        @Override
+        public int fill(FluidStack resource, FluidAction action) {
+            if (action == FluidAction.EXECUTE) {
+                System.out.println("Filling with " + resource.getFluid().getFluid().getRegistryName());
+                new Exception().printStackTrace();
+            }
+            for (FluidTank tank : tanks) {
+                if (action == FluidAction.EXECUTE)
+                    System.out.println(tank.getFluid().getFluid().getRegistryName());
+                int fill = tank.fill(resource, action);
+                if (fill > 0) {
+                    return fill;
+                }
+            }
+
+            if (action == FluidAction.EXECUTE)
+            System.out.println("COULD NOT FILL ANY TANKS SO RETURNING 0");
+
+            return 0;
+        }
+    };
+    private final LazyOptional<IFluidHandler> holder = LazyOptional.of(() -> tanks);
 
     @OnlyIn(Dist.CLIENT)
     private CookerItemRender renderer;
@@ -121,6 +153,9 @@ public abstract class CookerTileEntity extends AbstractInventoryTileEntity {
     }
 
     public void activate() {
+        //System.out.println(tanks.tanks[0].getFluid().getFluid().getRegistryName());
+        //System.out.println(tanks.tanks[1].getFluid().getFluid().getRegistryName());
+
         if (cooking) {
             cookTimer++;
             onCooking();
@@ -153,6 +188,7 @@ public abstract class CookerTileEntity extends AbstractInventoryTileEntity {
         IntStream.range(0, 20)
                 .filter(i -> !getItem(i).isEmpty())
                 .forEach(i -> setAndSync(i, ItemStack.EMPTY));
+        tanks.drain(Integer.MAX_VALUE, IFluidHandler.FluidAction.EXECUTE);
         cookTimer = 0;
         cooking = false;
         setChanged();
@@ -199,6 +235,7 @@ public abstract class CookerTileEntity extends AbstractInventoryTileEntity {
         nbt.putBoolean("Cooking", cooking);
         nbt.putInt("CookTimer", cookTimer);
         nbt.putIntArray("Last", last.stream().mapToInt(i -> i).toArray());
+        nbt.put("Tanks", tanks.serializeNBT());
         return super.save(nbt);
     }
 
@@ -208,6 +245,15 @@ public abstract class CookerTileEntity extends AbstractInventoryTileEntity {
         cookTimer = nbt.getInt("CookTimer");
         for (int l : nbt.getIntArray("Last"))
             last.add(l);
+        tanks.deserializeNBT(nbt.getList("Tanks", 10));
         super.load(state, nbt);
+    }
+
+    @Override
+    @Nonnull
+    public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> capability, @Nullable Direction facing) {
+        if (capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY)
+            return holder.cast();
+        return super.getCapability(capability, facing);
     }
 }

@@ -13,6 +13,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.fluids.FluidUtil;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
@@ -78,6 +79,9 @@ public abstract class AbstractCookwareBlock extends AbstractRotatableBlock {
                     }
 
                     return ActionResultType.FAIL;
+                } else if (FluidUtil.getFluidContained(player.getItemInHand(hand)).isPresent()) {
+                    //TODO: Drain the fluid containers
+                    return ActionResultType.PASS;
                 } else
                     return !player.getItemInHand(hand).isEmpty() && insert(player, hand, handler) == ActionResultType.SUCCESS && cooker.open() ? ActionResultType.SUCCESS : ActionResultType.PASS;
             } else return ActionResultType.PASS;

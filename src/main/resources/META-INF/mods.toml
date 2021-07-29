@@ -10,7 +10,7 @@ license="MIT"
 [[dependencies.gastronomy]]
     modId="forge"
     mandatory=true
-    versionRange="[36,)"
+    versionRange="[36.1.51,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.gastronomy]]

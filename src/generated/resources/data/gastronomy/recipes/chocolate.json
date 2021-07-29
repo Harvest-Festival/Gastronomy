@@ -4,8 +4,7 @@
   "ingredients": [
     {
       "type": "fluid",
-      "tag": "forge:milk",
-      "count": 1000
+      "tag": "forge:milk"
     },
     {
       "tag": "forge:crops/cocoa_beans"

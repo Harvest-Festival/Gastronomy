@@ -3,7 +3,6 @@ package uk.joshiejack.gastronomy.item;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.UseAction;
-import net.minecraftforge.fluids.FluidAttributes;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -12,7 +11,6 @@ import uk.joshiejack.gastronomy.block.GastronomyBlocks;
 import uk.joshiejack.gastronomy.fluid.GastronomyFluids;
 import uk.joshiejack.gastronomy.inventory.CookbookContainer;
 import uk.joshiejack.penguinlib.item.base.BookItem;
-import uk.joshiejack.penguinlib.item.base.FluidContainerItem;
 import uk.joshiejack.penguinlib.item.base.PenguinItem;
 
 
@@ -23,7 +21,7 @@ public class GastronomyItems {
     public static final RegistryObject<Item> DUMPLING_POWDER = ITEMS.register("dumpling_powder", () -> new Item(new Item.Properties().tab(Gastronomy.TAB)));
     public static final RegistryObject<Item> FLOUR = ITEMS.register("flour", () -> new Item(new Item.Properties().tab(Gastronomy.TAB)));
     public static final RegistryObject<Item> SALT = ITEMS.register("salt", () -> new Item(new Item.Properties().tab(Gastronomy.TAB)));
-    public static final RegistryObject<Item> COOKING_OIL = ITEMS.register("cooking_oil", () -> new FluidContainerItem(() -> GastronomyFluids.COOKING_OIL.get().getFluid(), FluidAttributes.BUCKET_VOLUME, new PenguinItem.Properties().tab(Gastronomy.TAB)));
+    public static final RegistryObject<Item> COOKING_OIL = ITEMS.register("cooking_oil", () -> new FluidContainerItem(GastronomyFluids.COOKING_OIL, new Item.Properties().tab(Gastronomy.TAB)));
     public static final RegistryObject<Item> RICEBALL = ITEMS.register("riceball", () -> new Item(new Item.Properties().food(GastronomyFoods.RICEBALL).tab(Gastronomy.TAB)));
     public static final RegistryObject<Item> CHOCOLATE = ITEMS.register("chocolate", () -> new Item(new Item.Properties().food(GastronomyFoods.CHOCOLATE).tab(Gastronomy.TAB)));
     public static final RegistryObject<Item> CURRY_BREAD = ITEMS.register("curry_bread", () -> new Item(new Item.Properties().food(GastronomyFoods.CURRY_BREAD).tab(Gastronomy.TAB)));
@@ -75,7 +73,7 @@ public class GastronomyItems {
     public static final RegistryObject<Item> TOAST = ITEMS.register("toast", () -> new Item(new Item.Properties().food(GastronomyFoods.TOAST).tab(Gastronomy.TAB)));
     public static final RegistryObject<Item> FRENCH_TOAST = ITEMS.register("french_toast", () -> new Item(new Item.Properties().food(GastronomyFoods.FRENCH_TOAST).tab(Gastronomy.TAB)));
     //Drinks
-    public static final RegistryObject<Item> WINE = ITEMS.register("wine", () -> new FluidContainerItem(() -> GastronomyFluids.WINE.get().getFluid(), FluidAttributes.BUCKET_VOLUME, new PenguinItem.Properties().useAction(UseAction.DRINK).food(GastronomyFoods.WINE).tab(Gastronomy.TAB)));
+    public static final RegistryObject<Item> WINE = ITEMS.register("wine", () -> new FluidContainerItem(GastronomyFluids.WINE, new Item.Properties().food(GastronomyFoods.WINE).tab(Gastronomy.TAB)));
     public static final RegistryObject<Item> HOT_CHOCOLATE = ITEMS.register("hot_chocolate", () -> new PenguinItem(new PenguinItem.Properties().useAction(UseAction.DRINK).food(GastronomyFoods.HOT_CHOCOLATE).tab(Gastronomy.TAB)));
     public static final RegistryObject<Item> KETCHUP = ITEMS.register("ketchup", () -> new PenguinItem(new PenguinItem.Properties().useAction(UseAction.DRINK).food(GastronomyFoods.KETCHUP).tab(Gastronomy.TAB)));
     public static final RegistryObject<Item> FRUIT_JUICE = ITEMS.register("fruit_juice", () -> new PenguinItem(new PenguinItem.Properties().useAction(UseAction.DRINK).food(GastronomyFoods.FRUIT_JUICE).tab(Gastronomy.TAB)));

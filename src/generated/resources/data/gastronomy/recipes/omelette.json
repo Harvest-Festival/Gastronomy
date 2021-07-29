@@ -8,13 +8,11 @@
     },
     {
       "type": "fluid",
-      "tag": "forge:cooking_oil",
-      "count": 1000
+      "tag": "forge:cooking_oil"
     },
     {
       "type": "fluid",
-      "tag": "forge:milk",
-      "count": 1000
+      "tag": "forge:milk"
     }
   ]
 }
